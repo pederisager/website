@@ -102,6 +102,10 @@ enableEmoji = true
       icon_pack = "ai"
       url       = "http://orcid.org/0000-0002-6922-3590"
   [[params.social]]
+      icon      = "graduation-cap" # icon name without the 'fa-'
+      icon_pack = "fas"
+      url       = "https://scholar.google.com/citations?user=_EcbBtYAAAAJ&hl=no&oi=ao"
+  [[params.social]]
       icon      = "landmark" # icon name without the 'fa-'
       icon_pack = "fas"
       url       = "https://oslonyehoyskole.no/om-oss/ansatte/peder-mortvedt-isager"
