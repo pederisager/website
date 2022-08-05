@@ -1,0 +1,242 @@
+---
+title: "Mixed model equivalence test using R and PANGEA"
+author: "Peder M. Isager"
+date: '2019-11-25'
+output:
+  html_document: 
+    df_print: paged
+    fig_caption: yes
+  pdf_document: 
+header:
+  caption: ''
+  image: 'headers/equivalence_test.png'
+categories: []
+slug: mixed_model_equivalence
+tags: 
+- equivalence
+- statistics
+- mixed model
+bibliography: mixed_model_equivalence.bib
+summary: "How to calculate an equivalence test, and power for an equivalence test, for a fixed effect in a mixed effects model using R and PANGEA."
+---
+
+*How to calculate an equivalence test, and power for an equivalence test, for a fixed effect in a mixed effects model using R and PANGEA.*
+
+## Introduction to a two-part problem
+
+Calculating equivalence test (TOST) power for fixed effects in a mixed model can be compartmentalized into two independent problems. First, we need a method for calculating TOST power from the non-centrality parameters (ncp) and degrees of freedom (df) of a test. TOSTER [@Lakens2017d] does not currently take this approach when calculating power, but it is straight-forward to recast the calculations in terms of ncps and dfs based on formulas provided in the literature. 
+
+Once a method for calculating power based on ncp and df has been identified, the problem of calculating power reduces to a problem of identifying an appropriate ncp and df for the expected mixed model effect. This is by no means trivial, as calculations of ncp and df can become quite complicated with multiple random factors in the model [@Westfall2014]. Fortunately, the free and open source power calculator PANGEA can be used to extract the ncp and df for a wide array of mixed model designs [@westfall2015pangea]. We can use PANGEA to extract the ncp and df for both tests of a TOST procedure, given some equivalence bounds. From there, we can simply plug these values into our formula for calculating power since, at this point, power for mixed and fixed designs are calculated in the same way. 
+ 
+## Part 1: Calculating power for a (one-sample) equivalence test using noncentrality parameters (ncp)
+
+Say we want to calculate the power of an equivalence test for a one-sample t-test with the following parameters:
+
+```{r}
+es <- 0            # Assumed effect size (alternative hypothesis). Set to 0 to assume that there is no true effect.
+s <- 1             # Standard deviation. When set to 1, "ës" contain values on Cohen's d scale.
+n <- 100           # Number of subjects. 
+se <- (s/sqrt(n))  # Standard error.
+df <- n-1          # degrees of freedom.
+alpha <- 0.05      # Type I error rate.
+```
+
+If we wanted to calculate power for a traditional two-sided null hypothesis test using noncentrality parameters and degrees of freedom, we could set up the analysis in the following way (from https://www.cyclismo.org/tutorial/R/power.html): 
+
+```{r}
+ncp <- es/se                    # notice that the ncp is just a t value - the t value on which we would expect the t-distribution to be centered, given some difference between the groups. If the npc is 0, we assume a central t-distribution. 
+crit_t <- qt(1-alpha/2, df=df)  # alpha/2 denotes a two-sided t test, and is the same as specifying alpha=0.025. 
+
+typeII <- pt(crit_t, df=df, ncp=ncp) - pt(-crit_t, df=df, ncp=ncp)   # The type II error of the test.
+power <- 1-(pt(crit_t,df=df,ncp=ncp) - pt(-crit_t, df=df, ncp=ncp))  # The power of the test, which equals 1-typeII
+paste("Power =", power)
+```
+We can verify that this calculation is correct by comparing it against the results of the `power.t.test()` function in base R and the `pwr.t.test` function in the "pwr" package. When `es = 0`, power will reduce to the type I error rate (in reality we have no power, since there is no true effect to detect). You can change the value of `es` to see that the calculations are identical regardless of effect size. 
+
+```{r}
+power.t.test(n = n, delta = es, sd = s, sig.level = alpha, type = "one", alternative = "two.sided", strict = TRUE)  # The strict argument must be set to TRUE for this test to calculate power correctly for the two-sample case.
+pwr::pwr.t.test(n = n, d = es/s, sig.level = alpha, type = "one", alternative = "two.sided")
+```
+
+
+Now let us extend the use of noncentrality parameters to the case of the two-one-sided-tests (TOST) used for equivalence testing. First we must decide on a smallest effect size of interest (SESOI) to use as bounds for the equivalence test. Let us assume that we consider a group difference of 0.3, in either direction, to be the smallest effect we care about. Because the population standard deviation `s` is 1, we can choose whether to think of the group difference as a raw difference or a difference in Cohen's *d*. The two will the same for this example since `d = es/s`, and s is 1, so `d = es/1 = es`. 
+
+```{r}
+bound_l <- -0.3  # Smallest negative effect size of interest (TOST null hypothesis)
+bound_u <-  0.3  # Smallest positive effect size of interest (TOST null hypothesis)
+```
+
+Having defined our bounds, we can calculate the ncp for the tests against the upper and lower bounds (the assumed effect size is the difference between the assumed (null) effect and the bound). We then use these npc values to calculate the power for the equivalence test [@Chow2008, p55, 3rd equation]:
+
+```{r}
+ncp_l <- (es + bound_l) / se 
+ncp_u <- (es + bound_u) / se
+crit_t <- qt(alpha, df, lower.tail = FALSE)
+
+power <- ifelse(1 - pt(-crit_t, df, ncp_l, lower.tail = FALSE) - pt(crit_t, df, ncp_u, lower.tail = TRUE) > 0,
+                1 - pt(-crit_t, df, ncp_l, lower.tail = FALSE) - pt(crit_t, df, ncp_u, lower.tail = TRUE),
+                0)  # Derived from Chow, Shao & Wang (2008), page 55, third formula, slightly tweaked to allow different SESOI for upper and lower bound.
+
+paste("Power =", power)
+```
+We can verify our calculations against the results from the `power_t_TOST()` function in TOSTER.
+
+```{r}
+TOSTER::power_t_TOST(alpha = alpha, n = n, low_eqbound = bound_l, high_eqbound = bound_u, type = "one-sided")
+```
+
+Notice that these results are similar but not exactly the same. The reason for the discrepancy is that TOSTER assumes z-distributed populations, while the ncp procedure assumes t-distributed populations. This means that TOSTER will tend to slightly overestimate power for low sample sizes compared to the ncp approach, which assumes fatter distribution tails for small samples. As the sample size increase, the t-distribution will converge towards the z-distribution, and the difference between the approaches becomes miniscule. A quick simulation reveals that the two approaches are highly correlated for the entire range of power estimates. 
+
+```{r}
+simPower <- function(es = 0, s = 1, n = sample(10:100, 1), alpha = 0.05, bound_l = -0.3, bound_u = 0.3) {
+
+  ncp_l <- ( (es + bound_l) / (s/sqrt(n)) )
+  ncp_u <- ( (es + bound_u) / (s/sqrt(n)) )
+  crit_t <- qt(0.05, df, lower.tail = FALSE)
+  
+  pow_ncp <- ifelse(1 - pt(-crit_t, df, ncp_l, lower.tail = FALSE) - pt(crit_t, df, ncp_u, lower.tail = TRUE) > 0,
+                    1 - pt(-crit_t, df, ncp_l, lower.tail = FALSE) - pt(crit_t, df, ncp_u, lower.tail = TRUE),
+                    0)  # Derived from Chow, Wang $ Chao (2008), page 55, third formula, slightly tweaked to allow different SESOI for upper and lower bound.
+  
+  invisible(capture.output(pow_toster <- TOSTER::power_t_TOST(alpha = alpha, n = n, low_eqbound = bound_l, high_eqbound = bound_u)))
+  c(pow_ncp, pow_toster[["power"]], s, n)
+  
+}
+sim <- replicate(500, simPower(es = es, s = s, n = sample(10:300, 1), alpha = alpha, bound_l = bound_l, bound_u = bound_u))
+sim <- matrix(sim, ncol = 4, byrow = TRUE)
+plot(sim[,1], sim[,2], xlab = "ncp power", ylab = "power_t_TOST")
+paste("Pearson correlation =", cor(sim[,1], sim[,2]))
+```
+
+## Part 2: Extending the ncp approach to mixed designs using PANGEA
+
+Having resolved the issue of how to calculate equivalence test power from the degrees of freedom and noncentrality parameter, we must now turn to the issue of how to calculate noncentrality parameters in the first place. The ncp equals the effect size divided by the effect standard error, or: 
+
+$ncp=\frac{\theta}{\sigma/\sqrt{n}}$
+
+Where $\theta$ is the assumed effect size in the population, $\sigma$ is the assumed standard deviation in the population, and $n$ is the number of observations.
+
+For simple designs, this formula is easily calculated (just calculate the *t*-value of the assumed effect). However, for mixed model desigs, the details of the calculation becomes more complicated due to the partitioning of variance among the random variables and their interactions. In practice, the details of the calculation will depend on the specifics of the design and the number of random variables involved [@Westfall2014; @westfall2015pangea]. For example, the ncp for a two-group fully crossed design, where the effect is assumed to vary randomly across participants and stimuli, is defined as: 
+
+$npc=\frac{d}{2\sqrt{\frac{V_P\times_C}{p}+\frac{V_S\times_C}{q}+\frac{V_E}{2pq}}}$
+
+[see Table A1 in @Westfall2014 for a definition of formula parameters]. Fortunately, the Shiny application PANGEA [@westfall2015pangea] can take care of the ncp calculation for us. All we need to do is to specify the planned design, the random variables, and make some assumptions about the variance partitioning coefficients ["VCP", @Westfall2014] involved. PANGEA will then return the ncp and Welch-Satterthwaite approximated degrees of freedom. It will also return the power for a selected fixed effect given the specified design. The power is based on a *t*-test for the effect. This approach can in principle be extended to tests of any fixed linear contrast [@westfall2015pangea]. 
+
+In order to plug the information from PANGEA into the equivalence test power formula, we need to perform two tests in PANGEA; one for the test against each of the bounds we have defined. For example, if we define d=-0.5 and d=0.5 as our lower and upper bound, respectively, then we need to compute the ncp in PANGEA for one test where "Effect size (d)" is set to `theta + bound_l`, and for another test where "Effect size (d)" is set to `theta + bound_u`. We can then simply plug the ncp and df reported by PANGEA into the power calculation defined in part 1 to get equivalence test power for a fixed effect in our mixed model design. 
+
+As an example of how to excecute the whole procedure, suppose we would like to calculate power for the fully crossed design mentioned above. First, let us assume the following input parameters for the tests [see the appendix of @Westfall2014 for detailes on how Cohen's d is defined in this design]:
+
+```{r}
+d <- 0    # assumed effect size in units of Cohen's d, using a joint standard deviation over all variance components.
+bound_l <- -0.3  # Smallest negative effect size of interest in same units as d (null hypothesis)
+bound_u <-  0.3  # Smallest positive effect size of interest in same units as d (null hypothesis)
+p <- 100  # number of subjects
+q <- 100  # number of stimuli
+alpha <- 0.05  # significance threshold
+## Assumed variance component ratios, following default partition procedure described in Westfall (2014, 2015):
+Ve <- 0.3
+Vpxc <- 0.1
+Vsxc <- 0.1
+```
+
+We could obtain the ncp and df via the following formulas [@Westfall2014]:
+
+```{r}
+se <- 2 * sqrt( Vpxc/p + Vsxc/q + Ve/(2*p*q) )  # standard error of the estimate (information about standard deviation contained within d)
+ncp <- d / se  # calculate t value/non-centrality parameter for the assumed effect size
+df <- (q*Vpxc + p*Vsxc + Ve)^2 / ( (q*Vpxc+Ve)^2/(p-1) + (p*Vsxc+Ve)^2/(q-1) + Ve^2/((p-1)*(q-1)))  # Welch-Satterthwaite approximation
+
+
+ncp_l <- (d + bound_l) / se  # calculate t value/non-centrality parameter corresponding to the smallest negative effect size of interest
+ncp_u <- (d + bound_u) / se  # calculate t value/non-centrality parameter corresponding to the smallest positive effect size of interest
+```
+
+We could also extract these values from PANGEA. In either case, we then take the df and ncp and calculate power in exactly the same way as we would for the simple t-test*. 
+
+```{r}
+crit_t <- qt(alpha, df, lower.tail = FALSE)
+power <- ifelse(1 - pt(-crit_t, df, ncp_l, lower.tail = FALSE) - pt(crit_t, df, ncp_u, lower.tail = TRUE) > 0,
+                1 - pt(-crit_t, df, ncp_l, lower.tail = FALSE) - pt(crit_t, df, ncp_u, lower.tail = TRUE),
+                0)  # Derived from Chow, Wang $ Chao (2008), page 55, third formula, slightly tweaked to allow different SESOI for upper and lower bound. 
+power
+```
+
+<span style="color:red">\***OBS!** Note that the ncp calculated using the formula derived from @Westfall2014 does not perfectly correspond to the ncp calculated by PANGEA! The numbers *should* be identical. Neither I nor Jake Westfall is currently sure what the source of this divergence is. I have done some informal testing which suggests that the two methods seem to produce very similar numbers, which means that either methold will probably be quite accurate for practical purposes. However, I cannot guarantee that there are not some conditions where the two methods might produce very different numbers</span>.
+
+# Calculating an equivalence test for an estimated fixed effect in mixed model
+
+Having derived a solution for how to calculate the power of a mixed model fixed effect equivalence test, we may reasonably ask how we would calculate the actual equivalence test once the data are in. A relatively straight-forward approach is to fit the model using the `lme4` package in R. From this model we can extract the effect size estimate and Welch-Satterthwaite degrees of freedom for the fixed effect of interest. We then calculate TOST in the same way as we would for a simple t-test with no random effects assumed. 
+
+Suppose we have the following dataset (counter-balanced design, no true effect), and a SESOI of raw effect size = 0.5:
+
+```{r}
+set.seed(3)
+# Dataset
+data <- data.frame("participant" = as.factor(rep(1:10, each = 10)),
+                   "condition" = as.factor(rep(c(0,1,1,0), 5, each = 5)),
+                   "stimulus" = as.factor(rep(1:10, 10)),
+                   "response" = rnorm(100))
+summary(data)
+
+# Equivalence bounds
+bound_u <-  0.5  # Upper equivalence bound
+bound_l <- -0.5  # Lower equivalence bound
+```
+
+Now we fit a linear mixed model to the data, assuming a fixed effect of condition, and random effects of participants and stimuli:
+
+```{r message=FALSE}
+library(lme4)
+library(lmerTest)
+```
+
+```{r}
+fm <- lmer(response ~ condition + 
+             (1 + condition | participant) + 
+             (1 + condition | stimulus), 
+           data)
+summary(fm)
+```
+
+The `lmerTest` package adds a t-test with Welch-Satterthwaite approximation to df for each fixed effect in our model (in this case, intercept and condition). This is the same t-test approach that PANGEA calculates power for [@westfall2015pangea]. It is directly calculated from the estimated effect and std.error provided in the basic `lmer` model.
+
+There are at least three ways to calculate an equivalence test from the data provided in this model. First, we can use the `contest1D` functions of the lmerTest package to perform tests centered on the lower and upper equivalence bound, using the `rhs` option: 
+
+```{r}
+lower <- contest1D(fm, c(0, 1), confint=TRUE, rhs=bound_l) # get t value for test against lower bound
+upper <- contest1D(fm, c(0, 1), confint=TRUE, rhs=bound_u) # get t value for test against upper bound
+lower
+upper
+```
+
+The test provided by `contest1D` is two-sided, but we can easily recalculate the required one-sided tests from the t-values provided (or simply divide by 2 the p-values provided by `contest1D`):
+
+```{r}
+pt(lower$`t value`, lower$df, lower.tail = FALSE)  # test against lower bound
+lower$`Pr(>|t|)`/2  # test against lower bound
+
+pt(upper$`t value`, upper$df, lower.tail = TRUE)  # test against upper bound
+upper$`Pr(>|t|)`/2  # test against upper bound
+```
+
+If both these tests are significant, so is the test for equivalence. In this case, the test against the lower bound is not significant, which means that we cannot reject that the true value is not equal to or more extreme than `bound_l`, which means that we failed to obtain an equivalent result.
+
+Instead of relying on `lmerTest`, we can also calculate the equivalence test directly from the estimated effects, standard error and degrees of freedom in the basic `lme4` model. All we need to do is subtract each bound from the effect size when calculating the t value:
+
+```{r}
+# Reproduce test without the use of rhs, by subtracting the bound t values from the estimated effect
+pt((lower$Estimate-bound_l)/lower$`Std. Error`, lower$df, lower.tail = FALSE)  # test against lower bound 
+pt((upper$Estimate-bound_u)/upper$`Std. Error`, upper$df, lower.tail = TRUE)  # test against upper bound
+```
+
+The result should be identical to the solution provided by lmerTest. 
+
+Finally, we can compare our upper and lower equivalence bound to the 90% (or alpha*2 more generally) confidence interval of an effect estimate, again using `contest1D`:
+
+```{r}
+contest1D(fm, c(0, 1), confint=TRUE, rhs=bound_l, level = 0.9)
+```
+
+If the `lower` and `upper` bounds of the 90% confidence interval falls within the boundry specified by our SESOI, the equivalence test is significant.
+
+## References

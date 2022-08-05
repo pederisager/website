@@ -1,0 +1,56 @@
+---
+title: "Proposing a theory committee at the Psychological Science Accelerator"
+author: "Peder M. Isager & Nicholas A. Coles"
+date: "2019-08-25"
+output:
+  html_document:
+header:
+  caption: ''
+  image: 'headers/PSA_theory_committee.png'
+categories: []
+slug: psa-theory-committee
+tags: 
+- PSA
+- theory
+- research practice
+bibliography: PSA_theory_committee.bib
+---
+
+(written in collaboration with [Nicholas A. Coles](https://twitter.com/coles_nicholas_))
+
+The [Psychological Science Accelerator](https://psysciacc.org/) (PSA) is a global network of psychological laboratories that organizes large-scale empirical research projects. The organization aims “to accelerate the accumulation of reliable and generalizable evidence in psychological science” [@Moshontz2018]. To succeed in this mission, the PSA has created [several committees](https://psysciacc.org/people/) that work together to address important challenges in producing high quality research, such as having access to an inferentially meaningful sample size, reducing the reliance on WEIRD participants, and improving the methodological quality of designs and analyses. However, one task critical to fulfilling the mission of the PSA has not yet been addressed: assessing the theoretical quality of research proposals (and by extension, the quality of theories in psychology).
+
+Christopher R. @Chartier2017 stated that the PSA would like “... to direct the network’s resources towards the best possible research questions in 2018 and beyond.” To succeed in this, and to follow the mission statement of the organization, we must be able to determine what makes a research question valuable to pursue, and we must be able to assess whether a research design will be theoretically innovative. We therefore propose establishing a committee or sub-committee devoted to theoretical development and assessment within the PSA.
+	
+# Substantive arguments for focus on theoretical quality
+
+A strong grounding in theory within the field is perhaps the largest difference between the PSA and CERN, the organization on which the PSA was modelled. The CERN Large Hadron Collider was primarily designed to answer very specific theoretical questions in physics [e.g. @Zeppenfeld2000], and it appears that many physicists agreed that these questions would in fact be answered by the experiments conducted at the Large Hadron Collider. In comparison, the PSA is not designed to address any particular theory within psychology. This makes sense as psychology is not nearly as theoretically coherent as physics. Thus, in our field there are many theories, not obviously connected, that may be important to consider for large scale replication. Nonetheless, in order to reduce the distance between truth and our current understanding, we will require strong theory and sound empirical operationalization of those theories.
+
+Sir Karl Popper, Thomas Kuhn, Imre Lakatos, and other prominent philosophers of science have all made it clear that the relationship between observation, theory and truth is complicated [e.g. @DeGroot1969; @Kuhn2012; @Lakatos1976; @Popper2002]. This is perhaps especially true in the field of psychology. As one example, Meehl [@Meehl1967; @Meehl1978; @Meehl1990] has outlined major problems with theorizing specific to psychology for half a century, and these criticisms still apply to the field to this day. In many areas of psychology, theory remains underdeveloped [e.g. @Fiedler2004; @Muthukrishna2019]. If the mission of the PSA is  to generate highly informative studies then we have a problem, because the informativeness of a study is often directly linked to the quality of the theory it is derived from [@DeGroot1969; @Meehl1990]. Fortunately, there exist a number of promising proposals for how to improve the current state of affairs [e.g. @Landreth2013; @Smaldino2015; @Muthukrishna2019] which the PSA theory committee could evaluate and help implement.
+
+# Pragmatic argument for focus on theoretical quality
+
+The PSA is in a unique position to spearhead meaningful theoretical development in psychology because of the diversity and size of its [collaborative network](https://nicholas-coles.shinyapps.io/PSA_Map_Prototype/). Theoretical progress in our field may depend on specialist knowledge of the subfield the theory is being developed in, as well as formal training in logic and philosophy of science, scientific methodology, model construction, different subfields within psychology, and different fields within science. It may be challenging, if not impossible, for one researcher to acquire all the knowledge necessary to make real theoretical progress. Therefore, increased knowledge sharing between specialists will likely be crucial for accelerated theory development in psychology. Due to the scale and diversity of its member network, the PSA is well-suited to facilitate such collaboration.
+
+The PSA also have more selfish reasons for facilitating work on theory development. Studies conducted by the PSA have large costs that are most justifiable if they lead to theoretical innovation. For example, there are currently 166 labs participating in the [“Global Valence Dominance”](https://psysciacc.org/001-face-perception/) project. Thus, if this study does not lead to theoretical innovation, it would be mean a 166-fold waste of resources compared to a single lab conducting the same study. For factors such as precision and generalizability, the current operation strategy more or less guarantees value for the resources invested. But even a highly precise and generalizable result can be theoretically uninteresting. Furthermore, even a test of a highly interesting hypothesis might be fatally weakened by theoretical flaws in the research design [e.g.  @Scheel2018]. 
+
+A theory committee would also be symbolically important, both to the field and to potential funders. To the extent that the PSA wants to be a model of exemplary research in psychology, the establishment of a theory committee might inspire the field as a whole to seriously address the need for more rigorous theory - much like the “Reproducibility Project: Psychology” inspired the field to seriously address the issue of replicability. 
+
+# Potential responsibilities of a theory committee
+
+The proposed theory committee would serve in an advisory role, providing input during the assessment of submitted research proposal, and assisting with the design of experiments. Its primary foci could be: (a) identify and update the PSA on promising theoretical advancements in psychology, (b) help researchers working with the PSA derive theory-driven, falsifiable predictions, and (c) produce and publish research on the state of theory within the field of psychology, as well as methods to facilitate theoretical development. Concrete responsibilities of the committee could include:
+
+* Define and recommend strategies for optimizing research designs to provide the best possible corroboration and/or falsification of theories.
+* Develop criteria for identifying progressive vs degenerative research programmes.
+* Develop criteria for assessing the theoretical quality of proposed studies.
+* Engineer cumulative/meta-analytic approaches to formally relate research findings to theory (e.g. Landreth & Silva, 2013).
+* Help construct and justify grant proposals to secure funding for the PSA.
+* (During proposal evaluation) collect reviews from, and facilitate discussion between, a diverse set scholars with specialist knowledge related to the theory/subfield in question. 
+
+A separated but related task that could be designated to this committee is to investigate opportunities for diversifying the theoretical background of members within the PSA, and for fostering interdisciplinary collaboration. Although it is named the Psychological Science Accelerator, psychological science is tightly connected with different branches of science, and would likely benefit from at least occasional infusion of knowledge from other fields [see e.g. @2004a]. Other large scale collaboration projects are already exploring ways of accessing a more interdisciplinary knowledge base. As one example, NASA is currently applying citizen science to optimize solutions to various engineering problems (see [this video](https://air.mozilla.org/open-by-design-how-nasa-innovates-to-take-on-the-universe-with-steven-rader/) for an explanation by Steven Rader). This would be an interesting model to employ in the social sciences. Compared with individual labs, interdisciplinary outreach from a large scale collaboration such as the PSA might be perceived as more legitimate by researchers from fields outside psychology. This would hopefully increase engagement from these communities. Interdisciplinary engagement would also nicely dovetail with the within-psychology outreach that is already facilitated when a PSA project is launched. 
+
+# Conclusion
+
+The PSA is an organization committed to producing high-quality psychological research in representative samples. However, empirical studies are only as informative as the theories they inform. If the hypotheses that spawn a PSA study are vague or uninformative, the results of the study will be as well, no matter how large and representative the sample is. Consequently, we propose establishing a committee or working group at the PSA that will be devoted to theory development and assessment. 
+
+## References
