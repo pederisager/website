@@ -1,7 +1,7 @@
 ---
 title: "Curriculum Vitae"
 author: "Peder M Isager"
-date: "October 13, 2020"
+date: "August 5, 2022"
 output: pdf_document
 urlcolor: blue
 ---
@@ -19,9 +19,23 @@ Netherlands                        phone: 0047 976 51 974
 
 ## Education 
 
+2017-2022
+:   **Doctor's degree**; Eindhoven University of Technology
+
+    Specializations: Research methods, statistics, replication. 
+    
+    Thesis title: *Deciding what to replicate.*
+    
+    Thesis link: https://pure.tue.nl/ws/portalfiles/portal/200554284/20220524_Isager_hf.pdf. 
+    
+    Supervisors: Daniël Lakens, Anna van 't Veer, Chris Snijders.
+\
+
 2015-2017 
 :   **Master's degree, Cognitive Neuroscience**; University of Oslo
 
+    Specializations: Psychopharmacology, fMRI.
+    
     Thesis title: *$\mu$-Opioid Modulation of Reported Wanting of Palatable Food Images.*
     
     Thesis link: https://doi.org/10.31237/osf.io/8nvb9.
@@ -32,20 +46,27 @@ Netherlands                        phone: 0047 976 51 974
 2012-2015
 :   **Bachelor's degree, Psychology**; University of Oslo
 
-    Specializations: cognitive psychology, social psychology
+    Specializations: cognitive psychology, social psychology.
     
     Thesis title: *Cognitive representation of social status hierarchies.*
     
-    Thesis link: https://doi.org/10.31237/osf.io/w6qkv
+    Thesis link: https://doi.org/10.31237/osf.io/w6qkv.
     
-    Supervisor: Thomas W. Schubert
+    Supervisor: Thomas W. Schubert.
 
 ## Employment history
 
-2017-present 
-:   **Doctoral candidate**; Eindhoven University of Technology
+2021-present
+:   **Associate professor**; Oslo New University College
+    
+    Employed at the department of Psychology. Main responsibilites: develop and teach quantitative research methods course at the masters level, supervise master student projects, act as department superuser for research software services, conduct independent research. 
+\
+    
 
-    PhD position funded by VIDI Grant 452-17-013 - “Increasing the Reliability and Efficiency of Psychological Science” - from the Netherlands Organisation for Scientific Research. 
+2017-2021 
+:   **Doctoral candidate (paid position)**; Eindhoven University of Technology
+
+    PhD position funded by VIDI Grant 452-17-013 - “Increasing the Reliability and Efficiency of Psychological Science” - from the Netherlands Organisation for Scientific Research. Conducted independent research and assisted with teaching.
 \
 
 2017
@@ -69,15 +90,15 @@ Netherlands                        phone: 0047 976 51 974
 
 ### 2021
 
+**Isager, P. M.**, van Aert, R. C. M., Bahník, Š., Brandt, M. J., DeSoto, K. A., Giner-Sorolla, R., ... Lakens, D. (2021). Deciding what to replicate: A Decision Model for Replication Study Selection Under Resource and Knowledge Constraints. *Psychological Methods*, https://doi.org/10.1037/met0000438
+
 Buchanan, E. M., Crain, S. E., Cunningham, A. L., Johnson, H. R., Stash, H., Papadatou-Pastou, M., ... **Isager, P. M.**, ... & Aczel, B. (2021). Getting Started Creating Data Dictionaries: How to Create a Shareable Data Set. *Advances in Methods and Practices in Psychological Science*, 4(1), 2515245920928007.
 
 ### 2020
 
 **Isager, P. M.** (2020, September 28). Test validity defined as d-connection between target and measured attribute: Expanding the causal definition of Borsboom et al. (2004). *PsyArxiv* https://doi.org/10.31234/osf.io/btgsr
 
-**Isager, P. M.**, van Aert, R. C. M., Bahník, Š., Brandt, M. J., DeSoto, K. A., Giner-Sorolla, R., ... Lakens, D. (2020, September 2). Deciding what to replicate: A formal definition of “replication value” and a decision model for replication study selection. *MetaArXiv*, https://doi.org/10.31222/osf.io/2gurz
-
-Scheel, A. M., Tiokhin, L., **Isager, P. M.**, & Lakens, D. (2020). Why hypothesis testers should spend less time testing hypotheses. Perspectives on Psychological Science, 1745691620966795.
+Scheel, A. M., Tiokhin, L., **Isager, P. M.**, & Lakens, D. (2020). Why hypothesis testers should spend less time testing hypotheses. *Perspectives on Psychological Science*, 1745691620966795.
 
 Botvinik-Nezer, R., Holzmeister, F., Camerer, C. F., Dreber, A., Huber, J., Johannesson, M., ..., **Isager, P. M.**, ... & Avesani, P. (2020). Variability in the analysis of a single neuroimaging dataset by many teams. *Nature*, 582, 84–88, https://doi.org/10.1038/s41586-020-2314-9
 
@@ -231,6 +252,7 @@ Travel Grant, Open Science Conference, Berlin, DE (USD 300)
 
 ## Teaching experience
 
+* Applied quantitative research methods (ONH MA course. Course administrator)
 * Advanced Cognition (TU/e MA course. One lecture each year for two years)
 * Bachelor End Project - Human Technology Interaction (TU/e BA course. Five bachelor projects supervised and graded)
 * Brain, Body and Behavior (TU/e BA course. Two lectures each year for two years, group supervision and exam grading)
@@ -243,7 +265,10 @@ Travel Grant, Open Science Conference, Berlin, DE (USD 300)
 
 ## Service experience
 
-2018-present
+2022-present
+:   **Assistant director of Data**; Psychological Science Accelerator
+
+2018-2022
 :   **Board member, Data & Methods committee**; Psychological Science Accelerator
 
     Responsibilities include organization of committee meetings, voting, drafting and ratification of policy documents, and review of research proposals submitted to the organization.
@@ -311,18 +336,5 @@ I am fluent in both written and verbal English and Norwegian.
     Phone: (+31) 71 527 1822
     
     Email: a.e.van.t.veer@fsw.leidenuniv.nl
-    
-**Prof. Siri Leknes**
-:   Institute of Psychology, University of Oslo
 
-    Phone: (+47) 92 62 28 72
-    
-    Email: sirileknes@gmail.com
-    
-**Prof. Thomas W. Schubert**
-:   Institute of Psychology, University of Oslo
-    
-    Phone: (+47) 46 29 95 81
-    
-    Email: thomas.wolfgang.schubert@gmail.com
     
