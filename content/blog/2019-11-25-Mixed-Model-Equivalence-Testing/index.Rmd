@@ -79,33 +79,10 @@ power <- ifelse(1 - pt(-crit_t, df, ncp_l, lower.tail = FALSE) - pt(crit_t, df, 
 
 paste("Power =", power)
 ```
-We can verify our calculations against the results from the `power_t_TOST()` function in TOSTER.
+We can verify our calculations against the results from the `power_t_TOST()` function in TOSTER. Supplying the same input information should yield an identical power estimate.
 
 ```{r}
 TOSTER::power_t_TOST(alpha = alpha, n = n, low_eqbound = bound_l, high_eqbound = bound_u, type = "one-sided")
-```
-
-Notice that these results are similar but not exactly the same. The reason for the discrepancy is that TOSTER assumes z-distributed populations, while the ncp procedure assumes t-distributed populations. This means that TOSTER will tend to slightly overestimate power for low sample sizes compared to the ncp approach, which assumes fatter distribution tails for small samples. As the sample size increase, the t-distribution will converge towards the z-distribution, and the difference between the approaches becomes miniscule. A quick simulation reveals that the two approaches are highly correlated for the entire range of power estimates. 
-
-```{r}
-simPower <- function(es = 0, s = 1, n = sample(10:100, 1), alpha = 0.05, bound_l = -0.3, bound_u = 0.3) {
-
-  ncp_l <- ( (es + bound_l) / (s/sqrt(n)) )
-  ncp_u <- ( (es + bound_u) / (s/sqrt(n)) )
-  crit_t <- qt(0.05, df, lower.tail = FALSE)
-  
-  pow_ncp <- ifelse(1 - pt(-crit_t, df, ncp_l, lower.tail = FALSE) - pt(crit_t, df, ncp_u, lower.tail = TRUE) > 0,
-                    1 - pt(-crit_t, df, ncp_l, lower.tail = FALSE) - pt(crit_t, df, ncp_u, lower.tail = TRUE),
-                    0)  # Derived from Chow, Wang $ Chao (2008), page 55, third formula, slightly tweaked to allow different SESOI for upper and lower bound.
-  
-  invisible(capture.output(pow_toster <- TOSTER::power_t_TOST(alpha = alpha, n = n, low_eqbound = bound_l, high_eqbound = bound_u)))
-  c(pow_ncp, pow_toster[["power"]], s, n)
-  
-}
-sim <- replicate(500, simPower(es = es, s = s, n = sample(10:300, 1), alpha = alpha, bound_l = bound_l, bound_u = bound_u))
-sim <- matrix(sim, ncol = 4, byrow = TRUE)
-plot(sim[,1], sim[,2], xlab = "ncp power", ylab = "power_t_TOST")
-paste("Pearson correlation =", cor(sim[,1], sim[,2]))
 ```
 
 ## Part 2: Extending the ncp approach to mixed designs using PANGEA
