@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>replication value on Peder M. Isager</title>
+    <link>https://pedermisager.org/tags/replication-value/</link>
+    <description>Recent content in replication value on Peder M. Isager</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 30 Jun 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://pedermisager.org/tags/replication-value/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>What is Worth Replicating? - SIPS 2020 Unconference session</title>
+      <link>https://pedermisager.org/blog/what-is-worth-replicating/</link>
+      <pubDate>Tue, 30 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://pedermisager.org/blog/what-is-worth-replicating/</guid>
+      <description>Given that most research is original and we have limited resources available for replication, we need guidelines for study selection in replication research. But what makes a study worth replicating? In our unconference session at SIPS this year, we had the pleasure of discussing this problem with fifty-some enthusiastic scholars. Here is a quick summary of what they taught us.
+First off, we went into this session with our own prior beliefs about what makes a study worth replicating.</description>
+    </item>
+    
+    <item>
+      <title>Quantifying the corroboration of a finding</title>
+      <link>https://pedermisager.org/blog/quantifying-the-corroboration-of-a-finding/</link>
+      <pubDate>Fri, 12 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://pedermisager.org/blog/quantifying-the-corroboration-of-a-finding/</guid>
+      <description>A summary of the pros and cons of multiple candidate statistics.</description>
+    </item>
+    
+  </channel>
+</rss>

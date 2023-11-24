@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>statistics on Peder M. Isager</title>
+    <link>https://pedermisager.org/tags/statistics/</link>
+    <description>Recent content in statistics on Peder M. Isager</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 25 Nov 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://pedermisager.org/tags/statistics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mixed model equivalence test using R and PANGEA</title>
+      <link>https://pedermisager.org/blog/mixed_model_equivalence/</link>
+      <pubDate>Mon, 25 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://pedermisager.org/blog/mixed_model_equivalence/</guid>
+      <description>How to calculate an equivalence test, and power for an equivalence test, for a fixed effect in a mixed effects model using R and PANGEA.</description>
+    </item>
+    
+  </channel>
+</rss>

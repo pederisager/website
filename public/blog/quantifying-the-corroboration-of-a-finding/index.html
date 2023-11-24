@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><head>
+  
+                           
+     
+
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.101.0" />
+<title>Quantifying the corroboration of a finding | Peder M. Isager</title>
+
+
+<meta property="twitter:site" content="@peder_isager">
+<meta property="twitter:creator" content="@peder_isager">
+
+
+
+
+
+
+
+  
+    
+  
+<meta name="description" content="Personal website of Dr. Peder M. Isager">
+
+
+<meta property="og:site_name" content="Peder M. Isager">
+<meta property="og:title" content="Quantifying the corroboration of a finding | Peder M. Isager">
+<meta property="og:description" content="Personal website of Dr. Peder M. Isager" />
+<meta property="og:type" content="page" />
+<meta property="og:url" content="https://pedermisager.org/blog/quantifying-the-corroboration-of-a-finding/" />
+<meta property="og:locale" content="en">
+
+
+
+
+    
+        <meta property="og:image" content="https://pedermisager.org/blog/quantifying-the-corroboration-of-a-finding/featured.jpg" >
+        <meta property="twitter:card" content="summary_large_image">
+        <meta name="twitter:image" content="https://pedermisager.org/blog/quantifying-the-corroboration-of-a-finding/featured.jpg" >
+    
+    
+  <meta itemprop="name" content="Quantifying the corroboration of a finding">
+<meta itemprop="description" content="A summary of the pros and cons of multiple candidate statistics."><meta itemprop="datePublished" content="2019-04-12T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2019-04-12T00:00:00+00:00" />
+<meta itemprop="wordCount" content="6739"><meta itemprop="image" content="https://pedermisager.org/blog/quantifying-the-corroboration-of-a-finding/featured.jpg">
+<meta itemprop="keywords" content="replication,precision,corroboration,replication value," />
+  
+  
+  <!--[if IE]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
+  
+  
+  <link rel="stylesheet" href="/style.main.min.51048f8224904aac943a02f6057e4a47960d1d64abe43e43820ed1b3017122c1.css" integrity="sha256-UQSPgiSQSqyUOgL2BX5KR5YNHWSr5D5Dgg7RswFxIsE=" media="screen">
+  
+  
+  <script src="/panelset.min.dca42702d7daf6fd31dc352efd2bcf0e4ac8c05ccaa58d9293f6177462de5d5f.js" type="text/javascript"></script>
+  
+  
+  <script src="/main.min.a75546a6048e92fe5f1c0f124398a10e6163b026a10a151f920863fa7b8e7874.js" type="text/javascript"></script>
+</head>
+<body>
+      <div class="grid-container">
+<header class="site-header pt4 pb2 mb4 bb b--transparent ph5 headroom z-max" role="banner">
+  <nav class="site-nav db dt-l w-100" role="navigation">
+    <a class="site-brand db dtc-l v-mid link no-underline w-100 w-33-l tc tl-l" href="https://pedermisager.org/" title="Home">
+      <img src="/img/home_icon.png" class="dib db-l h2 w-auto" alt="Peder M. Isager">
+    </a>
+    <div class="site-links db dtc-l v-mid w-100 w-47-l tc tr-l mt3 mt0-l ttu tracked">
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 active" href="/blog/" title="Blog">Blog</a>
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 " href="/talk/" title="Talks">Talks</a>
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 " href="/files/cv.pdf" title="CV">CV</a>
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 " href="https://pure.tue.nl/ws/portalfiles/portal/200554284/20220524_Isager_hf.pdf" title="Deciding What To Replicate">PhD thesis</a>
+      
+      
+    </div>
+  </nav>
+</header>
+
+<main class="page-main pa4" role="main">
+  <section class="page-content mw7 center">
+    <article class="post-content pa0 ph4-l">
+      <header class="post-header">
+        <h1 class="f1 lh-solid measure-narrow mb3 fw4">Quantifying the corroboration of a finding</h1>
+        
+        <p class="f6 measure lh-copy mv1">By Peder M. Isager</p>
+        <p class="f7 db mv0 ttu">April 12, 2019</p>
+
+      
+
+      </header>
+      <section class="post-body pt5 pb4">
+        
+
+
+<div id="abstract" class="section level1">
+<h1>Abstract</h1>
+<p>In a fourthcoming paper by members of the Open Science Collaboration, we outline how one could use quantitative estimates of “replication value” to guide study selection in replication research. We define replication value conceptually as a ratio of “impact” over “corroboration,” and we show how to derive quantifiable estimates from this definition. Here I will try to identify a reasonable and quantitative operationalization of corroboration. I first propose to approximate corroboration through the more narrow concept “precision of the estimate” (figure 1). I then quantify precision of the estimate as the variance of Fisher’s <em>Z</em>, which only depends on sample size (although the variance of the common language effect size <em>A</em> could also be used for group comparisons, if information about group sample sizes is available. See table 1 for a summary).</p>
+<div class="figure"><span style="display:block;" id="fig:figs"></span>
+<img src="https://pedermisager.org/blog/quantifying-the-corroboration-of-a-finding/index_files/figure-html/figs-1.png" alt="\label{fig:figs}Illustration of the nested conceptual relationship between corroboration, precision and the Fisher's *Z* statistic." width="672" />
+<p class="caption">
+Figure 1: Illustration of the nested conceptual relationship between corroboration, precision and the Fisher’s <em>Z</em> statistic.
+</p>
+</div>
+</div>
+<div id="needles-in-haystacks" class="section level1">
+<h1>Needles in haystacks</h1>
+<p>When we seek to replicate findings in psychology, we may often face the problem that there are multiple findings we could replicate, but we only have resources available to address one or a few of our options. This means that we will have to decide which finding would be the most valuable to spend our time replicating. But the process of study selection can itself be a challenge. For example, in a replication effort I am currently involved with, we have more than 1000 studies we could consider for replication, each of which will contain multiple findings. We would like to discover and choose from the most valuable findings to replicate in this sample, but we simply do not have the time or cognitive capacity available to manually inspect and compare 1000 studies to each other. Is there a way to evaluate this set of studies and identify the most promising replication candidates, without committing years of time to combing through all the individual studies?</p>
+</div>
+<div id="quantifying-replication-value" class="section level1">
+<h1>Quantifying replication value</h1>
+<p>Together with members of the Open Science collaboration I am currently trying to develop an approach for quantifying the “replication value” of published findings through formulas. If we could quantify estimates of replication, and if we could make sure that these estimates could be calculated relatively quickly, then this should allow researchers to evaluate large sets of findings and identify promising replication candidates. Manual inspection will still be required, but can be focused on the most promising candidates from the formula evaluation. As such, the aim is to increase the efficiency of manual inspection efforts, and to maximize the chance that high-value replication targets are discovered. We propose that the replication value of a finding can be thought of as a combination of the impact and the corroboration of that finding in the literature:</p>
+<p><span class="math display">\[\begin{equation}
+  RV=\frac{Impact}{Corroboration}
+  \tag{1}
+\end{equation}\]</span></p>
+<p>In words, the more impactful a study has become, the higher its replication value (“RV” in formula) will be. Conversely, the better corroborated a finding has become, the lower its replication value will be. We can gain an understanding of what researchers might take as indicators of “impact” and “corroboration” by surveying the literature of published replication studies. In <a href="https://pedermisager.netlify.com/post/what-to-replicate/">a previous blog post</a> I provide a brief summary of the most common factors that researchers seem to take into account.</p>
+<p>There are multiple issues and caveats that will need to be considered when trying to approximate the “true” replication value of a finding through quantitative information. Among other things, we need to know whether formula 1 captures our conceptual understanding of replication value, whether it can be expressed in quantitative terms, and if so, how to operationalize the concepts contained in formula 1 numerically. In this post I will deal with one rather fundamental question: <strong>How do we quantify corroboration?</strong></p>
+</div>
+<div id="quantifying-corroboration" class="section level1">
+<h1>Quantifying corroboration</h1>
+<p>By “corroboration,” I generally mean something akin to the definition held by the Lakatosian falsificationist <span class="citation">(e.g. <a href="#ref-Hands2008" role="doc-biblioref">Hands 2008</a>; <a href="#ref-Lakatos1978" role="doc-biblioref">Lakatos 1978</a>)</span>. That is, a prediction (or finding) of the form “X is Y” achieves corroboration if we fail to falsify it after subjecting the prediction to a severe test<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>. Further, generating this kind of corroboration is a hallmark of scientific progress, even if we accept that all theories are born false <span class="citation">(<a href="#ref-Hands2008" role="doc-biblioref">Hands 2008</a>)</span>. There are many aspects of corroboration that a researcher could care about, which subsequently informs the quantitative information they would be interested in <span class="citation">(<a href="#ref-Lakens2019a" role="doc-biblioref">Lakens 2019</a>)</span>. For example, we might want to prioritize findings for replication that have low evidence in favor of certain hypotheses compared to others <span class="citation">(<a href="#ref-Field2018" role="doc-biblioref">Field et al. 2018</a>)</span>. Or we may want to prioritize findings that display signs of biased and/or erroneous reporting <span class="citation">(<a href="#ref-Brown2017" role="doc-biblioref">Brown and Heathers 2017</a>; <a href="#ref-Heathers2018" role="doc-biblioref">Heathers et al. 2018</a>; <a href="#ref-Simonsohn2014" role="doc-biblioref">Simonsohn, Nelson, and Simmons 2014</a>; <a href="#ref-Dwan2008" role="doc-biblioref">Dwan et al. 2008</a>; <a href="#ref-Nuijten2017" role="doc-biblioref">Nuijten et al. 2017</a>; <a href="#ref-Kerr1998" role="doc-biblioref">Kerr 1998</a>)</span>. Or perhaps we simply want to replicate findings where we are surprised about the likelihood of the data under the null hypothesis. Focusing on different aspects of corroboration would lead to different justifications for any quantifiable operationalization of corroboration. Here we choose to focus on precision, and the following discussion of operationalizations is based on the assumption that our predictions are corroborated by precise estimates of parameters. The arguments that follow will not necessarily hold when focusing on other aspects of corroboration <span class="citation">(e.g. <a href="#ref-Field2018" role="doc-biblioref">Field et al. 2018</a>)</span>.</p>
+<p>Precision of the estimate can normally be thought of as the variance, standard error, or confidence/credible interval of a measurement (Borenstein, chapter 8). However, precision can also be related to qualitative estimates (e.g. people generally experience set S of side effects after taking drug D) and predictions involving multiple estimates (e.g. people experience side effect X, Y, and Z, with magnitude A, B and C, respectively, after taking drug D). More generally, precision can be thought of as the reciprocal to uncertainty. That is, for any estimand (a set, a magnitude, a mean, etc.), the less uncertain we are about whether it could be this way or that, the more precisely it is estimated. Precision can be considered one subcategory of what determines the corroboration of a finding. Everything else being equal, we may assume that a finding that has been estimated precisely has attained more corroboration than a finding that has been estimated imprecisely. Consequently, we may also assume that, everything else being equal, a precisely measured estimate is less replication-worthy than an imprecisely measured estimate, which is what follows from our conceptual definition of replication value in formula 1.</p>
+<p>Of course, everything else is usually not equal, and corroboration as a construct encompasses much more than the precision of an estimate (figure 1). This is partly why manual inspection should always be part of evaluating whether one finding is truly more worth replicating than another. Still, we consider it plausible that precision of the estimate is positively correlated with corroboration on average. By substituting precision for corroboration in the replication value formula 1, we will essentially prioritize findings for replication that have been imprecisely measured in the literature thus far.</p>
+<p>When comparing the precision of a set of estimates, we may want to compare two or more effects that stem from different designs, and that are expressed on different scales. That is, sometimes we may wish to compare effects expressed in Cohen’s <em>d</em> to effects expressed in Pearson’s <em>r</em>, odds ratio, etc. In order to compare effects expressed on different scales, we need an estimate of precision that is comparable across the scales. Otherwise, we cannot meaningfully compare the corroboration of two different kinds of effects. Consider a confidence interval <em>CI</em>[2.27, 14.04] for an effect expressed in units of Cohen’s <em>d</em>. In the context of most behavioral research, this would be considered a highly imprecise measurement. Now consider a confidence interval <em>CI</em>[0.75, 0.99] expressed in units of Pearson’s <em>r</em>. If directly compared, the latter interval might appear more precise than the former, but this is simply due to the fact that Pearson’s <em>r</em> is a non-linear scale bounded between -1 and 1, whereas Cohen’s <em>d</em> is a linear scale bounded between -∞ and ∞. In fact, the two intervals in this example are the same interval, expressed in two units of measurement. We can compare their precision only if we first convert either interval into the scale of the other, or convert both intervals into some other common unit of measurement. It is not meaningful to compare intervals measured on different scales directly.</p>
+<p>This problem is similar to that faced by meta-analysts who want to compare effect sizes measured on different scales <span class="citation">(<a href="#ref-Borenstein2009" role="doc-biblioref">Borenstein 2009, chap. 7</a>)</span>. However, the two problems are not quite the same. For example, meta-analyses ideally deal with studies on the same effect that are either “close” replications <span class="citation">(<a href="#ref-LeBel2018" role="doc-biblioref">LeBel et al. 2018</a>)</span>, or at least conceptually similar. The replication value, on the other hand, should be comparable even for studies that are not on the same topic. In addition, the effect size is often the statistic of interest in traditional meta-analysis. In contrast, since the size of the effect is orthogonal to the precision of the estimate of the effect, effect size should be irrelevant for our corroboration estimate.</p>
+<div id="requirements-for-a-precision-statistic" class="section level2">
+<h2>Requirements for a precision statistic</h2>
+<p>In order for a precision statistic to be useful in the context of the replication value, we should expect it to adhere to the following requirements:</p>
+<ul>
+<li><p><strong>Standardization:</strong> The measure must express precision on a standardized scale. If calculated for a number of estimates, the precision of the estimates must always be placed on the same scale.</p></li>
+<li><p><strong>Meta-analytic updating:</strong> we must be able to update the precision statistic after a replication is performed. Replication generally adds information about a finding, and should tend to increase the precision of an estimate and thus decrease the replication value of a finding.</p></li>
+<li><p><strong>Size independence:</strong> The measure must not depend on the size of the effect.</p></li>
+<li><p><strong>Exhaustiveness:</strong> The measure must accurately represent the precision of the estimate. Therefore, the measure should take all relevant aspects of the precision into account when they are available, such as the standard deviation of the estimate, the sample size, the between-condition correlation for repeated measures, etc.</p></li>
+</ul>
+<p>Each requirement is supported by a specific rationale related to the desired functions of the replication value. If the standardization requirement is violated, it becomes impossible to know if differences between effects are due to differences in impact and precision, or if the compared effects are equally precise but measured on different scales. If the meta-analytic updating requirement is violated, there is no mechanism for updating the precision estimate after replications are conducted. This would disrupt a central feature of the replication value; after a finding is replicated, its replication value should decrease. If the effect-size independence requirement is violated, the replication value will become biased (either favorably or unfavorably) towards findings with a large effect size. This is undesirable if we assume that the goal of replication is to reduce uncertainty in an estimate regardless of whether the true effect is large, small or zero (we may not always want to assume this of course). If the exhaustiveness requirement is violated, we risk misrepresenting the actual precision of certain measures. For example, two estimates may have the same sample size and yet, if standard deviations or within-subject correlation differs substantially between the estimates, one estimate can be much more precise than the other. The exhaustiveness requirement could be considered less critical than the other three however. As long as the error introduced by violating it is random, the precision estimate becomes less accurate by not accounting for all relevant factors, but not categorically invalid. It still tracks our conceptual understanding of “precision” to some degree. However, more serious issues arise when not accounting for relevant information leads to systematic bias. For example, if we ignore inter-trial correlation and the fact that each subject contributes at least two data points in within-subject designs, the precision of the estimate (and hence, the replication value) of within-subject measurements will be overestimated compared to between-subjects measurements. In this case, not accounting for the difference in design would ultimately lead us to violate the standardization requirement.</p>
+</div>
+<div id="candidate-statistics" class="section level2">
+<h2>Candidate statistics</h2>
+<p>There are several potential candidate statistics we could consider as an operationalization of precision, each of which will have benefits and limitations (see table 1 for summary). I will here deal with several of them in turn, show the benefits and limitations of each approach, and give a general justification for the statistic that appears in the example replication value formula we provide in our forthcoming manuscript.</p>
+<div id="p-values" class="section level3">
+<h3><em>P</em>-values</h3>
+<p><em>P</em>-values are related to precision in that they tend to become smaller with increasing precision of the estimate, provided that the null hypothesis is false. <em>P</em>-values also have the desirable feature that they are very often reported, which would make the calculation of the replication value feasible for the large majority of effects in the published literature. However, <em>p</em>-values from null-hypothesis significance tests (NHST) violate the size independence requirement. That is, <em>p</em>-values behave differently when the true effect is zero compared to when the true effect is not zero. Because <em>p</em>-values are always uniformly distributed under the null, they never change systematically with increases in measurement precision of a true null effect. In practice, this means that it will not be possible to lower the <em>p</em>-value of a true null effect by replicating it, which violates the requirement of meta-analytic updating. In addition, when there is a true effect, <em>p</em>-values entail different precision estimates depending on the size of the effect. That is, as the size of the true effect grows large, even very imprecisely measured effects will tend to yield data that is extremely unlikely given that the null hypothesis is true (i.e. small <em>p</em>-values). Of course, there might be other aspects of corroboration besides precision for which <em>p</em>-values would be a suitable operationalization.</p>
+</div>
+<div id="bayes-factors" class="section level3">
+<h3>Bayes Factors</h3>
+<p>Bayes factors are related to evidence for the null and alternative hypothesis, and - unlike <em>p</em>-values under NHST - do quantify relative support for the null-hypothesis (relative to a specified alternative hypothesis). Bayes factors require the specification of a prior, which is dependent on the research question and can differ between researchers. This threatens violation of the standardization requirement. Bayes factors also violate the size independence requirement. That is, a large but imprecisely measured effect can yield the same amount of Bayesian evidence as a small but precisely measured effect if we change the hypotheses being compared. Keep in mind that this is only problematic given that the overarching goal is to approximate the broad concept of “corroboration” through the more narrow concept of “precision.” One could easily make case that Bayesian “evidence” is another valid way of approximating corroboration, and a general framework for study selection in replication research that builds on Bayes factors has been outlined in detail elsewhere <span class="citation">(<a href="#ref-Field2018" role="doc-biblioref">Field et al. 2018</a>)</span>.</p>
+</div>
+<div id="variance-of-the-estimate" class="section level3">
+<h3>Variance<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> of the estimate</h3>
+<p>The variance is perhaps the most direct measure of estimate precision. Unlike p-values and Bayes factors, the variance clearly respects the size independence requirement. I.e. it tends to become smaller with increasingly precise estimates, regardless of the effect size of the estimate. However, the variance of raw estimates would still violate the standardization requirement as soon as we compare estimates that are measured on different scales. We can solve this issue by converting all effects into the same standardized scale and then calculating the variance of the standardized effects. There are several scales we could use (Cohen’s d, Pearson’s r, Fisher’s Z, etc.) so we consider the variance formulas for all of them in turn. All variance estimates considered here satisfy the standardization requirement.</p>
+<div id="variance-of-cohens-d-hedges-g" class="section level4">
+<h4>Variance of Cohen’s <em>d</em> / Hedge’s <em>g</em></h4>
+<p>The variance of Cohen’s d (for independent groups) is defined as <span class="citation">(<a href="#ref-Borenstein2009" role="doc-biblioref">Borenstein 2009</a>, formula 4.20)</span>:</p>
+<p><span class="math display">\[
+\begin{equation}
+V_d=\frac{n_1+n_2}{n_1n_2}+\frac{d^2}{2(n_1+n_2)}
+\tag{2}
+\end{equation}
+\]</span></p>
+<p>where <em>n</em> is the group sample size, and <em>d</em> is the effect size Cohen’s <em>d</em> for independent groups. Notice the use of d2 in the right hand side of the expression. This leads the variance of d to increase with the effect size d. This means that the variance of <em>d</em> is, at least to some extent, dependent on the effect size <em>d</em>, and thus it is in violation of the size independence requirement.</p>
+<p>The variance of Hedge’s <em>g</em> is simply the variance of <em>d</em> multiplied by a correction factor <em>J</em> <span class="citation">(<a href="#ref-Borenstein2009" role="doc-biblioref">Borenstein 2009</a>, formula 4.22 &amp; 4.24)</span>. Hedge’s <em>g</em> therefore depends on the effect size d as well, and is in violation of the size independence requirement.</p>
+<p><span class="math display">\[
+\begin{equation}
+J=1-\frac{3}{4df-1}
+\tag{3}
+\end{equation}
+\]</span></p>
+<p>The variance of Cohen’s <em>d<sub>z</sub></em> (for repeated measures/matched groups/pre-post test scores) is defined as <span class="citation">(<a href="#ref-Borenstein2009" role="doc-biblioref">Borenstein 2009</a>, formula 4.28)</span>:</p>
+<p><span class="math display">\[
+\begin{equation}
+V_{d_z}=(\frac{1}{n}+\frac{d_z^2}{2n})2(1-r)
+\tag{4}
+\end{equation}
+\]</span></p>
+<p>where <em>n</em> is the number of pairs, <em>d<sub>z</sub></em> is the effect size Cohen’s <em>d</em> for dependent groups, and <em>r</em> is the correlation between pairs of observations. Notice that, as with Cohen’s <em>d</em> for independent groups, <em>d<sub>z</sub></em><sup>2</sup> appears in the right hand side of this expression, meaning that the variance of <em>d<sub>z</sub></em> will be dependent on the effect size <em>d<sub>z</sub></em>.</p>
+</div>
+<div id="variance-of-pearsons-r" class="section level4">
+<h4>Variance of Pearson’s <em>r</em></h4>
+<p>The variance of Pearson’s <em>r</em> is defined as <span class="citation">(<a href="#ref-Borenstein2009" role="doc-biblioref">Borenstein 2009</a>, formula 6.1)</span>:</p>
+<p><span class="math display">\[
+\begin{equation}
+V_r=\frac{(1-r^2)^2}{n-1}
+\tag{5}
+\end{equation}
+\]</span></p>
+<p>Again, notice the use of <em>r</em><sup>2</sup> in the right side of the expression. In this case, since <em>r</em><sup>2</sup> is subtracted from the numerator, <em>V<sub>r</sub></em> will tend to become smaller as <em>r</em> becomes larger. The variance of <em>r</em> thus depends on the effect size <em>r</em>, and is therefore in violation of the size independence requirement.</p>
+<p>Because the variance of <em>r</em> depends heavily on the strength of the correlation, it is more common to convert the correlation to Fisher’s <em>Z</em> scale, and later calculate the variance estimates of Fisher’s <em>Z</em> back to values of <em>r</em> <span class="citation">(<a href="#ref-Borenstein2009" role="doc-biblioref">Borenstein 2009</a>, equation 6.2, 6.3, and 6.5)</span>. However, because Pearson’s <em>r</em> is bounded between 0 and 1, this method produces non-normally distributed intervals around <em>r</em> that still depend on the strength of the correlation, such that stronger correlations will tend to have smaller variances.</p>
+</div>
+<div id="variance-of-log-odds-ratio" class="section level4">
+<h4>Variance of log odds ratio</h4>
+<p>The variance of the log odds ratio is given by <span class="citation">(<a href="#ref-Borenstein2009" role="doc-biblioref">Borenstein 2009</a>, formula 5.10)</span>:</p>
+<p><span class="math display">\[
+\begin{equation}
+V_{LogOddsRatio}=\frac{1}{A}+\frac{1}{B}+\frac{1}{C}+\frac{1}{D}
+\tag{6}
+\end{equation}
+\]</span></p>
+<p>where <em>A</em>, <em>B</em>, <em>C</em> and <em>D</em> are the four events involved <span class="citation">(<a href="#ref-Borenstein2009" role="doc-biblioref">Borenstein 2009</a>, table 5.1)</span>. Though perhaps less intuitive than for <em>d</em> and <em>r</em>, the variance of the log odds ratio is also dependent on the size of the effect. This is due to the fact that for any two odds, the variance of the odds ratio becomes larger the more extreme both of the individual odds are. On the one hand, both odds could be extreme in the same direction, which would give a large variance for the log odds ratio, but a small log odds ratio. On the other hand, if the log odds ratio is large, at least one of the individual odds involved must be large. In other words, the variance will tend to become larger with larger log odds ratios, which means the variance depends on the size of the odds involved. Ultimately, this variance formula is also in violation of the size independence requirement.</p>
+</div>
+<div id="variance-of-fishers-z" class="section level4">
+<h4>Variance of Fisher’s <em>Z</em></h4>
+<p>The variance of Fisher’s Z is defined as <span class="citation">(<a href="#ref-Borenstein2009" role="doc-biblioref">Borenstein 2009</a>, formula 6.3)</span>:</p>
+<p><span class="math display">\[
+\begin{equation}
+V_Z=\frac{1}{n-3}
+\tag{7}
+\end{equation}
+\]</span>
+where <em>n</em> is the sample size. Unlike the previous variance measurements, the variance of <em>Z</em> is not in violation of the size independence requirement. That is, there is no relationship between the Fisher <em>Z</em> effect size and the variance estimate <em>V<sub>Z</sub></em> for that effect.</p>
+<p>However, the formula for <em>V<sub>Z</sub></em> is in violation of the exhaustiveness requirement. In order to appreciate this, suppose we convert a Cohen’s <em>d</em> effect size estimate for independent groups <span class="citation">(<a href="#ref-Borenstein2009" role="doc-biblioref">Borenstein 2009</a>, formula 4.18)</span> to Fisher’s <em>Z</em>. If we calculate the variance for the effect measured in Cohen’s <em>d</em>, we will take into consideration both total sample size, the relative sample size of the compared groups, and the standard deviation of the estimate, because these factors are all contained within the formula for the variance of <em>d</em>. However, when we convert Cohen’s <em>d</em> into Fisher’s <em>Z</em>, we must also re-calculate the variance, now using the formula for <em>V<sub>Z</sub></em>. Because <em>V<sub>Z</sub></em> only depends on the sample size, we effectively lose the extra information that was contained within Vd during conversion from <em>d</em> to <em>Z</em>.</p>
+</div>
+<div id="variance-of-a-nonparametric-common-language-effect-size" class="section level4">
+<h4>Variance of <em>A</em> (nonparametric “common language effect size”)</h4>
+<p>The common language effect size <span class="citation">(CLES. <a href="#ref-Ruscio2008" role="doc-biblioref">Ruscio 2008</a>; <a href="#ref-Grissom2001" role="doc-biblioref">Grissom and Kim 2001</a>)</span> is a standardized measure of the parameter <em>Pr(Y1&gt;Y2)</em>, or the probability that a randomly chosen member of group 1 scores higher than a randomly chosen member of group 2. The non-parametric version of this effect size (denoted <em>A</em>) is robust to violation of certain parametric assumptions that are frequently violated in practice, such as normality and heterogeneity of variances. When comparing effects where these parametric assumptions are likely to be violated, <em>A</em> is arguably the most appropriate scale on which to standardize effects.</p>
+<p>Variance of A is defined as <span class="citation">(<a href="#ref-Ruscio2008" role="doc-biblioref">Ruscio 2008</a>, formula 9)</span>:</p>
+<p><span class="math display">\[
+\begin{equation}
+V_A=[(1/n_1)+(1/n_2)+(1/n_1n_2)]/12
+\tag{8}
+\end{equation}
+\]</span></p>
+<p>where <em>n<sub>1</sub></em> and <em>n<sub>2</sub></em> are the group sample sizes. This variance estimate is very similar to <em>V<sub>Z</sub></em>, except that is also takes the group base rates into account (for a given <em>n<sub>1</sub></em>+<em>n<sub>2</sub></em>, <em>n<sub>1</sub></em>*<em>n<sub>2</sub></em> is largest when <em>n<sub>1</sub></em>=<em>n<sub>2</sub></em>). Like <em>V<sub>Z</sub></em>, <em>V<sub>A</sub></em> is not in violation of the size independence requirement, but it is in violation of the exhaustiveness requirement. <em>V<sub>A</sub></em> ignores some information about precision, such as the standard deviation of the estimate, even in cases where that information is available and relevant.</p>
+</div>
+</div>
+<div id="discussion-regarding-the-use-of-variance" class="section level3">
+<h3>Discussion regarding the use of variance</h3>
+<p>In summary, surveying the available formulas for standardized variance estimates reveals some flaws with all of them, given the requirements imposed by our definition of precision. However, some are more problematic than others. <em>V<sub>d</sub></em>, <em>V<sub>g</sub></em>, <em>V<sub>r</sub></em>, and <em>V<sub>LogOddsRatio</sub></em> all violate the size independence requirement. Unless we explicitly want to bias the replication value based on the size of effects, none of these variance estimates are recommended for use in a replication value formula.</p>
+<p><em>V<sub>Z</sub></em> and <em>V<sub>A</sub></em> are more promising alternatives. They both adhere to all requirements except exhaustiveness. However, there may be no way to avoid some loss of information if the goal is to compare measures on different effect size scales. We have to standardize all estimates to the same scale to make comparisons, and information unique to each effect size scale will be lost during this standardization process. Violation of the exhaustiveness requirement may be tolerable, given that sample size normally is the major determinant of estimate precision, even in equations that take more information into account <span class="citation">(<a href="#ref-Borenstein2009" role="doc-biblioref">Borenstein 2009, chap. 8</a>)</span>. I.e. we may accept the loss of information about group variances, group base rates, etc., if we can assume that for the large majority of cases, these factors only play a lesser role in determining estimate precision relative to sample size.</p>
+<p><em>V<sub>A</sub></em> may be slightly more informative than <em>V<sub>Z</sub></em> because it takes the ratio of the group sizes into account. However, <em>V<sub>Z</sub></em> is a more widely applicable formula because <em>V<sub>A</sub></em> can only be calculated for cases where there are two groups to compare. For this reason, we choose <em>V<sub>Z</sub></em> as our operationalization of precision for examples discussed in our forthcoming manuscript. However, note that for sets of findings that only include comparisons between two groups, <em>V<sub>A</sub></em> might be a more accurate measure.</p>
+<p>There are a few pragmatic benefits to using <em>V<sub>Z</sub></em> as a measure of precision, beyond it’s adherence to most of the requirements above. First, the sample size is often reported directly in manuscripts, and may even be possible to extract automatically in many cases <span class="citation">(e.g. using Statcheck to extract degrees of freedom, <a href="#ref-Nuijten2017" role="doc-biblioref">Nuijten et al. 2017</a>)</span>, which means that the replication value can be calculated for most reported effects with minimal effort. Second, <em>V<sub>Z</sub></em> can be used more flexibly than other variance measures, because it is not dependent on knowing the effect size of a particular estimate. This has some practical benefits. For example, if a researcher needs to evaluate the replication value of 100 studies, and it is not feasible to identify the theoretically critical result in all of the studies, the researcher could calculate <em>V<sub>Z</sub></em> using the total sample size in each individual study as a rough first guide to the replication value of individual the findings reported within.</p>
+<p>However, by calculating <em>V<sub>Z</sub></em> from pure sample sizes, we will introduce a more serious violation of the exhaustiveness requirement by ignoring the statistical design of the studies we intend to compare, which is another major determinant of precision <span class="citation">(<a href="#ref-Borenstein2009" role="doc-biblioref">Borenstein 2009, chap. 8</a>)</span>. As one example, a paired samples t-test has better precision for the difference score that is calculated between the two measurements than an independent samples t-test, partly because the participants contribute twice as many data points in the paired design, and partly because of within-subject correlation <span class="citation">(see <a href="#ref-Lakens2016" role="doc-biblioref">Lakens 2016</a> for a detailed explanation)</span>. Another example is the differences in precision when estimating a main effect vs an interaction effect using the same sample size <span class="citation">(see <a href="#ref-Simonsohn2015" role="doc-biblioref">Simonsohn 2015</a> for a discussion)</span>. We can attempt to mitigate these issues, however, by converting the sample sizes from within-subject and interaction designs into the corresponding sample size that would achieve the same precision for a main effect in a between-subjects design. This way, samples sizes from different designs can be reasonably compared on the same scale of precision. At present I am only able to provide a method for conversion between a within-subjects design and a between-subjects design. In the future, however, I hope to be able to provide a similar method for conversion between an interaction effect and a main effect as well, based on the derivations provided by <span class="citation"><a href="#ref-Simonsohn2015" role="doc-biblioref">Simonsohn</a> (<a href="#ref-Simonsohn2015" role="doc-biblioref">2015</a>)</span>.</p>
+<div id="converting-within-subjects-sample-size-into-between-subjects-sample-size" class="section level4">
+<h4>Converting within-subjects sample size into between-subjects sample size</h4>
+<p>Following equation 47 in <span class="citation"><a href="#ref-Maxwell2004" role="doc-biblioref">Maxwell and Delaney</a> (<a href="#ref-Maxwell2004" role="doc-biblioref">2004, chap. 11</a>)</span>, if we assume normal distributions and compound symmetry, and if we ignore the difference in degrees of freedom between the two types of tests, we can solve for <em>N<sub>B</sub></em> and convert the sample size of a within-subject sample into an estimate of a corresponding between-subject sample:</p>
+<p><span class="math display">\[
+\begin{equation}
+N_B=\frac{N_Wa}{1-ρ}
+\tag{9}
+\end{equation}
+\]</span></p>
+<p>where <em>N<sub>W</sub></em> is the sample size of the within-subject design, ρ is the within-subject correlation, <em>a</em> is the number of groups that each subject contributes data points to, and <em>N<sub>B</sub></em> is the estimated sample size that a between-subject study would need to reach the same level of precision.</p>
+<p>The population parameter <em>ρ</em> is usually estimated from the within-subject correlation <em>r</em> in the sample. A practical issue is that this value is very rarely reported in published manuscripts. In these cases, it is possible to calculate <em>r</em> from summary statistics. For example, if we has access to the t-value, Cohen’s <em>d<sub>average</sub></em> <span class="citation">(<a href="#ref-Borenstein2009" role="doc-biblioref">Borenstein 2009</a>, equation 4.18)</span>, and the sample size <em>N<sub>W</sub></em>, we can calculate <em>r</em> by solving for <em>r</em> in <span class="citation"><a href="#ref-Dunlap1996" role="doc-biblioref">Dunlap et al.</a> (<a href="#ref-Dunlap1996" role="doc-biblioref">1996</a>, equation 3)</span>:</p>
+<p><span class="math display">\[
+\begin{equation}
+r=\frac{2t^2-d_{average}^2N_W}{2t^2}
+\tag{10}
+\end{equation}
+\]</span></p>
+<p>Or, if we has access to the standard error of the difference and the standard error of both groups, we could calculate <em>r</em> by solving for <em>r</em> in <span class="citation"><a href="#ref-Lakens2013" role="doc-biblioref">Lakens</a> (<a href="#ref-Lakens2013" role="doc-biblioref">2013</a>, formula 8)</span>:</p>
+<p><span class="math display">\[
+\begin{equation}
+r=\frac{SD_1^2+SD_2^2-S_{diff}^2}{2SD_1SD_2}
+\tag{11}
+\end{equation}
+\]</span></p>
+<p>If we does not have access to these summary statistics or the raw data, we could estimate <em>ρ</em> based on <em>r</em> in conceptually similar studies. If there are no realistic reference points for <em>ρ</em> whatsoever, we could potentially consider setting <em>ρ</em> to 0. <em>N<sub>W</sub></em> will still receive a correction in this case from being multiplied by <em>a</em>. Note however, that this is a very conservative assumption, and unlikely to be realistic in most cases. Moreover, the choice of 0 over any other arbitrary value of ρ is motivated by nothing but a desire to be conservative.</p>
+</div>
+<div id="limitations-when-ignoring-details-of-the-study-design" class="section level4">
+<h4>Limitations when ignoring details of the study design</h4>
+<p>In certain situations, it might not be feasible or even possible to acquire the information necessary to convert different study sample sizes to the same precision scale. This may not always be problematic. For example, there is no need to convert the sample size if we know that every study is using a within-subjects design, and we assume that all effects of interest are main effects. However, when such assumptions cannot be made, be aware that a corroboration estimate based on sample size will tend to systematically overestimate the corroboration of some designs relative to others.</p>
+<p>Whether it is appropriate to approximate precision of the estimate via participant sample size for any given effect will also depend on our assumptions about which factors contribute to the variance of the estimate. Imagine a study involving participants observing stimuli in two conditions, where we are interested in estimating precision for the main effect between conditions. The precision of this estimate will depend on whether we believe the condition effect is likely to vary systematically between participants and/or between the stimuli presented. In other words, it will depend on whether we treat participants and stimuli as random effects in our model <span class="citation">(<a href="#ref-Rouder2018" role="doc-biblioref">Rouder and Haaf 2018</a>; <a href="#ref-Westfall2014" role="doc-biblioref">Westfall, Kenny, and Judd 2014</a>; <a href="#ref-westfall2015pangea" role="doc-biblioref">Westfall 2015</a>)</span>, and it will depend on how much variance we believe any random effect contributes to the total variance estimate. Subsequently, the number of participants, the number of stimuli, and the number of trials included in our study design might all be required to accurately assess estimate precision.</p>
+<p>Approximating precision of the estimate through participant sample size relies on the fundamental assumption that random variation in an effect across participants is the only important contributor to the total variance. This can happen in cases where no other variance partitioning coefficient <span class="citation">(VPC, see <a href="#ref-Westfall2014" role="doc-biblioref">Westfall, Kenny, and Judd 2014</a>)</span> exerts a meaningful influence (e.g. we assume that the effect does not vary between labs, stimuli used, trials within a participant, etc.). Alternatively, this can happen in cases where all other VPCs have been measured so precisely that their influence on the variance approaches zero. If our goal is to compare precision estimates across a set of studies we must assume that all studies in the set represent either of these two cases. Violations of this assumption has important consequences for the correlation between participant sample size and the actual precision of the estimate.</p>
+<p>For example, imagine that we attempt to assess the precision of the estimate for a two-condition mean difference, and we assume that the mean difference varies substantially between participants, between stimuli, and across trials. In this case, we have multiple VPCs that contribute to the total variance: random effects of stimulus presented, random effects of participants measured, interactions between these effects and the main effect of condition, and random variation in responses across trials <span class="citation">(<a href="#ref-Westfall2014" role="doc-biblioref">Westfall, Kenny, and Judd 2014</a>)</span>. In addition to the number of participants tested, the precision of the estimate will depend on how many stimuli were included, because precision relies partially on how well we can estimate the random effect of stimulus, and this can only be measured more accurately by having a larger sample of stimuli. We also need to know what design was used, because this tells us which variance components are relevant <span class="citation">(<a href="#ref-Westfall2014" role="doc-biblioref">Westfall, Kenny, and Judd 2014</a>)</span>. Finally, we need to know the total amount of trials in the design <span class="citation">(however, increasing the number of trials without adding novel participants or stimuli tends to matter less for the precision of the estimate when the random effects contributes more to the total variance than random variance across trials. See e.g. <a href="#ref-Rouder2018" role="doc-biblioref">Rouder and Haaf 2018</a>; <a href="#ref-Westfall2014" role="doc-biblioref">Westfall, Kenny, and Judd 2014</a>)</span>. If we approximate estimate precision through participant sample size alone in cases like this, comparisons of estimate precision between studies will only be accurate if we assume that the other VPCs have been close to perfectly measured in all studies compared.</p>
+<p>Conversely, imagine that we attempt to assess the precision of the estimate for the same mean difference as in the previous example, but now we assume negligible change in mean difference across participants and stimuli. This assumption might sometimes be appropriate in basic perception research and other disciplines where n=1 studies are a valid approach. In these cases, since the effect is more or less the same for all subjects and all stimuli, all that matters for assessing estimate precision is the number of trials used to estimate the random variation across trials. If we approximate estimate precision through participant sample size in cases like this, comparisons of estimate precision between studies will only be accurate if we assume that the number of trials equals the number of participants. This would amount to assuming that <em>I=K</em> in the formulas from <span class="citation"><a href="#ref-Rouder2018" role="doc-biblioref">Rouder and Haaf</a> (<a href="#ref-Rouder2018" role="doc-biblioref">2018</a>)</span>. In cases where there are multiple trials per participant, approximating precision through participant sample size will underestimate the precision of the estimates. The more trials per participant, the more inaccurate this approximation becomes.</p>
+<p>Approximation inaccuracies like those mentioned above can introduce systematic biases in the comparison of precision across a set of studies. If we compare estimate precision for a set of studies by looking only at their respective sample sizes, we will tend to overestimate the precision of studies where other VPCs (e.g. random effect of stimuli) are poorly measured, and we will tend to underestimate the precision of studies that have few participants but many trials, and where the random effect of participants is negligible. Ideally, we would calculate precision of the estimate based on relevant information about VPCs and how accurately they are measured for every study in a set. However, this information may often be cumbersome or impossible to acquire from the published record and approximation by participant sample size may be the only relevant information easily available. In those circumstances, researchers need to think carefully about whether the assumptions required for this approximation to work is likely to be violated in their sample of studies.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="conclusion" class="section level1">
+<h1>Conclusion</h1>
+<p>When our goal is to compare precision across a range of conceptually different findings, it seems most appropriate to use the variance of Fisher’s <em>Z</em> (<em>V<sub>Z</sub></em>) as a general operationalization of the “precision” of an estimate. If different study designs are to be compared, the sample size needs to be adjusted for differences in the designs.</p>
+<p><em>V<sub>Z</sub></em> satisfies the most important requirements for a precision estimate. It is however limited in that it does not take into account information that in many cases is relevant for precision as well, such as the standard deviation of the estimate. On the other hand, all formulas that incorporate more information seem to violate the critical requirement of size independence. While the input to <em>V<sub>Z</sub></em>, sample size, is only one among several factors that contribute to estimate precision, it is normally an important contributor even if we take other factors into account as well <span class="citation">(<a href="#ref-Borenstein2009" role="doc-biblioref">Borenstein 2009, chap. 8</a>)</span>. Furthermore, sample size has the practical advantage of being available for the vast majority of published effects that we may want to estimate precision for. The same cannot be said for information such as within-subject correlation and group standard deviations. For the purposes of calculating replication value of published findings, we therefore generally recommend using <em>V<sub>Z</sub></em> (with sample size adjusted for study design when possible) as a rudimentary but relatively straight-forward measure of estimate precision, and to further take this precision estimate as a rough approximation of the corroboration of a finding.</p>
+<p><strong>Table 1:</strong> Summary of the limitations of each operationalization of “precision.”</p>
+<table>
+<colgroup>
+<col width="20%" />
+<col width="11%" />
+<col width="68%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Candidate statistic</th>
+<th>Requirements violated</th>
+<th>Reason for violation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><em>P</em>-value</td>
+<td>Effect size independence</td>
+<td>The <em>p</em>-value does not track precision of true null effects because it is uniformly distributed when the null is true. In addition, depends on effect size of true effect.</td>
+</tr>
+<tr class="even">
+<td>Bayes factor</td>
+<td>Effect size independence</td>
+<td>The Bayes factor depends on the size of the effect relative to the hypotheses being compared.</td>
+</tr>
+<tr class="odd">
+<td>Cohens’s d variance</td>
+<td>Effect size independence</td>
+<td>As Cohen’s d becomes larger, the variance of d becomes larger.</td>
+</tr>
+<tr class="even">
+<td>Pearson’s r variance</td>
+<td>Effect size independence</td>
+<td>As Pearson’s r becomes larger, the variance of r becomes smaller.</td>
+</tr>
+<tr class="odd">
+<td>Log odds ratio variance</td>
+<td>Effect size independence</td>
+<td>As the odds involved become larger, the variance of log odds ratio becomes larger.</td>
+</tr>
+<tr class="even">
+<td>Fisher’s <em>Z</em> variance</td>
+<td>Exhaustiveness, standardization</td>
+<td>Only depends on sample size, and will tend to overestimate precision for between-subject designs and interaction effects.</td>
+</tr>
+<tr class="odd">
+<td>Variance of <em>A</em> (non-parametric CLES)</td>
+<td>Exhaustiveness, standardization</td>
+<td>Only depends on sample size, and will tend to overestimate precision for between-subject designs and interaction effects.</td>
+</tr>
+<tr class="even">
+<td>Fisher’s <em>Z</em> variance with adjusted sample size</td>
+<td>Exhaustiveness</td>
+<td>Only depends on sample size.</td>
+</tr>
+</tbody>
+</table>
+<div id="acknowledgments" class="section level2">
+<h2>Acknowledgments</h2>
+<p>Thanks to multiple members of the Open Science Collaboration for the rigorous testing and discussion of different operationalizations that provided the background material for this post. Thanks to <a href="https://twitter.com/lakens">Daniël Lakens</a> for extensive feedback and supervision, and to <a href="https://twitter.com/EmmaHendersonRR">Emma Henderson</a>, <a href="https://twitter.com/OrbenAmy">Amy Orben</a>, and various other members of the Red^2 lab for your input and suggestions!</p>
+</div>
+</div>
+<div id="references" class="section level1 unnumbered">
+<h1>References</h1>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-Borenstein2009" class="csl-entry">
+Borenstein, Michael, ed. 2009. <em>Introduction to Meta-Analysis</em>. Chichester, U.K: <span>John Wiley &amp; Sons</span>.
+</div>
+<div id="ref-Brown2017" class="csl-entry">
+Brown, Nicholas J. L., and James A. J. Heathers. 2017. <span>“The <span>GRIM Test</span>: <span>A Simple Technique Detects Numerous Anomalies</span> in the <span>Reporting</span> of <span>Results</span> in <span>Psychology</span>.”</span> <em>Social Psychological and Personality Science</em> 8 (4): 363–69. <a href="https://doi.org/10.1177/1948550616673876">https://doi.org/10.1177/1948550616673876</a>.
+</div>
+<div id="ref-Dunlap1996" class="csl-entry">
+Dunlap, William P., Jose M. Cortina, Joel B. Vaslow, and Michael J. Burke. 1996. <span>“Meta-Analysis of Experiments with Matched Groups or Repeated Measures Designs.”</span> <em>Psychological Methods</em> 1 (2): 170–77. <a href="https://doi.org/10.1037//1082-989X.1.2.170">https://doi.org/10.1037//1082-989X.1.2.170</a>.
+</div>
+<div id="ref-Dwan2008" class="csl-entry">
+Dwan, Kerry, Douglas G. Altman, Juan A. Arnaiz, Jill Bloom, An-Wen Chan, Eugenia Cronin, Evelyne Decullier, et al. 2008. <span>“Systematic <span>Review</span> of the <span>Empirical Evidence</span> of <span>Study Publication Bias</span> and <span>Outcome Reporting Bias</span>.”</span> Edited by Nandi Siegfried. <em>PLoS ONE</em> 3 (8): e3081. <a href="https://doi.org/10.1371/journal.pone.0003081">https://doi.org/10.1371/journal.pone.0003081</a>.
+</div>
+<div id="ref-Field2018" class="csl-entry">
+Field, Sarahanne, Rink Hoekstra, Laura Bringmann, and Don van Ravenzwaaij. 2018. <span>“When and <span>Why</span> to <span>Replicate</span>: <span>As Easy</span> as 1, 2, 3?”</span> <em>Open Science Framework</em>. <a href="https://doi.org/10.17605/osf.io/3rf8b">https://doi.org/10.17605/osf.io/3rf8b</a>.
+</div>
+<div id="ref-Grissom2001" class="csl-entry">
+Grissom, Robert J., and John J. Kim. 2001. <span>“Review of Assumptions and Problems in the Appropriate Conceptualization of Effect Size.”</span> <em>Psychological Methods</em> 6 (2): 135–46. <a href="https://doi.org/10.1037/1082-989X.6.2.135">https://doi.org/10.1037/1082-989X.6.2.135</a>.
+</div>
+<div id="ref-Hands2008" class="csl-entry">
+Hands, D. Wade. 2008. <span>“Popper and <span>Lakatos</span> in <span>Economic Methodology</span>.”</span> In <em>The Philosophy of Economics: An Anthology</em>, 3rd ed. New York: <span>Cambridge University Press</span>.
+</div>
+<div id="ref-Heathers2018" class="csl-entry">
+Heathers, James A. J., Jordan Anaya, Tim van der Zee, and Nicholas J. L. Brown. 2018. <span>“Recovering Data from Summary Statistics: <span>Sample Parameter Reconstruction</span> via <span>Iterative TEchniques</span> (<span>SPRITE</span>).”</span> Preprint. <span>PeerJ Preprints</span>. <a href="https://doi.org/10.7287/peerj.preprints.26968v1">https://doi.org/10.7287/peerj.preprints.26968v1</a>.
+</div>
+<div id="ref-Kerr1998" class="csl-entry">
+Kerr, Norbert L. 1998. <span>“<span>HARKing</span>: <span>Hypothesizing After</span> the <span>Results</span> Are <span>Known</span>.”</span> <em>Personality and Social Psychology Review</em> 2 (3): 196–217. <a href="https://doi.org/10.1207/s15327957pspr0203_4">https://doi.org/10.1207/s15327957pspr0203_4</a>.
+</div>
+<div id="ref-Lakatos1978" class="csl-entry">
+Lakatos, Imre. 1978. <em>The Methodology of Scientific Research <span>Programmes</span></em>. Vol. 1. Cambridge: <span>Cambridge University Press</span>.
+</div>
+<div id="ref-Lakens2013" class="csl-entry">
+Lakens, Daniel. 2013. <span>“Calculating and Reporting Effect Sizes to Facilitate Cumulative Science: A Practical Primer for t-Tests and <span>ANOVAs</span>.”</span> <em>Frontiers in Psychology</em> 4. <a href="https://doi.org/10.3389/fpsyg.2013.00863">https://doi.org/10.3389/fpsyg.2013.00863</a>.
+</div>
+<div id="ref-Lakens2016" class="csl-entry">
+———. 2016. <span>“Why <span>Within</span>-<span>Subject Designs Require Fewer Participants</span> Than <span>Between</span>-<span>Subject Designs</span>.”</span> <em>The 20% Statistician</em>.
+</div>
+<div id="ref-Lakens2019a" class="csl-entry">
+———. 2019. <span>“The <span>Practical Alternative</span> to the <span>P</span>-<span>Value Is</span> the <span>Correctly Used P</span>-<span>Value</span>.”</span> April. <a href="https://doi.org/10.31234/osf.io/shm8v">https://doi.org/10.31234/osf.io/shm8v</a>.
+</div>
+<div id="ref-LeBel2018" class="csl-entry">
+LeBel, Etienne P., Randy J. McCarthy, Brian D. Earp, Malte Elson, and Wolf Vanpaemel. 2018. <span>“A <span>Unified Framework</span> to <span>Quantify</span> the <span>Credibility</span> of <span>Scientific Findings</span>.”</span> <em>Advances in Methods and Practices in Psychological Science</em> 1 (3): 389–402. <a href="https://doi.org/10.1177/2515245918787489">https://doi.org/10.1177/2515245918787489</a>.
+</div>
+<div id="ref-Maxwell2004" class="csl-entry">
+Maxwell, Scott E., and Harold D. Delaney. 2004. <em>Designing Experiments and Analyzing Data: A Model Comparison Perspective</em>. 2nd ed. Mahwah, N.J: <span>Lawrence Erlbaum Associates</span>.
+</div>
+<div id="ref-Nuijten2017" class="csl-entry">
+Nuijten, Michele B., Marcel A. L. M. van Assen, Chris Hubertus Joseph Hartgerink, Sacha Epskamp, and Jelte M. Wicherts. 2017. <span>“The <span>Validity</span> of the <span>Tool</span> <span>‘Statcheck’</span> in <span>Discovering Statistical Reporting Inconsistencies</span>.”</span> Preprint. <span>PsyArXiv</span>. <a href="https://doi.org/10.31234/osf.io/tcxaj">https://doi.org/10.31234/osf.io/tcxaj</a>.
+</div>
+<div id="ref-Rouder2018" class="csl-entry">
+Rouder, Jeffrey N., and Julia M. Haaf. 2018. <span>“Power, <span>Dominance</span>, and <span>Constraint</span>: <span>A Note</span> on the <span>Appeal</span> of <span>Different Design Traditions</span>.”</span> <em>Advances in Methods and Practices in Psychological Science</em> 1 (1): 19–26. <a href="https://doi.org/10.1177/2515245917745058">https://doi.org/10.1177/2515245917745058</a>.
+</div>
+<div id="ref-Ruscio2008" class="csl-entry">
+Ruscio, John. 2008. <span>“A Probability-Based Measure of Effect Size: <span>Robustness</span> to Base Rates and Other Factors.”</span> <em>Psychological Methods</em> 13 (1): 19–30. <a href="https://doi.org/10.1037/1082-989X.13.1.19">https://doi.org/10.1037/1082-989X.13.1.19</a>.
+</div>
+<div id="ref-Simonsohn2015" class="csl-entry">
+Simonsohn, Uri. 2015. <span>“[17] <span>No</span>-Way <span>Interactions</span>.”</span> <em>The Winnower</em>, March. <a href="https://doi.org/10.15200/winn.142559.90552">https://doi.org/10.15200/winn.142559.90552</a>.
+</div>
+<div id="ref-Simonsohn2014" class="csl-entry">
+Simonsohn, Uri, Leif D. Nelson, and Joseph P. Simmons. 2014. <span>“P-Curve: <span>A</span> Key to the File-Drawer.”</span> <em>Journal of Experimental Psychology: General</em> 143 (2): 534–47. <a href="https://doi.org/10.1037/a0033242">https://doi.org/10.1037/a0033242</a>.
+</div>
+<div id="ref-westfall2015pangea" class="csl-entry">
+Westfall, Jacob. 2015. <span>“<span>PANGEA</span>: <span>Power</span> Analysis for General Anova Designs.”</span> <em>Unpublished Manuscript. Available at Http://Jakewestfall.org/Publications/Pangea.pdf</em>.
+</div>
+<div id="ref-Westfall2014" class="csl-entry">
+Westfall, Jacob, David A. Kenny, and Charles M. Judd. 2014. <span>“Statistical Power and Optimal Design in Experiments in Which Samples of Participants Respond to Samples of Stimuli.”</span> <em>Journal of Experimental Psychology: General</em> 143 (5): 2020–45. <a href="https://doi.org/10.1037/xge0000014">https://doi.org/10.1037/xge0000014</a>.
+</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>By “severe test,” I mean a test that has a high chance of falsifying the statement “X is Y” if it really is the case that X is not Y.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>Some readers may wonder why I do not take the extra step and discuss the standard error of the estimates, which is perhaps more intuitive to think about than their variance. For all practical purposes, the discussion in this section would be the same, since the standard error is simply the square root of the variance. I choose to frame the discussion in terms of variance here to to simplify equations, and so that equations from other sources can be cited directly.<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+
+        
+        <details closed class="f6 fw7 input-reset">
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Posted on:</dt>
+    <dd class="fw5 ml0">April 12, 2019</dd>
+  </dl>
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Length:</dt>
+    <dd class="fw5 ml0">32 minute read, 6739 words</dd>
+  </dl>
+  
+  
+  
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Tags:</dt>
+    <dd class="fw5 ml0"> <a href="https://pedermisager.org/tags/replication">replication</a>  <a href="https://pedermisager.org/tags/precision">precision</a>  <a href="https://pedermisager.org/tags/corroboration">corroboration</a>  <a href="https://pedermisager.org/tags/replication-value">replication value</a> </dd>
+  </dl>
+  
+  <dl class="f6 lh-copy">
+    <dt class="fw7">See Also:</dt>
+    
+    <dd class="fw5 ml0"><a href="/blog/what-is-worth-replicating/">What is Worth Replicating? - SIPS 2020 Unconference session</a></dd>
+    
+    <dd class="fw5 ml0"><a href="/blog/fifty-ways-to-leave-your-model/">Fifty ways to leave your model</a></dd>
+    
+    <dd class="fw5 ml0"><a href="/blog/what-to-replicate/">What to Replicate?</a></dd>
+    
+  </dl>
+</details>
+
+      </section>
+      <footer class="post-footer">
+        <div class="post-pagination dt w-100 mt4 mb2">
+  
+  
+    <a class="prev dtc pr2 tl v-top fw6"
+    href="https://pedermisager.org/blog/psa-theory-committee/">&larr; Proposing a theory committee at the Psychological Science Accelerator</a>
+  
+  
+  
+    <a class="next dtc pl2 tr v-top fw6"
+    href="https://pedermisager.org/blog/how-to-share-your-data-with-osf/">How to share your data online with OSF &rarr;</a>
+  
+</div>
+
+      </footer>
+    </article>
+    
+      
+<div class="post-comments pa0 pa4-l mt4">
+  
+  <script src="https://utteranc.es/client.js"
+          repo="apreshill/apero"
+          issue-term="pathname"
+          theme="boxy-light"
+          label="comments :crystal_ball:"
+          crossorigin="anonymous"
+          async
+          type="text/javascript">
+  </script>
+  
+</div>
+
+    
+  </section>
+</main>
+<footer class="site-footer pv4 bt b--transparent ph5" role="contentinfo">
+  <nav class="db dt-l w-100">
+    <p class="site-copyright f7 db dtc-l v-mid w-100 w-33-l tc tl-l pv2 pv0-l mv0 lh-copy">
+      &copy; 2023 RStudio, Anywhere
+      <span class="middot-divider"></span>
+      Made with <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/hugo-apero/" rel="dct:source">Hugo Apéro</a></span>.
+      <br />
+      
+Based on <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/formspree/blogophonic-hugo" rel="dct:source">Blogophonic</a></span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://formspree.io" property="cc:attributionName" rel="cc:attributionURL">Formspree</a>.
+    </p>
+    
+    <div class="site-social-links db dtc-l v-mid w-100 w-33-l tc pv2 pv0-l mv0">
+      <div class="social-icon-links" aria-hidden="true">
+  
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://github.com/pederisager" title="github" target="_blank" rel="noopener">
+      <i class="fab fa-github fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://twitter.com/peder_isager" title="twitter" target="_blank" rel="noopener">
+      <i class="fab fa-twitter fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://www.linkedin.com/in/peder-mortvedt-isager-a104966a/" title="linkedin" target="_blank" rel="noopener">
+      <i class="fab fa-linkedin fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="http://orcid.org/0000-0002-6922-3590" title="orcid" target="_blank" rel="noopener">
+      <i class="ai ai-orcid fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://scholar.google.com/citations?user=_EcbBtYAAAAJ&amp;hl=no&amp;oi=ao" title="graduation-cap" target="_blank" rel="noopener">
+      <i class="fas fa-graduation-cap fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://oslonyehoyskole.no/om-oss/ansatte/peder-mortvedt-isager" title="landmark" target="_blank" rel="noopener">
+      <i class="fas fa-landmark fa-lg fa-fw"></i>
+    </a>
+  
+</div>
+
+    </div>
+    
+    <div class="site-links f6 db dtc-l v-mid w-100 w-67-l tc tr-l pv2 pv0-l mv0">
+      
+      <a class="dib pv1 ph2 link" href="/license/" title="License">License</a>
+      
+    </div>
+  </nav>
+  
+    <script>
+
+    var i, text, code, codes = document.getElementsByTagName('code');
+    for (let i = 0; i < codes.length;) {
+      code = codes[i];
+      if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+        text = code.textContent;
+        if (/^\$[^$]/.test(text) && /[^$]\$$/.test(text)) {
+          text = text.replace(/^\$/, '\\(').replace(/\$$/, '\\)');
+          code.textContent = text;
+        }
+        if (/^\\\((.|\s)+\\\)$/.test(text) ||
+            /^\\\[(.|\s)+\\\]$/.test(text) ||
+            /^\$(.|\s)+\$$/.test(text) ||
+            /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+          code.outerHTML = code.innerHTML;  
+          continue;
+        }
+      }
+      i++;
+    }
+</script>
+
+  
+    
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+
+
+    
+  
+  
+</footer>
+
+      </div>
+    </body>
+</html>

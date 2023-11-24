@@ -1,0 +1,131 @@
+---
+title: "Why does correlation not equal causation?"
+author: "Peder M. Isager"
+date: '2023-11-24'
+output:
+  html_document: 
+    df_print: paged
+    fig_caption: yes
+  pdf_document: 
+header:
+  caption: ''
+  image: 'img/consider_all_the_causal_relations.png'
+categories: []
+slug: why_does_correlation_not_equal_causation
+tags: 
+- causal inference
+- causal graphs
+- correlation
+summary: "This blog post is a beginners guide to the relationship between causation and correlation. In it, I will explain why it makes sense to think about causal explanations for observed correlation, why correlation does not always imply causation, and which alternative causal models to consider when you are trying to figure out why two variables in your data are correlated. The blog post is intended as a non-technical introduction. I use only words and pictures to explain all concepts and logic, and I use a running example from health psychology to illustrate. The post should be relevant to anyone who is interested in using data to understand causal mechanisms."
+---
+
+
+
+<div id="abstract" class="section level1">
+<h1>Abstract</h1>
+<p>This blog post is a beginners guide to the relationship between causation and correlation. In it, I will explain why it makes sense to think about causal explanations for observed correlation, why correlation does not always imply causation, and which alternative causal models to consider when you are trying to figure out why two variables in your data are correlated. The blog post is intended as a non-technical introduction. I use only words and pictures to explain all concepts and logic, and I use a running example from health psychology to illustrate. The post should be relevant to anyone who is interested in using data to understand causal mechanisms.</p>
+</div>
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>Most who have studied or worked in science will have heard the warning phrase “correlation does not imply causation”. The warning is usually accompanied by striking examples like the correlation between <a href="https://www.google.com/search?sca_esv=581520105&amp;rlz=1C1ONGR_noNO1074NO1074&amp;sxsrf=AM9HkKmgd7QVHKUriPudUWxRHAk0tACM_Q:1699712017827&amp;q=correlation+between+ice+cream+sales+and+drowning&amp;tbm=isch&amp;source=lnms&amp;sa=X&amp;sqi=2&amp;ved=2ahUKEwiP46vYkLyCAxXeAxAIHY3qBxoQ0pQJegQIDBAB&amp;biw=1920&amp;bih=923&amp;dpr=1#imgrc=4UgPCI9EnIL8hM">ice cream sales and drowning deaths</a> through the calendar year, as shown below:</p>
+<div class="float">
+<img src="img/ice_cream_sales_drowning_deaths.png" alt="drowning deaths and ice cream sales throughout the year" />
+<div class="figcaption">drowning deaths and ice cream sales throughout the year</div>
+</div>
+<p>Drowning will not lead you to eat more ice cream (quite the opposite in fact!), and it is highly unlikely that eating more ice cream will dramatically increase your risk of drowning, so obviously there can be strong correlation between two variables without a direct causal relationship.</p>
+<p>On the other hand, I can easily give examples of correlations that strongly imply causation! For example, consider the positive correlation between ice cream sales and outside temperature. Here the correlation strongly implies a causal explanation. Rising outside temperatures cause us to want ice cream more, or allow us to hang around in spaces like the beach, where ice cream is usually the snack of choice (again, probably because of the outside temperature).</p>
+<p><img src="img/ice_cream_in_the_sun.jpg" style="width:50.0%" /></p>
+<p>Obviously, then, correlation can imply causation, but not always. When is it warranted, and when is it not? Why is it always so tempting to think about causal relations when we see a correlation, and why are we always warned not to do it? In this post I will explain why it makes sense to look for causal relations in correlations, why it is harder to do than it might seem (giving rise to the aforementioned warning), and how a little counterfactual thinking can help us make better inferences about what correlation actually implies.</p>
+</div>
+<div id="causation-implies-correlation" class="section level1">
+<h1>Causation implies correlation</h1>
+<p>Suppose you are looking at data from a survey about people’s physical and mental health. You notice that people who report exercising more frequently also tend to report a more positive mood and outlook on life. In other words, the amount of physical exercise is positively correlated with mood. For simplicity, let us assume that you have collected a lot of data, so you are very confident that this correlation is “real” (i.e. it reflects a pattern not just in your sample, but in the whole population you have sampled from).</p>
+<p><img src="img/exercise_mood_correlated.svg" /></p>
+<p>It is tempting to infer from this that physical exercise leads to a better mood. Seasoned scientists will often scold students, journalists and other fellow humans for jumping to such a conclusion. “Correlation does not equal causation!” they warn. This might lead to the impression that all inferences about causation from correlation are somehow wrong or illogical. But that is too harsh. Using correlation data for causal inference is, in principle, a perfectly logical thing to do.</p>
+<p>To see why, flip the problem around and consider what causation implies. If physical exercise causes changes in mood then a person’s mood will vary in tune with their exercise regime. People who exercise a lot will also report a high mood because exercise leads to a high mood. People who do not exercise will report a lower mood because they are not benefiting from the mood-boosting effects of exercise. When we look at a collection of people who vary in how much they exercise, we should therefore expect exercise scores to correlate with reported mood.</p>
+<p><img src="img/exercise_causes_mood.svg" /></p>
+<p>Conversely, if physical exercise and mood had been completely causally independent, we would not expect any correlation between these variables in the data. If physical exercise and mood are completely independent, a person can be in any sort of mood regardless of how much or little they work out. However, there <em>is</em> a correlation in the data, so this hypothesis cannot be right.</p>
+<p>In other words, causation implies correlation. If we see correlation, we have good reason to favor the hypothesis “exercise causes mood” over the hypothesis “exercise and mood are completely independent”. One hypothesis implies correlation and the other does not. I believe most people understand this intuitively, which is probably what makes us so motivated to jump from correlation to causation in the first place.</p>
+<p>However, while inferring causation from correlation is possible, it can be very <em>very</em> hard. Why? Because many different causal relations can lead to the same correlation. There are several ways to connect exercise frequency and mood with causal arrows, and many of these causal relationships imply the same correlation. We cannot simply conclude that exercise must be causing mood improvements. There can be many reasons why exercise frequency and mood are correlated in our data.</p>
+<p>Causation implies correlation, but correlation does not necessarily imply <em>your favored</em> causal relation, or even any direct causal relation.</p>
+</div>
+<div id="correlation-does-not-imply-your-favored-causal-direction" class="section level1">
+<h1>Correlation does not imply your favored causal direction</h1>
+<p>If physical exercise causes improved mood, the two will correlate. But the same logic holds in both directions. Is it possible that being in a good mood makes you more likely to go work out? If so, the following causal theory could also be true:</p>
+<p><img src="img/mood_causes_exercise.svg" /></p>
+<p>This is called the directionality problem. The problem is that the hypotheses “exercise causes mood” and “mood causes exercise” imply the exact same correlation. Without any further information, we are left with two different causal theories which are <em>equally</em> likely given the correlation we see in our data. We would need some additional information, such as the timing of events, or data from an experiment, to separate between them.
+It is sometimes also possible that both theories are true! Exercise could put you in a better mood <em>and</em> being in a better mood could make you more inclined to go exercise:</p>
+<p><img src="img/exercise_mood_cycle.svg" /></p>
+<p>Such feedback relations often lead to complex and weird relations between variables, which I will not get into here. Weirdness aside, feedback relationships do tend to make the variables involved correlated, which means we are left with <em>three</em> possible causal theories.</p>
+</div>
+<div id="correlation-does-not-equal-a-direct-causal-connection" class="section level1">
+<h1>Correlation does not equal a direct causal connection</h1>
+<p>Is it possible for two variables to be correlated even if there is no direct causal relationship between them? Unfortunately, yes. This is what the ice-cream-and-drowning-deaths example is meant to illustrate. Correlation without a direct causal relationship is common in observational data, and is usually a result of either <em>confounding</em> or <em>selection bias</em>.</p>
+<p>##Confounding</p>
+<p>Confounding happens when a third variable is a cause of <em>both</em> variables we are interested in (also called a causal fork).</p>
+<p>For example, if you experience a lot of stress at work, maintaining your regular exercise routine can be difficult. At the same time, stress at work is no fun, and can easily put you in a bad mood. In other words, stress at work can have a negative causal effect on both how often you exercise and your self-reported mood:</p>
+<p><img src="img/stress_exercise_mood_confounding.svg" /></p>
+<p>If the above theory is true, people in our data who experience a lot of stress at work will tend to both be exercising less and be in a worse mood than people in our data who experience little stress at work.</p>
+<p>Uh-oh! This means that exercise and mood will be correlated in the data, even if there is no direct relationship between them! Stress at work - a lurking third variable - is simply “pushing” on both mood and exercise frequency at once, causing them to fluctuate up and down in tandem (a.k.a. correlate). This is what we mean when we say that stress <em>confounds</em> the relationship between exercise and mood, and why confounding is also known as <em>third variable problems</em>.</p>
+<p>In the ice-cream-and-drowning-deaths example, weather conditions is a likely third variable causing an increase in both ice cream sales and number of deaths by drowning.</p>
+<p><img src="img/weather_icecream_drowning_confounding.svg" /></p>
+</div>
+<div id="selection-bias" class="section level1">
+<h1>Selection bias</h1>
+<p>Another way two variables can become correlated without any direct causal link is through selection bias. Selection happens when the variables we are interested in both cause a third variable, and that third variable determines who ends up in our dataset (also referred to as <a href="https://www.bmj.com/content/381/bmj.p1135">conditioning on a collider</a>). Left alone, collider structures do not cause X and Y to become correlated. But things change if we start selecting data points based on the shared outcome variable.</p>
+<p>For example, suppose that that people’s desire to participate in our exercise/mood survey is influenced both by their mood and by how much they exercise:</p>
+<ul>
+<li><strong>Mood bias:</strong> The worse mood someone is in when asked to participate, the less they want to participate.</li>
+<li><strong>Exercise bias:</strong> The survey was conducted at a local gym. People who work out frequently tend to be really focused during each workout and do not like to be disturbed. People who work out infrequently tend to wander while at the gym, and don’t mind being disturbed as much. Thus, the more someone works out, the less they want to participate.</li>
+</ul>
+<p><img src="img/exercise_mood_desire_selection_bias.svg" /></p>
+<p>“Desire to participate in survey” is marked with dashed lines in the figure to indicate that it is a <em>selection</em> variable for the survey. It is some property of the participants that influences how likely they are to end up being studied.</p>
+<p>In the example above, exercise and mood ends up being correlated in the survey data, even though they are completely unrelated to each other. Here is why:</p>
+<p>People who exercise often will only say yes to participating if they are in a really good mood. Conversely, people who are in a bad mood may say yes to participating, but only if they exercise rarely. Frequent gym-goers in a bad mood will never participate. This means that, in our data, people who report going to the gym often will tend to be happy. If they were not happy, they would not have agreed to participate (frequent gym-goers in a bad mood will never participate!). So exercise and mood ends up being correlated in the data because they both cause a third variable that is being selected on. This is what is meant by <em>selection bias</em>. The scatterplot below illustrates what happens in the data.</p>
+<p><img src="img/selection_bias_scatterplot.svg" /></p>
+<p>Each solid black circle represents a person that took our survey. Some exercise regularly (gym rats), some rarely (couch potatoes). Some are happy, and some are unhappy. Most are happy couch potatoes, since these are the most likely to answer. The gray dashed circles represent the unhappy gym rats that didn’t want to participate. See the problem? If we fit a regression line to the data we actually have, it clearly indicates a positive correlation between exercise frequency and mood (red dashed line). But it is a complete fluke! It only looks like correlation because we are selectively missing out on the unhappy gym rats in the population. If we had been able to recruit these, there would be no correlation between happiness and exercise frequency at all (gray dashed line).</p>
+<p>Like with confounder variables, all variables that can cause selection bias can lead to correlation between exercise and mood. Whenever a study has a large amount of people that choose <em>not</em> to participate, consider whether any obvious sources of selection bias could be at play.</p>
+</div>
+<div id="correlation-implies-one-of-the-following" class="section level1">
+<h1>Correlation implies one of the following…</h1>
+<p>In summary, a correlation between two variables in survey data does suggest some underlying causal mechanism that links the two variables (directly or indirectly). But there are at least five types of causal mechanisms that could produce this correlation:</p>
+<ol style="list-style-type: decimal">
+<li>A causes B</li>
+<li>B causes A</li>
+<li>A causes B and B causes A</li>
+<li>A and B are both caused by C</li>
+<li>A and B both cause D, and D is selected on</li>
+</ol>
+<p><img src="img/alternative_causal_models.svg" /></p>
+<p>In addition, several variations of 4 and 5 are often possible since it is possible to have multiple third variables and multiple sources of selection bias. Without any further information, all causal models that lead to the same correlation are equally plausible.</p>
+<p>Put simply, correlation indicates that <em>something</em> interesting might be going on, but we need to investigate further (do more research, collect more data, and utilize our expert knowledge) to figure out exactly <em>what</em> is going on!</p>
+</div>
+<div id="several-things-can-be-true-at-the-same-time" class="section level1">
+<h1>Several things can be true at the same time</h1>
+<p>Of course, it may be the case that <em>several</em> causal mechanisms are at play! We could have a third variable problem <em>and</em> a true causal effect of exercise on mood <em>AND</em> selection bias. The figure below shows a causal diagram in which all the hypotheses above are true:</p>
+<p><img src="img/all_causal_models_at_once.svg" /></p>
+<p>In this case, the problem is not that correlation does not equal causation. Rather, the strength of the correlation can be very different from the strength of the causal effect, because total correlation is a combination of <em>all</em> the mechanisms that lead to correlation. A strong raw correlation does not necessarily indicate a strong causal effect, and a weak raw correlation does not necessarily indicate a weak causal effect.</p>
+<p>For example, if there is a very strong confounding effect of stress at work, there can be strong correlation between exercise and mood even if the causal effect of exercise on mood is tiny. On the other hand, a strong causal effect could be masked by a third variable that generates correlation in the opposite direction from the causal effect.</p>
+</div>
+<div id="the-game-of-causal-inference" class="section level1">
+<h1>The game of causal inference</h1>
+<p>Causal inference is partly a game played using equal parts imagination and empirical observation. We can approach the game from two directions:</p>
+<ol style="list-style-type: decimal">
+<li>We can <em>imagine</em> causal models and then ask what <em>empirical observations</em> we should expect if a particular causal model is true. For example: “If exercise causes improvements in mood, what correlation/association should we expect to see between exercise and mood in our study?”. This kind of thinking lets us design studies to empirically test causal models we are interested in.</li>
+<li>We can look at <em>empirical observations</em> and then <em>imagine</em> what causal models could have produced those data. For example: “If there is a correlation between exercise and mood, what causal models are compatible with that observation?”. This kind of thinking helps us realize what causal models are interesting to begin with.</li>
+</ol>
+<p>The goal of the causal inference game is essentially to imagine all causal models that could plausibly explain the data we have, and then use the scientific method to falsify all the plausible but wrong models until only the one <em>true</em> causal model remains. The game can be hard to play, and the aspect people seem to struggle most with is the <em>imagining</em> part; the realization that multiple possible causal models could explain what we are seeing, and the willingness to play around with different models of what <em>could be true</em> given what we know. And yet, this imagining is perhaps the most important part of the entire science of causal inference. If you cannot imagine the truth, you cannot discover it. That is why it is so important to consider alternative causal hypotheses when interpreting data, and to honestly report all plausible alternatives to our audience.</p>
+<p>TLDR; correlation <em>may</em> imply causation since causation implies correlation. However correlation does not need to imply your favorite causal interpretation. To find the true explanation,</p>
+<p><img src="img/consider_all_the_causal_relations.png" /></p>
+</div>
+<div id="recommended-further-readings" class="section level1">
+<h1>Recommended further readings</h1>
+<div id="paper" class="section level2">
+<h2>Paper</h2>
+<p>Rohrer JM. Thinking Clearly About Correlations and Causation: Graphical Causal Models for Observational Data. Advances in Methods and Practices in Psychological Science. 2018;1(1):27-42. <a href="https://doi.org/10.1177/2515245917745629" class="uri">https://doi.org/10.1177/2515245917745629</a></p>
+</div>
+<div id="book" class="section level2">
+<h2>Book</h2>
+<p>Pearl, J., &amp; Mackenzie, D. (2019). The book of why. Penguin Books.</p>
+</div>
+</div>

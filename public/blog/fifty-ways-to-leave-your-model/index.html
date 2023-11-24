@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><head>
+  
+                           
+     
+
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.101.0" />
+<title>Fifty ways to leave your model | Peder M. Isager</title>
+
+
+<meta property="twitter:site" content="@peder_isager">
+<meta property="twitter:creator" content="@peder_isager">
+
+
+
+
+
+
+
+  
+    
+  
+<meta name="description" content="Personal website of Dr. Peder M. Isager">
+
+
+<meta property="og:site_name" content="Peder M. Isager">
+<meta property="og:title" content="Fifty ways to leave your model | Peder M. Isager">
+<meta property="og:description" content="Personal website of Dr. Peder M. Isager" />
+<meta property="og:type" content="page" />
+<meta property="og:url" content="https://pedermisager.org/blog/fifty-ways-to-leave-your-model/" />
+<meta property="og:locale" content="en">
+
+
+
+
+    
+        <meta property="og:image" content="https://pedermisager.org/blog/fifty-ways-to-leave-your-model/featured.png" >
+        <meta property="twitter:card" content="summary_large_image">
+        <meta name="twitter:image" content="https://pedermisager.org/blog/fifty-ways-to-leave-your-model/featured.png" >
+    
+    
+  <meta itemprop="name" content="Fifty ways to leave your model">
+<meta itemprop="description" content="A method for calculating the number of alternative causal models, given a number of variables/nodes."><meta itemprop="datePublished" content="2020-02-15T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-02-15T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1284"><meta itemprop="image" content="https://pedermisager.org/blog/fifty-ways-to-leave-your-model/featured.png">
+<meta itemprop="keywords" content="causal graphs,graph theory,corroboration," />
+  
+  
+  <!--[if IE]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
+  
+  
+  <link rel="stylesheet" href="/style.main.min.51048f8224904aac943a02f6057e4a47960d1d64abe43e43820ed1b3017122c1.css" integrity="sha256-UQSPgiSQSqyUOgL2BX5KR5YNHWSr5D5Dgg7RswFxIsE=" media="screen">
+  
+  
+  <script src="/panelset.min.dca42702d7daf6fd31dc352efd2bcf0e4ac8c05ccaa58d9293f6177462de5d5f.js" type="text/javascript"></script>
+  
+  
+  <script src="/main.min.a75546a6048e92fe5f1c0f124398a10e6163b026a10a151f920863fa7b8e7874.js" type="text/javascript"></script>
+</head>
+<body>
+      <div class="grid-container">
+<header class="site-header pt4 pb2 mb4 bb b--transparent ph5 headroom z-max" role="banner">
+  <nav class="site-nav db dt-l w-100" role="navigation">
+    <a class="site-brand db dtc-l v-mid link no-underline w-100 w-33-l tc tl-l" href="https://pedermisager.org/" title="Home">
+      <img src="/img/home_icon.png" class="dib db-l h2 w-auto" alt="Peder M. Isager">
+    </a>
+    <div class="site-links db dtc-l v-mid w-100 w-47-l tc tr-l mt3 mt0-l ttu tracked">
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 active" href="/blog/" title="Blog">Blog</a>
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 " href="/talk/" title="Talks">Talks</a>
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 " href="/files/cv.pdf" title="CV">CV</a>
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 " href="https://pure.tue.nl/ws/portalfiles/portal/200554284/20220524_Isager_hf.pdf" title="Deciding What To Replicate">PhD thesis</a>
+      
+      
+    </div>
+  </nav>
+</header>
+
+<main class="page-main pa4" role="main">
+  <section class="page-content mw7 center">
+    <article class="post-content pa0 ph4-l">
+      <header class="post-header">
+        <h1 class="f1 lh-solid measure-narrow mb3 fw4">Fifty ways to leave your model</h1>
+        
+        <p class="f6 measure lh-copy mv1">By Peder M. Isager</p>
+        <p class="f7 db mv0 ttu">February 15, 2020</p>
+
+      
+
+      </header>
+      <section class="post-body pt5 pb4">
+        
+
+
+<blockquote>
+<p>The problem is all inside your head, she said to me.<br/> The answer is easy if you take it logically.<br/> I’d like to help you in your struggle to be free.<br/> There must be fifty<sup>2.2162</sup> ways to leave your <del>lover</del>model.</p>
+</blockquote>
+<p>Suppose we have a theory about the mechanism that sustains insomnia. The theory can be roughly summarized in a (dynamic) causal graph model like so:</p>
+<div class="figure"><span style="display:block;" id="fig:figs"></span>
+<img src="https://pedermisager.org/blog/fifty-ways-to-leave-your-model/index_files/figure-html/figs-1.png" alt="\label{fig:figs} *Example causal model.*" width="672" />
+<p class="caption">
+Figure 1:  <em>Example causal model.</em>
+</p>
+</div>
+<p>Suppose our model is supported by reliable observational data which suggests that the four concepts in the model above comprise a necessary and sufficient set of components to describe insomnia maintenance. However, the observational data are purely qualitative, and cannot tell us anything about the causal relationships between these concepts. We nonetheless draw in some arrows (perhaps based on our clinical or scientific intuition) and get the model above. Given no data to support our causal beliefs, how likely are we to have drawn the right model by chance? How many alternative models could we have considered for these variables?</p>
+<p>Generating alternative causal models can be expressed as a combinatorial problem. There are a number variable pairs that we can have a causal hypothesis about (e.g. “A, B”), and for each pair of variables there is a finite set of possible causal relationships (edges) that we could hypothesize e.g. (“→”, “←”). In other words there are <em>||edges||</em> hypotheses to choose from (double vertical lines stand for the number of elements, or <a href="https://simple.wikipedia.org/wiki/Cardinality">cardinality</a>, of the set of edges), and we are going to choose an edge <em>pairs</em> number of times (with replacement). Using the <a href="https://en.wikipedia.org/wiki/Rule_of_product">rule of product</a>, assuming all edges are possible for all pairs, we can calculate the number of possible models like so:</p>
+<p><span class="math display">\[
+\begin{equation}
+Models=||edges||^{pairs}
+\tag{1}
+\end{equation}
+\]</span></p>
+<p>How many edges are there? An undirected graph has only 2 possible edges for every pair of nodes (“A ー B” and “A ⊥ B”). A directed acyclic graph has three possible edges (“A → B”, “A ← B”, “A ⊥ B”), and a dynamic causal model has four (“A → B”, “A ← B”, “A ⊥ B”, and “A ↔︎ B”). Since our example model is dynamic (it contains a feedback loop), we must allow for dynamic “↔︎” edges. Then we have four possible edges in the set of edges:</p>
+<p><span class="math display">\[
+\begin{equation}
+||edges||=4
+\tag{2}
+\end{equation}
+\]</span>
+How many node pairs are there? For two nodes (A,B) there is only one pair we can make (AB, which is equivalent to BA), and for three nodes (A,B,C) there are only three pairs we can make (AB, AC, BC). Since the number of pairs grows exponentially with the number of nodes, it becomes cumbersome to count out the possible pairs after a while. However, if we know the number of nodes we can derive the number of pairs automatically.</p>
+<p>One way to count the number of pairs would be to draw a graph of our nodes with an edge between every pair of nodes, and then count the number of edges. Since every pair of nodes have an edge between them, the number of edges equals the number of pairs. Below is such a graph for our example model. There are 6 edges in this graph, which is also the number of possible pairs of variables (AB, AC, AD, BC, BD, CD).</p>
+<div class="figure"><span style="display:block;" id="fig:figs2"></span>
+<img src="https://pedermisager.org/blog/fifty-ways-to-leave-your-model/index_files/figure-html/figs2-1.png" alt="\label{fig:figs2} *All possible pairs in example model, represented as undirected edges.*" width="672" />
+<p class="caption">
+Figure 2:  <em>All possible pairs in example model, represented as undirected edges.</em>
+</p>
+</div>
+<p>A graph where all pairs are connected is called a fully connected graph. In a fully connected graph, we also know the number of other nodes each node is connected to; the vertex number <em>V</em> of each node. Since all nodes are connected to all other nodes, each node has a vertex number of <em>n</em>-1 (all nodes, minus the one we’re looking at). Since all nodes have the same vertex number, we can multiply <em>n</em>-1 by the number of nodes <em>n</em> to get the total vertex number V<sub>total</sub> of the graph.</p>
+<p>Now, if we know the number of nodes and the total vertex number V<sub>total</sub> of a graph, we can use this information to derive the number of edges (i.e. the number of variable pairs). The equation looks like this:</p>
+<p><span class="math display">\[
+\begin{equation}
+pairs=\frac{V_{total}}{2}
+\tag{3}
+\end{equation}
+\]</span></p>
+<p>In our example model (figure 1), we have four nodes. Therefore:</p>
+<p><span class="math display">\[
+\begin{equation}
+pairs=\frac{V_{total}}{2}=\frac{nodes(nodes-1)}{2}=\frac{4(4-1)}{2}=6
+\tag{4}
+\end{equation}
+\]</span>
+Now that we know both the number of possible causal relationships (edge types) and the number of possible variables pairs (edges) in our example model, we can plug them into equation 1 to find the total number of alternative models:</p>
+<p><span class="math display">\[
+\begin{equation}
+Models=||edges||^{pairs}=4^6=4096
+\tag{5}
+\end{equation}
+\]</span></p>
+<p>Yikes. Even with only four variables, we have 4096<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> possible causal models to choose from! If we add another variable to the model, the number of alternatives grows to over a million. In other words, in absence of any data we should probably not take our model too seriously.</p>
+<p>What could we use this information for? First of all, it clearly indicates we ought to take causal hypotheses about complex systems (like symptom networks) with a hefty grain of salt before we have data on the table. For a system of only 4 variables, you have about a 0.024% chance of getting the causal structure right on the first try.</p>
+<p>Second, it might be interesting to use information about equivalent models to evaluate the falsifying power of different study outcomes. In the context of causal models, severe empirical studies help us rule out/falsify certain causal hypotheses. This means that, given data, some variable pairs have fewer edges to choose from, because some edges are now ruled out by the data. In order to calculate how many models are ruled out by a certain study outcome, we need to modify formula 1 somewhat. For models with <em>pairs</em> number of pairs, with a different number of possible edges for each pair <em>i</em>, we can calculate the number of possible models like so<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>:</p>
+<p><span class="math display">\[
+\begin{equation}
+Models=\displaystyle\prod_{i=1}^{pairs} edges_{i}
+\tag{6}
+\end{equation}
+\]</span>
+Suppose we conduct an experiment which shows that insomnia causes fatigue and not the other way around (with absolute certainty, for the sake of illustration). Thus, we have determined (Insomnia → Fatigue) and falsified (Insomnia ← Fatigue), (Insomnia ↔︎ Fatigue) and (Insomnia ⊥ Fatigue). Now we have 5 pairs with 4 possible edges, and 1 pair (insomnia, fatigue) with only 1 possible edge (“→”). We can find the number of models that are equivalent with our finding like so:</p>
+<p><span class="math display">\[
+\begin{equation}
+Models=\displaystyle\prod_{i=1}^{pairs} edges_{i}=4\times4\times4\times4\times4\times1=4^51^1=1024
+\tag{7}
+\end{equation}
+\]</span>
+Perhaps we could use this information to assess the theoretical value of conducting particular studies. For example, if we are considering whether to conduct an experiment that would give us near certain knowledge about a particular edge in our causal graph, that experiment would exclude 1-1024/4096=75% of all possible causal theories we could make about these variables. Compare this to an observational study that would be able to rule out one edge from each of three pairs:</p>
+<p><span class="math display">\[
+\begin{equation}
+Models=\displaystyle\prod_{i=1}^{pairs} edges_{i}=4\times4\times4\times3\times3\times3=4^33^3=1728
+\tag{8}
+\end{equation}
+\]</span></p>
+<p>Thus, even though the observational study rules out as many edges overall as our experiment, it only rules out about ¾ as many models as the experiment does. In other words, if our goal is simply to rule out/falsify as many causal models as possible, the experiment would be the more efficient study choice in this case. To the extent that we can say something about the falsifying power of different study designs before they are conducted, the reduction in alternative models post data could be used to decide which study would be the most efficient to conduct next.</p>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>4096≈50<sup>2.1262</sup>, which means my title is almost no stretch at all!<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>You could also substitute this equation for equation 1 and arrive at the exact same results.<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+
+        
+        <details closed class="f6 fw7 input-reset">
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Posted on:</dt>
+    <dd class="fw5 ml0">February 15, 2020</dd>
+  </dl>
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Length:</dt>
+    <dd class="fw5 ml0">7 minute read, 1284 words</dd>
+  </dl>
+  
+  
+  
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Tags:</dt>
+    <dd class="fw5 ml0"> <a href="https://pedermisager.org/tags/causal-graphs">causal graphs</a>  <a href="https://pedermisager.org/tags/graph-theory">graph theory</a>  <a href="https://pedermisager.org/tags/corroboration">corroboration</a> </dd>
+  </dl>
+  
+  <dl class="f6 lh-copy">
+    <dt class="fw7">See Also:</dt>
+    
+    <dd class="fw5 ml0"><a href="/blog/why_does_correlation_not_equal_causation/">Why does correlation not equal causation?</a></dd>
+    
+    <dd class="fw5 ml0"><a href="/blog/quantifying-the-corroboration-of-a-finding/">Quantifying the corroboration of a finding</a></dd>
+    
+  </dl>
+</details>
+
+      </section>
+      <footer class="post-footer">
+        <div class="post-pagination dt w-100 mt4 mb2">
+  
+  
+    <a class="prev dtc pr2 tl v-top fw6"
+    href="https://pedermisager.org/blog/what-is-worth-replicating/">&larr; What is Worth Replicating? - SIPS 2020 Unconference session</a>
+  
+  
+  
+    <a class="next dtc pl2 tr v-top fw6"
+    href="https://pedermisager.org/blog/meta-research-at-the-psa/">Meta-research at the Psychological Science Accelerator &rarr;</a>
+  
+</div>
+
+      </footer>
+    </article>
+    
+      
+<div class="post-comments pa0 pa4-l mt4">
+  
+  <script src="https://utteranc.es/client.js"
+          repo="apreshill/apero"
+          issue-term="pathname"
+          theme="boxy-light"
+          label="comments :crystal_ball:"
+          crossorigin="anonymous"
+          async
+          type="text/javascript">
+  </script>
+  
+</div>
+
+    
+  </section>
+</main>
+<footer class="site-footer pv4 bt b--transparent ph5" role="contentinfo">
+  <nav class="db dt-l w-100">
+    <p class="site-copyright f7 db dtc-l v-mid w-100 w-33-l tc tl-l pv2 pv0-l mv0 lh-copy">
+      &copy; 2023 RStudio, Anywhere
+      <span class="middot-divider"></span>
+      Made with <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/hugo-apero/" rel="dct:source">Hugo Apéro</a></span>.
+      <br />
+      
+Based on <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/formspree/blogophonic-hugo" rel="dct:source">Blogophonic</a></span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://formspree.io" property="cc:attributionName" rel="cc:attributionURL">Formspree</a>.
+    </p>
+    
+    <div class="site-social-links db dtc-l v-mid w-100 w-33-l tc pv2 pv0-l mv0">
+      <div class="social-icon-links" aria-hidden="true">
+  
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://github.com/pederisager" title="github" target="_blank" rel="noopener">
+      <i class="fab fa-github fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://twitter.com/peder_isager" title="twitter" target="_blank" rel="noopener">
+      <i class="fab fa-twitter fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://www.linkedin.com/in/peder-mortvedt-isager-a104966a/" title="linkedin" target="_blank" rel="noopener">
+      <i class="fab fa-linkedin fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="http://orcid.org/0000-0002-6922-3590" title="orcid" target="_blank" rel="noopener">
+      <i class="ai ai-orcid fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://scholar.google.com/citations?user=_EcbBtYAAAAJ&amp;hl=no&amp;oi=ao" title="graduation-cap" target="_blank" rel="noopener">
+      <i class="fas fa-graduation-cap fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://oslonyehoyskole.no/om-oss/ansatte/peder-mortvedt-isager" title="landmark" target="_blank" rel="noopener">
+      <i class="fas fa-landmark fa-lg fa-fw"></i>
+    </a>
+  
+</div>
+
+    </div>
+    
+    <div class="site-links f6 db dtc-l v-mid w-100 w-67-l tc tr-l pv2 pv0-l mv0">
+      
+      <a class="dib pv1 ph2 link" href="/license/" title="License">License</a>
+      
+    </div>
+  </nav>
+  
+    <script>
+
+    var i, text, code, codes = document.getElementsByTagName('code');
+    for (let i = 0; i < codes.length;) {
+      code = codes[i];
+      if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+        text = code.textContent;
+        if (/^\$[^$]/.test(text) && /[^$]\$$/.test(text)) {
+          text = text.replace(/^\$/, '\\(').replace(/\$$/, '\\)');
+          code.textContent = text;
+        }
+        if (/^\\\((.|\s)+\\\)$/.test(text) ||
+            /^\\\[(.|\s)+\\\]$/.test(text) ||
+            /^\$(.|\s)+\$$/.test(text) ||
+            /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+          code.outerHTML = code.innerHTML;  
+          continue;
+        }
+      }
+      i++;
+    }
+</script>
+
+  
+    
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+
+
+    
+  
+  
+</footer>
+
+      </div>
+    </body>
+</html>

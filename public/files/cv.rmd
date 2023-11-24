@@ -1,0 +1,340 @@
+---
+title: "Curriculum Vitae"
+author: "Peder M Isager"
+date: "August 5, 2022"
+output: pdf_document
+urlcolor: blue
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+-------------------          ----------------------------
+P.O. Box 513                       email: p.isager@tue.nl
+5600 MB, Eindhoven                 twitter: @peder_isager
+Netherlands                        phone: 0047 976 51 974
+-------------------          ----------------------------
+
+
+## Education 
+
+2017-2022
+:   **Doctor's degree**; Eindhoven University of Technology
+
+    Specializations: Research methods, statistics, replication. 
+    
+    Thesis title: *Deciding what to replicate.*
+    
+    Thesis link: https://pure.tue.nl/ws/portalfiles/portal/200554284/20220524_Isager_hf.pdf. 
+    
+    Supervisors: Daniël Lakens, Anna van 't Veer, Chris Snijders.
+\
+
+2015-2017 
+:   **Master's degree, Cognitive Neuroscience**; University of Oslo
+
+    Specializations: Psychopharmacology, fMRI.
+    
+    Thesis title: *$\mu$-Opioid Modulation of Reported Wanting of Palatable Food Images.*
+    
+    Thesis link: https://doi.org/10.31237/osf.io/8nvb9.
+    
+    Supervisors: Siri Leknes, Marie Eikemo, Tom Johnstone.
+\
+
+2012-2015
+:   **Bachelor's degree, Psychology**; University of Oslo
+
+    Specializations: cognitive psychology, social psychology.
+    
+    Thesis title: *Cognitive representation of social status hierarchies.*
+    
+    Thesis link: https://doi.org/10.31237/osf.io/w6qkv.
+    
+    Supervisor: Thomas W. Schubert.
+
+## Employment history
+
+2021-present
+:   **Associate professor**; Oslo New University College
+    
+    Employed at the department of Psychology. Main responsibilites: develop and teach quantitative research methods course at the masters level, supervise master student projects, act as department superuser for research software services, conduct independent research. 
+\
+    
+
+2017-2021 
+:   **Doctoral candidate (paid position)**; Eindhoven University of Technology
+
+    PhD position funded by VIDI Grant 452-17-013 - “Increasing the Reliability and Efficiency of Psychological Science” - from the Netherlands Organisation for Scientific Research. Conducted independent research and assisted with teaching.
+\
+
+2017
+:   **Research assistant, [Center for Social and Affective Neuroscience](https://liu.se/en/organisation/liu/ike/csan)**; Linköping University
+
+    Two-month funded RA position. Assisted with experiment logistics, data collection, and analysis in project studying social touch in human subjects.
+\
+
+2015-2017
+:   **Research assistant, [Leknes Affective Brain Lab](https://sirileknes.com/)**; University of Oslo
+
+    Internship with a wide range of responsibilities, including: Collection and analysis of more than 100 fMRI datasets along with physiological and behavioral data; Responsible for organizing lab meetings; Presentation of data at international scientific meetings; Peer review of papers in international journals; etc.
+\
+
+2014-2017
+:   **Research assistant, Thomas W. Schubert**; University of Oslo
+
+    Responsibilities including: Developing reaction time paradigm on Qualtrics for the MTurk platform; Assisting with setup of Virtual Reality laboratory; Assisting literature search.
+
+## Publications
+
+### 2021
+
+**Isager, P. M.**, van Aert, R. C. M., Bahník, Š., Brandt, M. J., DeSoto, K. A., Giner-Sorolla, R., ... Lakens, D. (2021). Deciding what to replicate: A Decision Model for Replication Study Selection Under Resource and Knowledge Constraints. *Psychological Methods*, https://doi.org/10.1037/met0000438
+
+Buchanan, E. M., Crain, S. E., Cunningham, A. L., Johnson, H. R., Stash, H., Papadatou-Pastou, M., ... **Isager, P. M.**, ... & Aczel, B. (2021). Getting Started Creating Data Dictionaries: How to Create a Shareable Data Set. *Advances in Methods and Practices in Psychological Science*, 4(1), 2515245920928007.
+
+### 2020
+
+**Isager, P. M.** (2020, September 28). Test validity defined as d-connection between target and measured attribute: Expanding the causal definition of Borsboom et al. (2004). *PsyArxiv* https://doi.org/10.31234/osf.io/btgsr
+
+Scheel, A. M., Tiokhin, L., **Isager, P. M.**, & Lakens, D. (2020). Why hypothesis testers should spend less time testing hypotheses. *Perspectives on Psychological Science*, 1745691620966795.
+
+Botvinik-Nezer, R., Holzmeister, F., Camerer, C. F., Dreber, A., Huber, J., Johannesson, M., ..., **Isager, P. M.**, ... & Avesani, P. (2020). Variability in the analysis of a single neuroimaging dataset by many teams. *Nature*, 582, 84–88, https://doi.org/10.1038/s41586-020-2314-9
+
+Lakens, D., McLatchie, N., **Isager, P. M.**, Scheel, A. M., & Dienes, Z. (2020). Improving inferences about null effects with Bayes factors and equivalence tests. *The Journals of Gerontology: Series B.*, gby065, https://doi.org/10.1093/geronb/gby065
+
+
+### 2019
+
+McIntyre, S., Moungou, A., Boehme, R., **Isager, P. M.**, Lau, F., Israr, A., ... & Olausson, H. (2019, July). Affective touch communication in close adult relationships. In *2019 IEEE World Haptics Conference (WHC)* (pp. 175-180). IEEE.
+
+### 2018
+
+Moshontz, H., Campbell, L., Ebersole, C. R., IJzerman, H., Urry, H. L., ..., **Isager, P. M.**, ... Chartier, C. R. (2018). The Psychological Science Accelerator: Advancing Psychology Through a Distributed Collaborative Network. *Advances in Methods and Practices in Psychological Science*, 1(4), 501–515. https://doi.org/10.1177/2515245918797607
+
+Holmgren, J.\*, **Isager, P. M.,**\*, Schubert, T. W. (2018). Evidence for magnitude representations of social hierarchies: Size and distance effects. *PLOS ONE* 13(9), e0203263. https://doi.org/10.1371/journal.pone.0203263. \**Joint first-authors*
+
+Coles, N., Tiokhin, L., Scheel, A. M., **Isager, P.**, & Lakens, D. (2018). The costs and benefits of replication studies. *Behavioral and Brain Sciences*, 41, [e124]. DOI: 10.1017/S0140525X18000596
+
+Lakens, D., Scheel, A. M., & **Isager, P. M**. (2018). Equivalence Testing for Psychological Research: A Tutorial. *Advances in Methods and Practices in Psychological Science*, 1(2), 259–269. https://doi.org/10.1177/2515245918770963
+
+Løseth, G. E., Eikemo, M., **Isager, P.**, Holmgren, J., Laeng, B., Vindenes, V., ... & Leknes, S. (2018). Morphine reduced perceived anger from neutral and implicit emotional expressions. *Psychoneuroendocrinology*, 91, 123-131. DOI: 10.1038/s41562-018-0311-x
+
+Lakens, D., Adolfi, F. G., Albers, C. J., Anvari, F., Apps, M. A., ... **Isager, P. M.**, ... & Buchanan, E. M. (2018). Justify your alpha. *Nature Human Behaviour*, 2(3), 168.
+
+
+
+
+## Invited talks
+
+2020
+:   **Deciding what to replicate**; University of Groningen
+\
+
+2020
+:   **What is worth replicating? Formalizing a core decision problem in replication research**; University of Cambridge
+\
+
+2020
+:   **Choosing what to replicate: Efficient study selection in the modern age**; Rotterdam RIOTS club. Link to online recording: https://www.youtube.com/watch?v=0j-nKDCPcRQ
+\
+
+2019
+:   **Sharing data via the Open Science Framework**; Eindhoven University of Technology
+\
+
+2018
+:   **Metascience, ontologies, and me**; VU Amsterdam
+\
+
+2018
+:   **Innovations in research methods: Nuances in best practices**; University of Oslo
+
+## Conferences
+
+### Organization
+
+2020
+:   **Symposium chair**; Berlin, Germany
+
+    Chaired and helped organize symposium at the Reward|EQUATOR conference, held at Charité, Berlin.
+
+2016
+:   **Head organizer of dept. research symposium**; University of Oslo
+
+    Local symposium communicating department research projects to students. Responsibilities: Securing funding; Recruiting speakers; Promotion; Event logistics, project presentation at event.
+
+### Presentations
+
+2020
+:   **Psychological Science Accelerator Conference 2020**; Online
+
+    Silan, M,, Isager, P. M., Szabelska, A., a t almedia, I., Pfuhl, G. *Theory and Measurement Projects - Possible Submission Types?*
+
+2020
+:   **Reward|EQUATOR conference**; Berlin, Germany
+
+    Isager, P. M. *Quantifying the replication value of research findings: Increase the return on investment in replication research.*
+
+2019
+:   **Tilburg Meta-Research Day**; Tilburg, Netherlands
+
+    Isager, P. M., van Assen, M. *How can meta-research improve the Psychological Science Accelerator (PSA) and how can the PSA improve meta-research?*
+
+2019
+:   **ZPID Open Science**; Trier, Germany
+
+    Isager, P. M. *Quantifying replication value: A formula-based approach to study selection in replication research*
+
+2017
+:   **International Convention of Psychological Science**; Vienna, Austria
+
+    Isager P. M., Holmgren J, Schubert T.W. *Social status as magnitude: The distance effect in social hierarchies. Part of the symposium Space for Cognition: Consequences of Biases in Spatial Cognition.*
+
+
+### Posters
+
+2019
+:   **Society for the Improvement of Psychological Science**; Rotterdam, Netherlands
+
+    **Peder M. Isager**, Anna van ‘t Veer, Tobias Nosten, Els Janson, Daniël Lakens. *Quantifying Replication Value: A guide in the decision of what to replicate.* Poster on OSF: https://osf.io/92ecp
+    
+2016
+:   **Reading Emotions**; Reading, United Kingdom
+
+    **Isager P. M.**, Eikemo M, Holmgren J, Nilsen AS, Vindenes V, Johnstone T, Leknes S. *Effect of morphine on hedonic evaluation of palatable food images in healthy humans.*
+    
+2015
+:   **Center for Social and Affective Neuroscience, Inaugural symposium**; Linköping, Sweden
+
+    **Isager P. M.**, Eikemo E, Vindenes V, Leknes S. *Effects of $\mu$-opioid agonism on reward behavior: subjective liking and disliking of win/loss stimuli.*
+
+### Abstracts
+
+2020
+:    **Psychological Science Accelerator Conference 2020**; Online
+
+    Silan, M,, **Isager P. M.** *Study Incubation as an Alternative to Standard Peer Review.*
+
+2018
+:   **Organization for Human Brain Mapping, annual meeting**; Singapore
+
+    Eikemo, M., **Isager, P. M.**, Lie, S. Ø., Holmgren, J., Nilsen, A. S., Ernst, G., Vindenes, V., Hjørnevik, T., Leknes, S., Johnstone, T., *Bayes Factor analysis of pulse, respiration and BOLD signal changes following a low analgesic dose of morphine.*
+    
+2018
+:  **51. Kongress de DGPs**; Frankfurt am Main, Germany
+
+    Scheel, A. M., **Isager, P. M.**, Lakens, D., *Equivalence Testing for Psychological Research.*
+    
+2018
+:   **Society for Social Neuroscience, annual meeting**; San Diego, United States
+
+    McIntyre, S., Hauser, S.C., Homman, L., Kusztor, A., Isager, P. M., Moungou, A., Nagi, S., Israr, A., Gerling, G. J., Olausson, H., *Standardised gestures can be used for interpersonal touch communication.*
+
+
+## Media outreach
+
+2018
+:   **Solving big problems with big collaborations in psychological research**; Psykologisk Tidsskrift (Norwegian)
+\
+
+2018
+:   **[SpecialiTea 5 - Peder](https://soundcloud.com/reproducibilitea/specialitea-5-peder)**; ReproducibiliTea (Podcast)
+
+
+## Competitive funding and awards
+
+Travel Grant, Society for the Improvement of Open Science, Rotterdam, NL (USD 400)
+
+Travel Grant, Open Science Conference, Berlin, DE (USD 300)
+
+
+## Teaching experience
+
+* Applied quantitative research methods (ONH MA course. Course administrator)
+* Advanced Cognition (TU/e MA course. One lecture each year for two years)
+* Bachelor End Project - Human Technology Interaction (TU/e BA course. Five bachelor projects supervised and graded)
+* Brain, Body and Behavior (TU/e BA course. Two lectures each year for two years, group supervision and exam grading)
+* Introduction to the HTI domain (TU/e MA course. One lecture each year for two years)
+* Quantitative Research methods (TU/e BA course. Group supervision and exam grading)
+* Thinking and Deciding (TU/e MA course. Debate moderating and assignment grading)
+* Software Carpentry workshop (TU/e workshop for employees. Assistance during R and Unix classes)
+
+\pagebreak
+
+## Service experience
+
+2022-present
+:   **Assistant director of Data**; Psychological Science Accelerator
+
+2018-2022
+:   **Board member, Data & Methods committee**; Psychological Science Accelerator
+
+    Responsibilities include organization of committee meetings, voting, drafting and ratification of policy documents, and review of research proposals submitted to the organization.
+    
+2017
+:   **Board member, Community Development Committee**; Thesis Commons
+
+    Contributed as volunteer board member to the launch of Thesis Commons, a preprint server powered by OSF Preprints. Primary contribution consisted of promoting the service to early adopters.
+
+
+## Ad-hoc reviews
+
+* Advances in Methods and Practices in Psychological Science
+* CollabraOA
+* Meta-psychology
+* PAIN
+* Royal Society Open Science
+* Social Cognitive and Affective Neuroscience
+
+
+## Professional training
+
+* Winter School - Psychological Networks Amsterdam Winter School (2020)
+* Summer School - Würzburg International Summer School on Social Cognition and Neuroscience (2017)
+* PhD course - Supervising master students (2019)
+* PhD course - Supervising bachelor students (2018)
+* PhD course - Scientific integrity (2018)
+* PhD course - Poster design and presentation (2018)
+* Workshop - Interacting with the Abel supercomputer at UiO (2016)
+* Workshop - Data Carpentry, research data management (2015)
+* Workshop - Software Carpentry, introduction to R, Unix, Git and Python (2015)
+
+## Professional skills
+
+### Programming & data analysis software
+
+* R (expert)
+* Excel (working knowledge)
+* FSL (brain imaging analysis software - working knowledge)
+* Git (working knowledge)
+* Matlab (working knowledge)
+* SPSS (working knowledge)
+* Unix Shell (working knowledge)
+* Python (beginner)
+* SLURM computer cluster interface (beginner)
+
+### Languages
+
+I am fluent in both written and verbal English and Norwegian. 
+
+\pagebreak
+
+## References
+
+**Prof. Daniël Lakens**
+:   Industrial Engineering & Innovation Sciences, Eindhoven University of Technology
+
+    Phone: (+31) 40-247 4581
+    
+    Email: D.Lakens@tue.nl
+    
+**Prof. Anna van 't Veer**
+:   Institute of Psychology, Leiden University
+
+    Phone: (+31) 71 527 1822
+    
+    Email: a.e.van.t.veer@fsw.leidenuniv.nl
+
+    

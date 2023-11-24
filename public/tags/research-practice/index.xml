@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>research practice on Peder M. Isager</title>
+    <link>https://pedermisager.org/tags/research-practice/</link>
+    <description>Recent content in research practice on Peder M. Isager</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 17 Dec 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://pedermisager.org/tags/research-practice/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Meta-research at the Psychological Science Accelerator</title>
+      <link>https://pedermisager.org/blog/meta-research-at-the-psa/</link>
+      <pubDate>Tue, 17 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://pedermisager.org/blog/meta-research-at-the-psa/</guid>
+      <description>Summary of unconference session at Tilburg Meta-research day 2019.</description>
+    </item>
+    
+    <item>
+      <title>Proposing a theory committee at the Psychological Science Accelerator</title>
+      <link>https://pedermisager.org/blog/psa-theory-committee/</link>
+      <pubDate>Sun, 25 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://pedermisager.org/blog/psa-theory-committee/</guid>
+      <description>(written in collaboration with Nicholas A. Coles)
+The Psychological Science Accelerator (PSA) is a global network of psychological laboratories that organizes large-scale empirical research projects. The organization aims “to accelerate the accumulation of reliable and generalizable evidence in psychological science” (Moshontz et al. 2018). To succeed in this mission, the PSA has created several committees that work together to address important challenges in producing high quality research, such as having access to an inferentially meaningful sample size, reducing the reliance on WEIRD participants, and improving the methodological quality of designs and analyses.</description>
+    </item>
+    
+    <item>
+      <title>Ganging Up on Psychological Science</title>
+      <link>https://pedermisager.org/blog/ganging-up-on-psych-science/</link>
+      <pubDate>Fri, 31 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://pedermisager.org/blog/ganging-up-on-psych-science/</guid>
+      <description>Sometimes, the costs of doing good science outgrow the resources available to the individual scientist. Large scale collaboration projects are quickly becoming our best tool for dealing with this problem in psychology.</description>
+    </item>
+    
+  </channel>
+</rss>

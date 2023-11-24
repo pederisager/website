@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Peder&#39;s blog on Peder M. Isager</title>
+    <link>https://pedermisager.org/blog/</link>
+    <description>Recent content in Peder&#39;s blog on Peder M. Isager</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 24 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://pedermisager.org/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Why does correlation not equal causation?</title>
+      <link>https://pedermisager.org/blog/why_does_correlation_not_equal_causation/</link>
+      <pubDate>Fri, 24 Nov 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://pedermisager.org/blog/why_does_correlation_not_equal_causation/</guid>
+      <description>This blog post is a beginners guide to the relationship between causation and correlation. In it, I will explain why it makes sense to think about causal explanations for observed correlation, why correlation does not always imply causation, and which alternative causal models to consider when you are trying to figure out why two variables in your data are correlated. The blog post is intended as a non-technical introduction. I use only words and pictures to explain all concepts and logic, and I use a running example from health psychology to illustrate. The post should be relevant to anyone who is interested in using data to understand causal mechanisms.</description>
+    </item>
+    
+    <item>
+      <title>What is Worth Replicating? - SIPS 2020 Unconference session</title>
+      <link>https://pedermisager.org/blog/what-is-worth-replicating/</link>
+      <pubDate>Tue, 30 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://pedermisager.org/blog/what-is-worth-replicating/</guid>
+      <description>Given that most research is original and we have limited resources available for replication, we need guidelines for study selection in replication research. But what makes a study worth replicating? In our unconference session at SIPS this year, we had the pleasure of discussing this problem with fifty-some enthusiastic scholars. Here is a quick summary of what they taught us.
+First off, we went into this session with our own prior beliefs about what makes a study worth replicating.</description>
+    </item>
+    
+    <item>
+      <title>Fifty ways to leave your model</title>
+      <link>https://pedermisager.org/blog/fifty-ways-to-leave-your-model/</link>
+      <pubDate>Sat, 15 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://pedermisager.org/blog/fifty-ways-to-leave-your-model/</guid>
+      <description>A method for calculating the number of alternative causal models, given a number of variables/nodes.</description>
+    </item>
+    
+    <item>
+      <title>Meta-research at the Psychological Science Accelerator</title>
+      <link>https://pedermisager.org/blog/meta-research-at-the-psa/</link>
+      <pubDate>Tue, 17 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://pedermisager.org/blog/meta-research-at-the-psa/</guid>
+      <description>Summary of unconference session at Tilburg Meta-research day 2019.</description>
+    </item>
+    
+    <item>
+      <title>Mixed model equivalence test using R and PANGEA</title>
+      <link>https://pedermisager.org/blog/mixed_model_equivalence/</link>
+      <pubDate>Mon, 25 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://pedermisager.org/blog/mixed_model_equivalence/</guid>
+      <description>How to calculate an equivalence test, and power for an equivalence test, for a fixed effect in a mixed effects model using R and PANGEA.</description>
+    </item>
+    
+    <item>
+      <title>Proposing a theory committee at the Psychological Science Accelerator</title>
+      <link>https://pedermisager.org/blog/psa-theory-committee/</link>
+      <pubDate>Sun, 25 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://pedermisager.org/blog/psa-theory-committee/</guid>
+      <description>(written in collaboration with Nicholas A. Coles)
+The Psychological Science Accelerator (PSA) is a global network of psychological laboratories that organizes large-scale empirical research projects. The organization aims “to accelerate the accumulation of reliable and generalizable evidence in psychological science” (Moshontz et al. 2018). To succeed in this mission, the PSA has created several committees that work together to address important challenges in producing high quality research, such as having access to an inferentially meaningful sample size, reducing the reliance on WEIRD participants, and improving the methodological quality of designs and analyses.</description>
+    </item>
+    
+    <item>
+      <title>Quantifying the corroboration of a finding</title>
+      <link>https://pedermisager.org/blog/quantifying-the-corroboration-of-a-finding/</link>
+      <pubDate>Fri, 12 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://pedermisager.org/blog/quantifying-the-corroboration-of-a-finding/</guid>
+      <description>A summary of the pros and cons of multiple candidate statistics.</description>
+    </item>
+    
+    <item>
+      <title>How to share your data online with OSF</title>
+      <link>https://pedermisager.org/blog/how-to-share-your-data-with-osf/</link>
+      <pubDate>Tue, 02 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://pedermisager.org/blog/how-to-share-your-data-with-osf/</guid>
+      <description>The Open Science movement is here to stay. However, incorporating open practices like data sharing into your work flow can seem like a challenging task. If you have never made data available online before, the process can feel a bit daunting. Where should I put the data? What should I put up? What do I need to consider before I do it? In this post I will take you through a practical example of how to share data using the Open Science Frameword (OSF) platform.</description>
+    </item>
+    
+    <item>
+      <title>Ganging Up on Psychological Science</title>
+      <link>https://pedermisager.org/blog/ganging-up-on-psych-science/</link>
+      <pubDate>Fri, 31 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://pedermisager.org/blog/ganging-up-on-psych-science/</guid>
+      <description>Sometimes, the costs of doing good science outgrow the resources available to the individual scientist. Large scale collaboration projects are quickly becoming our best tool for dealing with this problem in psychology.</description>
+    </item>
+    
+    <item>
+      <title>What to Replicate?</title>
+      <link>https://pedermisager.org/blog/what-to-replicate/</link>
+      <pubDate>Sat, 09 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://pedermisager.org/blog/what-to-replicate/</guid>
+      <description>Justifications of study choice from 85 replication studies.</description>
+    </item>
+    
+  </channel>
+</rss>

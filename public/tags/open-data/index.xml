@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>open data on Peder M. Isager</title>
+    <link>https://pedermisager.org/tags/open-data/</link>
+    <description>Recent content in open data on Peder M. Isager</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 02 Oct 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://pedermisager.org/tags/open-data/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to share your data online with OSF</title>
+      <link>https://pedermisager.org/blog/how-to-share-your-data-with-osf/</link>
+      <pubDate>Tue, 02 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://pedermisager.org/blog/how-to-share-your-data-with-osf/</guid>
+      <description>The Open Science movement is here to stay. However, incorporating open practices like data sharing into your work flow can seem like a challenging task. If you have never made data available online before, the process can feel a bit daunting. Where should I put the data? What should I put up? What do I need to consider before I do it? In this post I will take you through a practical example of how to share data using the Open Science Frameword (OSF) platform.</description>
+    </item>
+    
+  </channel>
+</rss>

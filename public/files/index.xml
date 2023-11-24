@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Files on Peder M. Isager</title>
+    <link>https://pedermisager.org/files/</link>
+    <description>Recent content in Files on Peder M. Isager</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language><atom:link href="https://pedermisager.org/files/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Curriculum Vitae</title>
+      <link>https://pedermisager.org/files/cv/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://pedermisager.org/files/cv/</guid>
+      <description>P.O. Box 513email: p.isager@tue.nl5600 MB, Eindhoventwitter: @peder_isagerNetherlandsphone: 0047 976 51 974Education2017-2022Doctor’s degree; Eindhoven University of Technology
+Specializations: Research methods, statistics, replication.
+Thesis title: Deciding what to replicate.
+Thesis link: https://pure.tue.nl/ws/portalfiles/portal/200554284/20220524_Isager_hf.pdf.
+Supervisors: Daniël Lakens, Anna van ’t Veer, Chris Snijders.
+2015-2017Master’s degree, Cognitive Neuroscience; University of Oslo
+Specializations: Psychopharmacology, fMRI.
+Thesis title: \(\mu\)-Opioid Modulation of Reported Wanting of Palatable Food Images.</description>
+    </item>
+    
+  </channel>
+</rss>

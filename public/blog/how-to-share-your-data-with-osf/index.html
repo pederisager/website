@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><head>
+  
+                           
+     
+
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.101.0" />
+<title>How to share your data online with OSF | Peder M. Isager</title>
+
+
+<meta property="twitter:site" content="@peder_isager">
+<meta property="twitter:creator" content="@peder_isager">
+
+
+
+
+
+
+
+  
+    
+  
+<meta name="description" content="Personal website of Dr. Peder M. Isager">
+
+
+<meta property="og:site_name" content="Peder M. Isager">
+<meta property="og:title" content="How to share your data online with OSF | Peder M. Isager">
+<meta property="og:description" content="Personal website of Dr. Peder M. Isager" />
+<meta property="og:type" content="page" />
+<meta property="og:url" content="https://pedermisager.org/blog/how-to-share-your-data-with-osf/" />
+<meta property="og:locale" content="en">
+
+
+
+
+    
+        <meta property="og:image" content="https://pedermisager.org/blog/how-to-share-your-data-with-osf/featured.png" >
+        <meta property="twitter:card" content="summary_large_image">
+        <meta name="twitter:image" content="https://pedermisager.org/blog/how-to-share-your-data-with-osf/featured.png" >
+    
+    
+  <meta itemprop="name" content="How to share your data online with OSF">
+<meta itemprop="description" content="The Open Science movement is here to stay. However, incorporating open practices like data sharing into your work flow can seem like a challenging task. If you have never made data available online before, the process can feel a bit daunting. Where should I put the data? What should I put up? What do I need to consider before I do it? In this post I will take you through a practical example of how to share data using the Open Science Frameword (OSF) platform."><meta itemprop="datePublished" content="2018-10-02T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2018-10-02T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1896"><meta itemprop="image" content="https://pedermisager.org/blog/how-to-share-your-data-with-osf/featured.png">
+<meta itemprop="keywords" content="open science,open data,OSF,licensing,tutorial,GDPR," />
+  
+  
+  <!--[if IE]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
+  
+  
+  <link rel="stylesheet" href="/style.main.min.51048f8224904aac943a02f6057e4a47960d1d64abe43e43820ed1b3017122c1.css" integrity="sha256-UQSPgiSQSqyUOgL2BX5KR5YNHWSr5D5Dgg7RswFxIsE=" media="screen">
+  
+  
+  <script src="/panelset.min.dca42702d7daf6fd31dc352efd2bcf0e4ac8c05ccaa58d9293f6177462de5d5f.js" type="text/javascript"></script>
+  
+  
+  <script src="/main.min.a75546a6048e92fe5f1c0f124398a10e6163b026a10a151f920863fa7b8e7874.js" type="text/javascript"></script>
+</head>
+<body>
+      <div class="grid-container">
+<header class="site-header pt4 pb2 mb4 bb b--transparent ph5 headroom z-max" role="banner">
+  <nav class="site-nav db dt-l w-100" role="navigation">
+    <a class="site-brand db dtc-l v-mid link no-underline w-100 w-33-l tc tl-l" href="https://pedermisager.org/" title="Home">
+      <img src="/img/home_icon.png" class="dib db-l h2 w-auto" alt="Peder M. Isager">
+    </a>
+    <div class="site-links db dtc-l v-mid w-100 w-47-l tc tr-l mt3 mt0-l ttu tracked">
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 active" href="/blog/" title="Blog">Blog</a>
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 " href="/talk/" title="Talks">Talks</a>
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 " href="/files/cv.pdf" title="CV">CV</a>
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 " href="https://pure.tue.nl/ws/portalfiles/portal/200554284/20220524_Isager_hf.pdf" title="Deciding What To Replicate">PhD thesis</a>
+      
+      
+    </div>
+  </nav>
+</header>
+
+<main class="page-main pa4" role="main">
+  <section class="page-content mw7 center">
+    <article class="post-content pa0 ph4-l">
+      <header class="post-header">
+        <h1 class="f1 lh-solid measure-narrow mb3 fw4">How to share your data online with OSF</h1>
+        
+        <p class="f6 measure lh-copy mv1">By Peder M. Isager</p>
+        <p class="f7 db mv0 ttu">October 2, 2018</p>
+
+      
+
+      </header>
+      <section class="post-body pt5 pb4">
+        
+
+
+<div id="disclaimer" class="section level4">
+<h4><strong>Disclaimer:</strong></h4>
+<p><em>In the time I spent writing up this blog post, <a href="https://twitter.com/cksoderberg">Courtney Soderberg</a> published <a href="https://doi.org/10.1177%2F2515245918757689">a tutorial manuscript for data sharing on OSF</a> in the journal AMPPS. I highly recommend checking it out!</em></p>
+</div>
+<div id="intro" class="section level4">
+<h4>Intro</h4>
+<p>The Open Science movement is here to stay. Journals, reviewers, and fellow scientists increasingly expect that data and materials from research findings be made available upon publication. There are very good reasons for this, as open data and materials have the potential to increase reproducibility and collaboration, reduce the cost of data collection, and shift the focus from single findings to cumulative research programs. I think every researcher will stand to benefit from these uptakes in open practices. However, it is one thing to preach open science, and antother to practice it.</p>
+<p>If you have never made data available online before, it might all seem a bit daunting. Where should I put the data? What should I put up? What do I need to consider before I do it? Fortunately, making data available online does not need to be be very difficult. There are a few things you should know before posting your data online, but if you learn how to do it once, the procedure is overall quite similar from dataset to dataset. The time investement is well worth it in my experience. Katherine Wood has already written <a href="https://katherinemwood.github.io/post/data_sharing_tips/">an excellent blog post</a> with general tips and advice on sharing data and analysis scripts. So exellent in fact, that you should just read it, and come back afterwards. See you soon!</p>
+<p>…</p>
+<p>Welcome back! Now that you know what you should think about when making your data and analysis scripts open, let me walk you through a practical example of how you can do this on The Open Science Frameword (OSF). This is just one of many platforms for data sharing you could consider, but OSF’s flexibility and general user friendliness makes it a good place to start.</p>
+<p>OSF is a website maintained by the Center for Open Science, and is a hub for everything Open Science. OSF will store your data <em>for free</em>, and they have a back-up fund in case they run out of money, guaranteeing that your data will be accessible for at least 50 years. In other words, you get a free back-up of your data, and you can die happy, knowing that your data will live on long after you are gone. On that cheerful note, let’s get started!</p>
+<div class="figure">
+<img src="OSF_frontpage.png" alt="" />
+<p class="caption"><strong>Figure 1:</strong> OSF Frontpage.</p>
+</div>
+</div>
+<div id="create-a-profile" class="section level4">
+<h4>Create a profile</h4>
+<p>First, you need to head over to OSF and create a profile. As mentioned, this is completely free. On the front page, click the green “Sign up” button, fill in your personal details, and you should be good to go.</p>
+<p>When you are signed up and logged in, you should find yourself on the OSF dashboard. OSF keeps data and materials sorted into “projects”, and on the home screen you get an overview of your projects. In the upper right corner you will find a taskbar. If you click your name and then click “My Profile” in the drop-down menu, you can see and add information about yourself such as social media accounts, your ORCID ID, etc. To get back to the dashboard from anywhere, click the “OSF <strong>HOME</strong>” button on the upper left of the page. Now let’s create a project and see how we can add data to it.</p>
+</div>
+<div id="create-a-new-project" class="section level4">
+<h4>Create a new project</h4>
+<p>When on the dashboard page, click the green “Create new project” button. This will open a dialogue box prompting you to fill in the name of the project. Try to write a sensible name that describes the content of the project (I.e. not “Data”). A good solution is to use the title of the paper/manuscript/grant proposal that is connected to the data you want to share. You will also be prompted to choose at which location you would prefer your data to be stored. If you are an EU researcher, choose “Germany - frankfurt” as your storage location to make your data <a href="https://www.insight.mrc.ac.uk/2018/04/16/gdpr-research-changes/">GDPR</a> compliant. Check out <a href="http://help.osf.io/m/settings/l/952786-set-a-global-storage-location">this link</a> to learn how to change the default storage location for all your future projects. You can also click “more” below the title box, and add a description (you can edit this later as well). When done, click “create”, and click “Go to new project” in the following dialogue box.</p>
+<div class="figure">
+<img src="new_project_dialogue.png" alt="" />
+<p class="caption"><strong>Figure 2:</strong> Dialogue box for creating new project.</p>
+</div>
+<p>Welcome to your new project! You should now be looking at your brand new project page! On this page you can add all the files and information relevant to your project/study. Notice immediately that your project is currently private (fig 3.1). This means that only you have access to this project and its contents. You can add collaborators in privat mode (like a shared folder on Dropbox), but the project and its content will not be <em>publicly</em> available until you decide to make it so. If all you want is a way of sharing data with collaborators, you can even choose to <em>never</em> make the project public. If you do make it public, also note the citation box (fig 3.2). You, or anyone visiting your project, can click the arrow in the far right corner of the box and get a dropdown box of citations in different style formats. In addition to this, public projects can also get a DOI (Once you make a project public, a “Create DOI/ARKID” link appears about 5 lines below the project name). This makes it easy for you to cite your project in a manuscript or CV, and for others to cite your project in their publications.</p>
+<div class="figure">
+<img src="OSF_project_page_reference_image2.png" alt="" />
+<p class="caption"><strong>Figure 3:</strong> OSF project page. Numbers are referenced in text as “fig3.1-10”.</p>
+</div>
+</div>
+<div id="set-up-and-navigate-the-project-page" class="section level4">
+<h4>Set up and navigate the project page</h4>
+<p>Now let’s give people a reason to cite this project! Here is a step by step by step guide for setting up your project in a way that makes it easy for people to find and use the information you want to share.</p>
+<ol style="list-style-type: decimal">
+<li><p>Add a description of your project (fig 3.3). If you have already written a manuscript on the data, you could just click this field and paste the abstract. In any case, the description should make it clear what the project is intended for, and what kind of information one can expect to find here.</p></li>
+<li><p>Add a license for your project (fig 3.4). Having a liberal license for your data is more important than you may think. If you share materials without a license, people are not strictly allowed to reuse it (without risking legal prosecution from you). You can find more information about licensing your data <a href="https://wiki.creativecommons.org/wiki/Data">here</a>. If you just want to get on with it however, click “add a license”, and in the “<strong>Choose a license:</strong>” drop-down menu, choose either the <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0 Universal</a> or the <a href="https://creativecommons.org/licenses/by/4.0/">CC By Attribution 4.0 International</a>. They are both aimed at making your data open and reducable by others with minimal legal restrictions. If you want to know more about why licensing is important, or you want to know the difference between the CC licenses, <a href="https://twitter.com/chartgerink">Chris Hartgerink</a> has written <a href="https://medium.com/read-write-participate/copyright-and-licenses-in-open-access-publishing-da73e0ca8ed3">a short, informative, and accessible article on Medium</a> about it.</p></li>
+<li><p>Before uploading, make sure that people can understand and work with the materials you upload. This implies the following:</p>
+<ol style="list-style-type: lower-alpha">
+<li>Name the variables in your dataset sensibly, and perhaps add a document that defines and describes each variable (a <a href="http://www.ddialliance.org/training/getting-started-new-content/create-a-codebook">codebook</a>). In addition, adding extra materials, such as experiment presentation files, design descriptions, etc., can be a crucial supplement to the methods section of your paper for someone who really wants to understand how the experiment was conducted.</li>
+<li>Provide a complete recipe script for any published analyses in case someone wants to doublecheck your reporting. In SPSS, this is made in a syntax (.sps) file. In R, this is made in an R script (.R) file. The script should start by importing/loading the raw (anonymized) data, then include every manipulation imposed on the data (like deletions, renamings, and exclusions), and end with the functions for generating the plots running the statistical tests that you report. In other words, a person who downloads your data and analysis files should just have to press play in the appropriate software to reproduce the numbers in your paper. If you can’t add raw data for ethical reasons, add a dataset as close to the raw as possible. Why? Imagine you made a mistake in renaming a variable, or someone disagrees with your exclusion critera. If someone then wants to change the way the data is manipulated, they will need access to the pre-manipulation version of the dataset.</li>
+<li>Make sure that accessing your data is free, or as cheap as possible. If you use SPSS for data analysis, something you might never think about is the fact that all the files you save in .sav, .spv, and .sps format requires SPSS to open them. So anyone who wants to reuse your data will need SPSS as well, and that baby costs $99 per month! Same goes for matlab ($580-$2300 per license), e-prime ($995 per license) and other common commercial research software. A <a href="https://www.computerhope.com/issues/ch001357.htm">.csv</a> version of your dataset can be read and created by basically any program, so <a href="https://www.computerhope.com/issues/ch001356.htm">create one</a> and add it just in case.</li>
+</ol></li>
+<li><p>Upload your data and materials! This is as simple as dragging and dropping the files into the “Files” box (fig 3.5). You can also click on “OSF Storage” (fig 3.6) and click on the “upload” button that appears above. If you want to import data directly from services like Dropbox, Google Drive, or GitHub, you will find a list of add-ons you can integrate by going to Settings (fig 3.7).</p></li>
+<li><p>Add some relevant tags (fig 3.8) to make your project easy to find on Google and OSF search.</p></li>
+<li><p>If you want to add some information about the project, consider putting it into the project Wiki (fig 3.9). Detailed info on how to edit the wiki can be found <a href="http://help.osf.io/m/collaborating/l/524109-using-the-wiki">here</a>.</p></li>
+<li><p>Let the public in! If you are happy with the content, settings, and information included in your project (and you want to make it public), press the “Make Public” button (fig 3.10). Read through the warnings that pops up and, if you are sure that your project meets ethical requirements for open data sharing, click “Confirm”.</p></li>
+</ol>
+</div>
+<div id="finding-help-and-more-information" class="section level4">
+<h4>Finding help and more information</h4>
+<p>Did you run into any trouble along the way? Fear not! Reliable sources tell me that OSF also has a very real and friendly human person you can reach at <a href="mailto:support@osf.io" class="email">support@osf.io</a>, who would be happy to help you out.</p>
+<p>No more trouble? Then congratulations! You now have an open, licensed, reuasable, and citable version of your data and materials that can be accessed by anyone for the forseeable future. Just put a link to the project in your manuscript and voilà! Anyone can make use of your openly shared data, at no extra cost to you!
+
+</p>
+<p><em>PS: If you want to see an example of any of the recommendations offered here, check out <a href="https://osf.io/r2gbv/">the OSF project for this post</a> where I tried to address them all. You can also find a lot more information and help on the <a href="https://osf.io/support/">OSF support pages</a></em>.</p>
+<p><em>PPSS: If you are interested in learning more about how to increase the transparency of your research practices, check out this <a href="http://doi.org/10.1525/collabra.158">detailed practical guide to transparency in psychological science</a>, by Klein et al.</em></p>
+</div>
+
+        
+        <details closed class="f6 fw7 input-reset">
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Posted on:</dt>
+    <dd class="fw5 ml0">October 2, 2018</dd>
+  </dl>
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Length:</dt>
+    <dd class="fw5 ml0">9 minute read, 1896 words</dd>
+  </dl>
+  
+  
+  
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Tags:</dt>
+    <dd class="fw5 ml0"> <a href="https://pedermisager.org/tags/open-science">open science</a>  <a href="https://pedermisager.org/tags/open-data">open data</a>  <a href="https://pedermisager.org/tags/osf">OSF</a>  <a href="https://pedermisager.org/tags/licensing">licensing</a>  <a href="https://pedermisager.org/tags/tutorial">tutorial</a>  <a href="https://pedermisager.org/tags/gdpr">GDPR</a> </dd>
+  </dl>
+  
+  <dl class="f6 lh-copy">
+    <dt class="fw7">See Also:</dt>
+    
+  </dl>
+</details>
+
+      </section>
+      <footer class="post-footer">
+        <div class="post-pagination dt w-100 mt4 mb2">
+  
+  
+    <a class="prev dtc pr2 tl v-top fw6"
+    href="https://pedermisager.org/blog/quantifying-the-corroboration-of-a-finding/">&larr; Quantifying the corroboration of a finding</a>
+  
+  
+  
+    <a class="next dtc pl2 tr v-top fw6"
+    href="https://pedermisager.org/blog/ganging-up-on-psych-science/">Ganging Up on Psychological Science &rarr;</a>
+  
+</div>
+
+      </footer>
+    </article>
+    
+      
+<div class="post-comments pa0 pa4-l mt4">
+  
+  <script src="https://utteranc.es/client.js"
+          repo="apreshill/apero"
+          issue-term="pathname"
+          theme="boxy-light"
+          label="comments :crystal_ball:"
+          crossorigin="anonymous"
+          async
+          type="text/javascript">
+  </script>
+  
+</div>
+
+    
+  </section>
+</main>
+<footer class="site-footer pv4 bt b--transparent ph5" role="contentinfo">
+  <nav class="db dt-l w-100">
+    <p class="site-copyright f7 db dtc-l v-mid w-100 w-33-l tc tl-l pv2 pv0-l mv0 lh-copy">
+      &copy; 2023 RStudio, Anywhere
+      <span class="middot-divider"></span>
+      Made with <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/hugo-apero/" rel="dct:source">Hugo Apéro</a></span>.
+      <br />
+      
+Based on <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/formspree/blogophonic-hugo" rel="dct:source">Blogophonic</a></span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://formspree.io" property="cc:attributionName" rel="cc:attributionURL">Formspree</a>.
+    </p>
+    
+    <div class="site-social-links db dtc-l v-mid w-100 w-33-l tc pv2 pv0-l mv0">
+      <div class="social-icon-links" aria-hidden="true">
+  
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://github.com/pederisager" title="github" target="_blank" rel="noopener">
+      <i class="fab fa-github fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://twitter.com/peder_isager" title="twitter" target="_blank" rel="noopener">
+      <i class="fab fa-twitter fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://www.linkedin.com/in/peder-mortvedt-isager-a104966a/" title="linkedin" target="_blank" rel="noopener">
+      <i class="fab fa-linkedin fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="http://orcid.org/0000-0002-6922-3590" title="orcid" target="_blank" rel="noopener">
+      <i class="ai ai-orcid fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://scholar.google.com/citations?user=_EcbBtYAAAAJ&amp;hl=no&amp;oi=ao" title="graduation-cap" target="_blank" rel="noopener">
+      <i class="fas fa-graduation-cap fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://oslonyehoyskole.no/om-oss/ansatte/peder-mortvedt-isager" title="landmark" target="_blank" rel="noopener">
+      <i class="fas fa-landmark fa-lg fa-fw"></i>
+    </a>
+  
+</div>
+
+    </div>
+    
+    <div class="site-links f6 db dtc-l v-mid w-100 w-67-l tc tr-l pv2 pv0-l mv0">
+      
+      <a class="dib pv1 ph2 link" href="/license/" title="License">License</a>
+      
+    </div>
+  </nav>
+  
+    <script>
+
+    var i, text, code, codes = document.getElementsByTagName('code');
+    for (let i = 0; i < codes.length;) {
+      code = codes[i];
+      if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+        text = code.textContent;
+        if (/^\$[^$]/.test(text) && /[^$]\$$/.test(text)) {
+          text = text.replace(/^\$/, '\\(').replace(/\$$/, '\\)');
+          code.textContent = text;
+        }
+        if (/^\\\((.|\s)+\\\)$/.test(text) ||
+            /^\\\[(.|\s)+\\\]$/.test(text) ||
+            /^\$(.|\s)+\$$/.test(text) ||
+            /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+          code.outerHTML = code.innerHTML;  
+          continue;
+        }
+      }
+      i++;
+    }
+</script>
+
+  
+    
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+
+
+    
+  
+  
+</footer>
+
+      </div>
+    </body>
+</html>
