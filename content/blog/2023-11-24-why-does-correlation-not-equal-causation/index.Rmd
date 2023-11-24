@@ -74,7 +74,7 @@ Such feedback relations often lead to complex and weird relations between variab
 
 Is it possible for two variables to be correlated even if there is no direct causal relationship between them? Unfortunately, yes. This is what the ice-cream-and-drowning-deaths example is meant to illustrate. Correlation without a direct causal relationship is common in observational data, and is usually a result of either *confounding* or *selection bias*.
 
-##Confounding
+## Confounding
 
 Confounding happens when a third variable is a cause of *both* variables we are interested in (also called a causal fork). 
 
@@ -90,7 +90,7 @@ In the ice-cream-and-drowning-deaths example, weather conditions is a likely thi
 
 ![](img/weather_icecream_drowning_confounding.svg)
 
-# Selection bias
+## Selection bias
 
 Another way two variables can become correlated without any direct causal link is through selection bias. Selection happens when the variables we are interested in both cause a third variable, and that third variable determines who ends up in our dataset (also referred to as [conditioning on a collider](https://www.bmj.com/content/381/bmj.p1135)). Left alone, collider structures do not cause X and Y to become correlated. But things change if we start selecting data points based on the shared outcome variable. 
 

@@ -61,7 +61,8 @@ It is sometimes also possible that both theories are true! Exercise could put yo
 <div id="correlation-does-not-equal-a-direct-causal-connection" class="section level1">
 <h1>Correlation does not equal a direct causal connection</h1>
 <p>Is it possible for two variables to be correlated even if there is no direct causal relationship between them? Unfortunately, yes. This is what the ice-cream-and-drowning-deaths example is meant to illustrate. Correlation without a direct causal relationship is common in observational data, and is usually a result of either <em>confounding</em> or <em>selection bias</em>.</p>
-<p>##Confounding</p>
+<div id="confounding" class="section level2">
+<h2>Confounding</h2>
 <p>Confounding happens when a third variable is a cause of <em>both</em> variables we are interested in (also called a causal fork).</p>
 <p>For example, if you experience a lot of stress at work, maintaining your regular exercise routine can be difficult. At the same time, stress at work is no fun, and can easily put you in a bad mood. In other words, stress at work can have a negative causal effect on both how often you exercise and your self-reported mood:</p>
 <p><img src="img/stress_exercise_mood_confounding.svg" /></p>
@@ -70,8 +71,8 @@ It is sometimes also possible that both theories are true! Exercise could put yo
 <p>In the ice-cream-and-drowning-deaths example, weather conditions is a likely third variable causing an increase in both ice cream sales and number of deaths by drowning.</p>
 <p><img src="img/weather_icecream_drowning_confounding.svg" /></p>
 </div>
-<div id="selection-bias" class="section level1">
-<h1>Selection bias</h1>
+<div id="selection-bias" class="section level2">
+<h2>Selection bias</h2>
 <p>Another way two variables can become correlated without any direct causal link is through selection bias. Selection happens when the variables we are interested in both cause a third variable, and that third variable determines who ends up in our dataset (also referred to as <a href="https://www.bmj.com/content/381/bmj.p1135">conditioning on a collider</a>). Left alone, collider structures do not cause X and Y to become correlated. But things change if we start selecting data points based on the shared outcome variable.</p>
 <p>For example, suppose that that people’s desire to participate in our exercise/mood survey is influenced both by their mood and by how much they exercise:</p>
 <ul>
@@ -85,6 +86,7 @@ It is sometimes also possible that both theories are true! Exercise could put yo
 <p><img src="img/selection_bias_scatterplot.svg" /></p>
 <p>Each solid black circle represents a person that took our survey. Some exercise regularly (gym rats), some rarely (couch potatoes). Some are happy, and some are unhappy. Most are happy couch potatoes, since these are the most likely to answer. The gray dashed circles represent the unhappy gym rats that didn’t want to participate. See the problem? If we fit a regression line to the data we actually have, it clearly indicates a positive correlation between exercise frequency and mood (red dashed line). But it is a complete fluke! It only looks like correlation because we are selectively missing out on the unhappy gym rats in the population. If we had been able to recruit these, there would be no correlation between happiness and exercise frequency at all (gray dashed line).</p>
 <p>Like with confounder variables, all variables that can cause selection bias can lead to correlation between exercise and mood. Whenever a study has a large amount of people that choose <em>not</em> to participate, consider whether any obvious sources of selection bias could be at play.</p>
+</div>
 </div>
 <div id="correlation-implies-one-of-the-following" class="section level1">
 <h1>Correlation implies one of the following…</h1>
