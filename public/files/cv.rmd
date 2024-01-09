@@ -1,7 +1,7 @@
 ---
 title: "Curriculum Vitae"
 author: "Peder M Isager"
-date: "August 5, 2022"
+date: "January 9th, 2024"
 output: pdf_document
 urlcolor: blue
 ---
@@ -11,9 +11,9 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 -------------------          ----------------------------
-P.O. Box 513                       email: p.isager@tue.nl
-5600 MB, Eindhoven                 twitter: @peder_isager
-Netherlands                        phone: 0047 976 51 974
+Lovisenberggata 13           email: peder.isager@oslonh.no
+0456 Oslo                    twitter: @peder_isager
+Norway                       phone: 0047 976 51 974
 -------------------          ----------------------------
 
 
@@ -88,7 +88,23 @@ Netherlands                        phone: 0047 976 51 974
 
 ## Publications
 
+### 2023
+
+**Isager, P. M.**, Lakens, D., van Leeuwen, T., & van't Veer, A. E. (2024). Exploring a formal approach to selecting studies for replication: A feasibility study in social neuroscience. *Cortex*, 171, 330-346.
+
+Buchanan, E. M., Lewis, S. C., Paris, B., Forscher, P. S., Pavlacic, J. M., Beshears, J. E., ... **Isager, P. M.**, ... & Vega, D. (2023). The Psychological Science Accelerator’s COVID-19 rapid-response dataset. *Scientific data*, 10(1), 87.
+
+Pittelkow, M. M., Field, S. M., **Isager, P. M.**, van’t Veer, A. E., Anderson, T., Cole, S. N., ... & Van Ravenzwaaij, D. (2023). The process of replication target selection in psychology: what to consider?. *Royal Society Open Science*, 10(2), 210586.
+
+### 2022
+
+Dorison, C. A., Lerner, J. S., Heller, B. H., Rothman, A. J., Kawachi, I. I., Wang, K., ... **Isager, P. M.**, ... & Pantazi, M. (2022). In COVID-19 health messaging, loss framing increases anxiety with little-to-no concomitant benefits: Experimental evidence from 84 countries. *Affective science*, 3(3), 577-602.
+
+McIntyre, S., Hauser, S. C., Kusztor, A., Boehme, R., Moungou, A., **Isager, P. M.**, ... & Olausson, H. (2022). The language of social touch is intuitive and quantifiable. *Psychological Science*, 33(9), 1477-1494.
+
 ### 2021
+
+Wang, K., Goldenberg, A., Dorison, C. A., Miller, J. K., Uusberg, A., Lerner, J. S., ... **Isager, P. M.**, ... & Štrukelj, E. (2021). A multi-country test of brief reappraisal interventions on emotions during the COVID-19 pandemic. *Nature human behaviour*, 5(8), 1089-1110.
 
 **Isager, P. M.**, van Aert, R. C. M., Bahník, Š., Brandt, M. J., DeSoto, K. A., Giner-Sorolla, R., ... Lakens, D. (2021). Deciding what to replicate: A Decision Model for Replication Study Selection Under Resource and Knowledge Constraints. *Psychological Methods*, https://doi.org/10.1037/met0000438
 
@@ -127,6 +143,22 @@ Lakens, D., Adolfi, F. G., Albers, C. J., Anvari, F., Apps, M. A., ... **Isager,
 
 
 ## Invited talks
+
+2023
+:   **Causal direction and feedback in network theories of mental disorder**; University of Amsterdam
+\
+
+2023
+:   **Deciding which studies to replicate**; University of Oslo
+\
+
+2022
+:   **Deciding which studies to replicate**; Aarhus University
+\
+
+2022
+:   **Deciding which studies to replicate**; University of Oslo
+\
 
 2020
 :   **Deciding what to replicate**; University of Groningen
@@ -235,6 +267,10 @@ Lakens, D., Adolfi, F. G., Albers, C. J., Anvari, F., Apps, M. A., ... **Isager,
 
 ## Media outreach
 
+2023
+:   **Hva er egentlig en psykisk lidelse?**; Psykt Interessant (Podcast, Norwegian)
+\
+
 2018
 :   **Solving big problems with big collaborations in psychological research**; Psykologisk Tidsskrift (Norwegian)
 \
@@ -243,15 +279,9 @@ Lakens, D., Adolfi, F. G., Albers, C. J., Anvari, F., Apps, M. A., ... **Isager,
 :   **[SpecialiTea 5 - Peder](https://soundcloud.com/reproducibilitea/specialitea-5-peder)**; ReproducibiliTea (Podcast)
 
 
-## Competitive funding and awards
-
-Travel Grant, Society for the Improvement of Open Science, Rotterdam, NL (USD 400)
-
-Travel Grant, Open Science Conference, Berlin, DE (USD 300)
-
-
 ## Teaching experience
 
+* Master student supervision (ONH and TU/e)
 * Applied quantitative research methods (ONH MA course. Course administrator)
 * Advanced Cognition (TU/e MA course. One lecture each year for two years)
 * Bachelor End Project - Human Technology Interaction (TU/e BA course. Five bachelor projects supervised and graded)
@@ -265,7 +295,7 @@ Travel Grant, Open Science Conference, Berlin, DE (USD 300)
 
 ## Service experience
 
-2022-present
+2022
 :   **Assistant director of Data**; Psychological Science Accelerator
 
 2018-2022
@@ -282,9 +312,12 @@ Travel Grant, Open Science Conference, Berlin, DE (USD 300)
 ## Ad-hoc reviews
 
 * Advances in Methods and Practices in Psychological Science
+* Appetite
 * CollabraOA
 * Meta-psychology
+* Nature Communications
 * PAIN
+* Psychological Methods
 * Royal Society Open Science
 * Social Cognitive and Affective Neuroscience
 
