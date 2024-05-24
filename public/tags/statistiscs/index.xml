@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>statistiscs on Peder M. Isager</title>
+    <link>https://pedermisager.org/tags/statistiscs/</link>
+    <description>Recent content in statistiscs on Peder M. Isager</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 24 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://pedermisager.org/tags/statistiscs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Four one-sided test of significance (FOST). Dear reader, does this make sense?</title>
+      <link>https://pedermisager.org/blog/four-one-sided-test/</link>
+      <pubDate>Fri, 24 May 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://pedermisager.org/blog/four-one-sided-test/</guid>
+      <description>In this blog post I propose a four one-sided test of significance (FOST) that can be used to test whether an effect is smaller than OR larger than OR equivalent to the smallest effect size of interest. I lay out the general setup and interpretation of FOST, and ask readers to help me evaluate its validity.</description>
+    </item>
+    
+  </channel>
+</rss>

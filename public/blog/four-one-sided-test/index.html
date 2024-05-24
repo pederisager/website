@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><head>
+  
+                           
+     
+
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.101.0" />
+<title>Four one-sided test of significance (FOST). Dear reader, does this make sense? | Peder M. Isager</title>
+
+
+<meta property="twitter:site" content="@peder_isager">
+<meta property="twitter:creator" content="@peder_isager">
+
+
+
+
+
+
+
+  
+    
+  
+<meta name="description" content="Personal website of Dr. Peder M. Isager">
+
+
+<meta property="og:site_name" content="Peder M. Isager">
+<meta property="og:title" content="Four one-sided test of significance (FOST). Dear reader, does this make sense? | Peder M. Isager">
+<meta property="og:description" content="Personal website of Dr. Peder M. Isager" />
+<meta property="og:type" content="page" />
+<meta property="og:url" content="https://pedermisager.org/blog/four-one-sided-test/" />
+<meta property="og:locale" content="en">
+
+
+
+
+    
+        <meta property="og:image" content="https://pedermisager.org/blog/four-one-sided-test/featured.png" >
+        <meta property="twitter:card" content="summary_large_image">
+        <meta name="twitter:image" content="https://pedermisager.org/blog/four-one-sided-test/featured.png" >
+    
+    
+  <meta itemprop="name" content="Four one-sided test of significance (FOST). Dear reader, does this make sense?">
+<meta itemprop="description" content="In this blog post I propose a four one-sided test of significance (FOST) that can be used to test whether an effect is smaller than OR larger than OR equivalent to the smallest effect size of interest. I lay out the general setup and interpretation of FOST, and ask readers to help me evaluate its validity."><meta itemprop="datePublished" content="2024-05-24T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2024-05-24T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1353"><meta itemprop="image" content="https://pedermisager.org/blog/four-one-sided-test/featured.png">
+<meta itemprop="keywords" content="significance testing,equivalence testing,statistiscs," />
+  
+  
+  <!--[if IE]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
+  
+  
+  <link rel="stylesheet" href="/style.main.min.51048f8224904aac943a02f6057e4a47960d1d64abe43e43820ed1b3017122c1.css" integrity="sha256-UQSPgiSQSqyUOgL2BX5KR5YNHWSr5D5Dgg7RswFxIsE=" media="screen">
+  
+  
+  <script src="/panelset.min.dca42702d7daf6fd31dc352efd2bcf0e4ac8c05ccaa58d9293f6177462de5d5f.js" type="text/javascript"></script>
+  
+  
+  <script src="/main.min.a75546a6048e92fe5f1c0f124398a10e6163b026a10a151f920863fa7b8e7874.js" type="text/javascript"></script>
+</head>
+<body>
+      <div class="grid-container">
+<header class="site-header pt4 pb2 mb4 bb b--transparent ph5 headroom z-max" role="banner">
+  <nav class="site-nav db dt-l w-100" role="navigation">
+    <a class="site-brand db dtc-l v-mid link no-underline w-100 w-33-l tc tl-l" href="https://pedermisager.org/" title="Home">
+      <img src="/img/home_icon.png" class="dib db-l h2 w-auto" alt="Peder M. Isager">
+    </a>
+    <div class="site-links db dtc-l v-mid w-100 w-47-l tc tr-l mt3 mt0-l ttu tracked">
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 active" href="/blog/" title="Blog">Blog</a>
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 " href="/talk/" title="Talks">Talks</a>
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 " href="/files/cv.pdf" title="CV">CV</a>
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 " href="https://pure.tue.nl/ws/portalfiles/portal/200554284/20220524_Isager_hf.pdf" title="Deciding What To Replicate">PhD thesis</a>
+      
+      
+    </div>
+  </nav>
+</header>
+
+<main class="page-main pa4" role="main">
+  <section class="page-content mw7 center">
+    <article class="post-content pa0 ph4-l">
+      <header class="post-header">
+        <h1 class="f1 lh-solid measure-narrow mb3 fw4">Four one-sided test of significance (FOST). Dear reader, does this make sense?</h1>
+        
+        <p class="f6 measure lh-copy mv1">By Peder M. Isager</p>
+        <p class="f7 db mv0 ttu">May 24, 2024</p>
+
+      
+
+      </header>
+      <section class="post-body pt5 pb4">
+        
+
+
+<p>In traditional Neyman-Pearson null-hypothesis significance testing (NHST) the null-hypothesis (<span class="math inline">\(H_{0}\)</span>) of no effect is tested, and it is rejected if the test is significant at a certain alpha level (usually 5%). A problem with NHST is that we can only ever reject H0; never accept it. The reason is that non-significant results are always ambiguous. They can either signal a true but imprecisely measured effect or a precisely measured null-effect. NHST makes no distinction between these cases.</p>
+<p>This limitation of NHST has led to several problems for researchers. Most problematically, researchers commonly misinterpret non-significant significant results as evidence for no effect <span class="citation">(<a href="#ref-Greenland2016">Greenland et al. 2016</a>)</span>. Another problem is that researchers have no decision rules for when to stop collecting data if the effect actually <em>is</em> zero, or when it is trivially small. This can potentially lead to research waste if data collection is continued long after a precise estimate of a null-effect is obtained.</p>
+<p>A remedy to this limitation of NHST is the frequentist two one-sided-test of equivalence (TOST). The TOST procedure allows researchers to test whether an effect is smaller than a predefined smallest effect size of interest (SESOI; see figure 1A). In other words, TOST allows us to test if the effect is <em>equivalent</em> to an effect that is - if not exactly zero - at least too small to care about for practical purposes <span class="citation">(see <a href="#ref-Lakens2018a">Lakens, Scheel, and Isager 2018</a> for an introduction to TOST)</span>. This gives researchers a method to distinguish between imprecise estimates and precise estimates of trivially small effects, which reduces misinterpretations of NHST results. It also gives researchers a decision rule for when to stop data collection and abandon a research line if the effect is smaller than SESOI. Amazing!</p>
+<p>However, TOST equivalence testing also has a problem, which mirrors that of NHST. In TOST, it is not possible to accept the hypothesis that the effect is large enough to care about (larger than SESOI). Put differently, a TOST does not distinguish between highly uncertain results and results that for sure are larger than SESOI. Even if you combined NHST with TOST, you could never formally conclude that the effect is large enough to be practically important, because neither NHST nor TOST tests that hypothesis.</p>
+<p>If you want to test if an effect is larger than SESOI, you need to conduct either a superiority test (to test if the effect is at least as large as the upper equivalence bound; see figure 1B) or an inferiority test (to test if the effect is at least as low as the lower equivalence bound; see figure 1C).</p>
+<p>In practice, I often find myself wanting to run all the tests mentioned above. That is, I want to decide whether the effect I have observed is smaller than OR larger than OR equivalent to SESOI. Let me give an example to illustrate when such a decision is needed. Suppose I do research for a pharmaceutical company. I am testing how well a novel drug treatment works compared to existing drugs. I have defined a SESOI such that drug effects less extreme than SESOI can be considered practically equivalent to existing drug effects. If the true drug effect is at least as large as SESOI in the negative direction it means the new drug is less effective than existing drugs, and the company should cancel production of it. If the true drug effect is within the SESOI bounds then the new drug effect is equivalent to existing drugs, which means that the company should consider the cost-benefit ratio of production and start production if the new drug is cheaper than existing treatments. If the true drug effect is at least as large as SESOI in the positive direction then the new drug works better than existing drugs, which means the company should go ahead with production. If my findings are inconclusive, the company should get me to collect more data before they make a final decision.</p>
+<p>In the above example we want to simultaneously test three different hypotheses, each of which will lead to a different decision if accepted:</p>
+<ol style="list-style-type: decimal">
+<li>effect ≤ lower SESOI (inferiority; cancel production)</li>
+<li>lower SESOI ≤ effect ≤ upper SESOI (equivalence; assess cost/benefit ratio)</li>
+<li>upper SESOI ≤ effect (superiority; start production)</li>
+</ol>
+<p>As mentioned, these hypotheses could be tested separately using a one-sided test against the lower SESOI bound, an equivalence test, or a one-sided superiority test against the upper SESOI bound (see figure 1A-C). But could we test all three hypotheses at once, using a single test procedure? I believe we can, by combining all three tests into one four-one-sided test of significance (FOST). Here is how it would work.</p>
+<div class="float">
+<img src="img/FOST_figure_1.png" alt="Figure 1: Illustration of a null hypothesis (H_{0}) and alternative hypothesis (H_{1}) for each of four different types of significance tests. \Delta_{L} = lower SESOI. \Delta_{U} = upper SESOI. Panel A-D represents the hypothesis space for (A) an equivalence test, (B) a superiority test, (C) an inferiority test, and (D) a four one-sided test of significance, where H_{inferiority}, H_{equivalence}, and H_{superiority} covers the same space as H_{1} of the corresponding tests in panel A-C." />
+<div class="figcaption">Figure 1: Illustration of a null hypothesis (<span class="math inline">\(H_{0}\)</span>) and alternative hypothesis (<span class="math inline">\(H_{1}\)</span>) for each of four different types of significance tests. <span class="math inline">\(\Delta_{L}\)</span> = lower SESOI. <span class="math inline">\(\Delta_{U}\)</span> = upper SESOI. Panel A-D represents the hypothesis space for (A) an equivalence test, (B) a superiority test, (C) an inferiority test, and (D) a four one-sided test of significance, where <span class="math inline">\(H_{inferiority}\)</span>, <span class="math inline">\(H_{equivalence}\)</span>, and <span class="math inline">\(H_{superiority}\)</span> covers the same space as <span class="math inline">\(H_{1}\)</span> of the corresponding tests in panel A-C.</div>
+</div>
+<p>First, specify a meaningful smallest effect size of interest. Then, in the statistical software of your choice, run all four of the one-sided tests that make up the inferiority-, superiority- and equivalence test specified in figure 1A-C. Each test should be one-sided, and no corrections for multiple comparisons should be made, even though we are running three tests. This is because each test has a completely non-overlapping <span class="math inline">\(H_{1}\)</span> region, which means no two tests can be significant simultaneously, so there is no risk of inflated error rates.</p>
+<p>Running these three tests will yield three test results, which should be interpreted as follows (see figure 2 for examples):</p>
+<ol style="list-style-type: decimal">
+<li>If the inferiority test is significant, treat the effect as inferior to <span class="math inline">\(\Delta_{L}\)</span>.</li>
+<li>If the superiority test is significant, treat the effect as superior to <span class="math inline">\(\Delta_{U}\)</span>.</li>
+<li>If both two one-sided tests for equivalence are significant, treat the effect as closer to 0 than <span class="math inline">\(\pm \Delta\)</span>.</li>
+<li>In all other cases, remain uncertain and do not make any conclusion about the size of the effect.</li>
+</ol>
+<p><img src="img/FOST_figure_2.png" alt="Figure 2: Illustration of how different test results should be interpreted in a four one-sided test of significance (FOST). Interpretations are stated on the right. In the top three effect estimates we would act as if either H_{inferiority}, H_{equivalence}, or H_{superiority} is true. In all other cases we would remain uncertain. Because all tests in a FOST are one-sided without corrections for multiple comparisons, 90% confidence intervals should be used to visually evaluate the test result." />
+For any FOST, the true effect is either in the zone of equivalence, the zone of inferiority, or in the zone of superiority, so only one type 1 error can be made (we erroneously conclude that the effect is either in the zone of inferiority, or equivalence, or superiority, when it is not). This means that the total probability of a type 1 error over all tests equals the type 1 error rate of the test that ends up significant (and only one test can be significant for any single FOST). If all tests have alpha set to 5%, the overall type 1 error rate should therefore be 5%.</p>
+<p>I think the FOST procedure makes sense. I can’t see any obvious problems with it. However, as much sense as I think it makes, I can’t help but feel nervous about squashing three frequentist hypothesis tests together without any corrections for multiple comparisons. I am also not a trained statistician, and my math skills are nothing to write home about, so I don’t fully trust my ability to evaluate the validity of this procedure. This is where you come in! I would love to get a second (and third, and fourth…) pair of eyes on this proposal, just in case there is a big old conceptual flaw I have overlooked. Do you think the procedure makes sense? Am I correct that no multiple comparison corrections are needed? Is there a problem with this approach I have overlooked? Please leave me a comment below, or DM me on Twitter, and let me know what you think!</p>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-Greenland2016" class="csl-entry">
+Greenland, Sander, Stephen J. Senn, Kenneth J. Rothman, John B. Carlin, Charles Poole, Steven N. Goodman, and Douglas G. Altman. 2016. <span>“Statistical Tests, <span>P</span> Values, Confidence Intervals, and Power: A Guide to Misinterpretations.”</span> <em>European Journal of Epidemiology</em> 31 (4): 337–50. <a href="https://doi.org/10.1007/s10654-016-0149-3">https://doi.org/10.1007/s10654-016-0149-3</a>.
+</div>
+<div id="ref-Lakens2018a" class="csl-entry">
+Lakens, Daniël, Anne M. Scheel, and Peder M. Isager. 2018. <span>“Equivalence <span>Testing</span> for <span>Psychological Research</span>: <span>A Tutorial</span>.”</span> <em>Advances in Methods and Practices in Psychological Science</em> 1 (2): 259–69. <a href="https://doi.org/10.1177/2515245918770963">https://doi.org/10.1177/2515245918770963</a>.
+</div>
+</div>
+
+        
+        <details closed class="f6 fw7 input-reset">
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Posted on:</dt>
+    <dd class="fw5 ml0">May 24, 2024</dd>
+  </dl>
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Length:</dt>
+    <dd class="fw5 ml0">7 minute read, 1353 words</dd>
+  </dl>
+  
+  
+  
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Tags:</dt>
+    <dd class="fw5 ml0"> <a href="https://pedermisager.org/tags/significance-testing">significance testing</a>  <a href="https://pedermisager.org/tags/equivalence-testing">equivalence testing</a>  <a href="https://pedermisager.org/tags/statistiscs">statistiscs</a> </dd>
+  </dl>
+  
+  <dl class="f6 lh-copy">
+    <dt class="fw7">See Also:</dt>
+    
+  </dl>
+</details>
+
+      </section>
+      <footer class="post-footer">
+        <div class="post-pagination dt w-100 mt4 mb2">
+  
+  
+  
+  
+    <a class="next dtc pl2 tr v-top fw6"
+    href="https://pedermisager.org/blog/why_does_correlation_not_equal_causation/">Why does correlation not equal causation? &rarr;</a>
+  
+</div>
+
+      </footer>
+    </article>
+    
+      
+<div class="post-comments pa0 pa4-l mt4">
+  
+  <script src="https://utteranc.es/client.js"
+          repo="apreshill/apero"
+          issue-term="pathname"
+          theme="boxy-light"
+          label="comments :crystal_ball:"
+          crossorigin="anonymous"
+          async
+          type="text/javascript">
+  </script>
+  
+</div>
+
+    
+  </section>
+</main>
+<footer class="site-footer pv4 bt b--transparent ph5" role="contentinfo">
+  <nav class="db dt-l w-100">
+    <p class="site-copyright f7 db dtc-l v-mid w-100 w-33-l tc tl-l pv2 pv0-l mv0 lh-copy">
+      &copy; 2024 RStudio, Anywhere
+      <span class="middot-divider"></span>
+      Made with <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/hugo-apero/" rel="dct:source">Hugo Apéro</a></span>.
+      <br />
+      
+Based on <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/formspree/blogophonic-hugo" rel="dct:source">Blogophonic</a></span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://formspree.io" property="cc:attributionName" rel="cc:attributionURL">Formspree</a>.
+    </p>
+    
+    <div class="site-social-links db dtc-l v-mid w-100 w-33-l tc pv2 pv0-l mv0">
+      <div class="social-icon-links" aria-hidden="true">
+  
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://github.com/pederisager" title="github" target="_blank" rel="noopener">
+      <i class="fab fa-github fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://twitter.com/peder_isager" title="twitter" target="_blank" rel="noopener">
+      <i class="fab fa-twitter fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://www.linkedin.com/in/peder-mortvedt-isager-a104966a/" title="linkedin" target="_blank" rel="noopener">
+      <i class="fab fa-linkedin fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="http://orcid.org/0000-0002-6922-3590" title="orcid" target="_blank" rel="noopener">
+      <i class="ai ai-orcid fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://scholar.google.com/citations?user=_EcbBtYAAAAJ&amp;hl=no&amp;oi=ao" title="graduation-cap" target="_blank" rel="noopener">
+      <i class="fas fa-graduation-cap fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://oslonyehoyskole.no/om-oss/ansatte/peder-mortvedt-isager" title="landmark" target="_blank" rel="noopener">
+      <i class="fas fa-landmark fa-lg fa-fw"></i>
+    </a>
+  
+</div>
+
+    </div>
+    
+    <div class="site-links f6 db dtc-l v-mid w-100 w-67-l tc tr-l pv2 pv0-l mv0">
+      
+      <a class="dib pv1 ph2 link" href="/license/" title="License">License</a>
+      
+    </div>
+  </nav>
+  
+    <script>
+
+    var i, text, code, codes = document.getElementsByTagName('code');
+    for (let i = 0; i < codes.length;) {
+      code = codes[i];
+      if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+        text = code.textContent;
+        if (/^\$[^$]/.test(text) && /[^$]\$$/.test(text)) {
+          text = text.replace(/^\$/, '\\(').replace(/\$$/, '\\)');
+          code.textContent = text;
+        }
+        if (/^\\\((.|\s)+\\\)$/.test(text) ||
+            /^\\\[(.|\s)+\\\]$/.test(text) ||
+            /^\$(.|\s)+\$$/.test(text) ||
+            /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+          code.outerHTML = code.innerHTML;  
+          continue;
+        }
+      }
+      i++;
+    }
+</script>
+
+  
+    
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+
+
+    
+  
+  
+</footer>
+
+      </div>
+    </body>
+</html>
