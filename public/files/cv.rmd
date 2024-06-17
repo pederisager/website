@@ -144,6 +144,10 @@ Lakens, D., Adolfi, F. G., Albers, C. J., Anvari, F., Apps, M. A., ... **Isager,
 
 ## Invited talks
 
+2024
+:   **Systems Thinking for Mental Health**; Leiden University
+\
+
 2023
 :   **Causal direction and feedback in network theories of mental disorder**; University of Amsterdam
 \
@@ -187,13 +191,18 @@ Lakens, D., Adolfi, F. G., Albers, C. J., Anvari, F., Apps, M. A., ... **Isager,
 
 ### Organization
 
+2024: 
+:   **Symposium chair**; Eindhoven, Netherlands
+
+    Chaired and helped organize hackathon discussion at the Perspectives on Psychological Error conference, held at Eindhoven University of Technology.
+
 2020
 :   **Symposium chair**; Berlin, Germany
 
     Chaired and helped organize symposium at the Reward|EQUATOR conference, held at Charité, Berlin.
 
 2016
-:   **Head organizer of dept. research symposium**; University of Oslo
+:   **Head organizer of dept. research symposium**; University of Oslo, Norway
 
     Local symposium communicating department research projects to students. Responsibilities: Securing funding; Recruiting speakers; Promotion; Event logistics, project presentation at event.
 
@@ -226,6 +235,11 @@ Lakens, D., Adolfi, F. G., Albers, C. J., Anvari, F., Apps, M. A., ... **Isager,
 
 
 ### Posters
+
+2024
+:   **Perspectives on Scientific Error**; Eindhoven, Netherlands
+
+    L. Breemer, A.E. van ‘t Veer, **P.M. Isager**, T. Heyman, T. van Leeuwen, and M.C. Makel. *Replication Prevalence Revisited.*
 
 2019
 :   **Society for the Improvement of Psychological Science**; Rotterdam, Netherlands
