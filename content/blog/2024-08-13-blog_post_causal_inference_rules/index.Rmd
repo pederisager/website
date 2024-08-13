@@ -9,7 +9,7 @@ output:
   pdf_document: 
 header:
   caption: ''
-  image: 'random_manipulation.svg'
+  image: 'featured.svg'
 categories: []
 slug: seven_basic_rules_for_causal_inference
 tags: 
