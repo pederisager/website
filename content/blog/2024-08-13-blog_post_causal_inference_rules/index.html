@@ -1,0 +1,190 @@
+---
+title: "Seven basic rules for causal inference"
+author: "Peder M. Isager"
+date: '2024-08-13'
+output:
+  html_document: 
+    df_print: paged
+    fig_caption: yes
+  pdf_document: 
+header:
+  caption: ''
+  image: 'random_manipulation.svg'
+categories: []
+slug: seven_basic_rules_for_causal_inference
+tags: 
+- causal inference
+- causal graphs
+- correlation
+bibliography: references.bib
+summary: "In this blog post I will describe seven basic rules that govern the relationship between causal mechanisms in the real world and associations/correlations we can observe in data. To make each rule as easy as possible to understand, I will describe each rule both in words and in causal graph and logic terms, and I will offer some very simple simulation R code for each rule to demonstrate how it works in practice."
+---
+
+
+
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>In this blog post I will describe seven basic rules that govern the relationship between causal mechanisms in the real world and associations/correlations we can observe in data. To make each rule as easy as possible to understand, I will describe each rule both in words and in causal graph and logic terms, and I will offer some very simple simulation R code for each rule to demonstrate how it works in practice.</p>
+<p>These seven rules represent basic building blocks of causal inference. Most causal analysis procedures involve one or more of these rules to some extent. If you are completely new to formal causal inference, learning these rules can serve as a springboard to learn more complicated things. If you apply causal inference regularly in your own research then you might find this post useful as a cheat sheet. For a much more detailed introduction to causal inference, see <span class="citation">Hernán and Robins (<a href="#ref-Hernan2020">2020</a>)</span>, and the <a href="https://www.edx.org/learn/data-analysis/harvard-university-causal-diagrams-draw-your-assumptions-before-your-conclusions?index=product&amp;queryID=a52aac6e59e1576c59cb528002b59be0&amp;position=1&amp;linked_from=autocomplete&amp;c=autocomplete">Causal Diagrams course</a> from HarvardX.</p>
+</div>
+<div id="four-fundamental-causal-structures" class="section level1">
+<h1>Four fundamental causal structures</h1>
+<p>A causal graph is a depiction of a causal mechanism between variables. In the graph, variables (nodes) are drawn as circles ⚪ (or sometimes as squares), and the causal relationships (paths) between these variables are drawn as arrows → that point from the thing causing (causal parent) to the thing being caused (causal child).</p>
+<p>Any causal graph, no matter how complicated, can be broken down into four elemental building blocks. The blocks are defined by the type of path that can be traced between the variables. All the rules that I will describe below deal with one or more of these building blocks, so it is useful to start by stating and describing them. By recognizing which blocks we are working with in any given instance we will know which causal inference rules are relevant.</p>
+<div id="complete-independence." class="section level2">
+<h2>1. Complete independence.</h2>
+<p>No path can be traced between A and B.</p>
+<p><img src="causal_independence.svg" /></p>
+</div>
+<div id="chain" class="section level2">
+<h2>2. Chain</h2>
+<p>In causal chains, a directed path can be traced from A to B, such that all arrows point from A to B. Chain paths are sometimes called an “open path”, which means that this type of graph transmits correlation between A and B (see rule 2). When a chain involves three or more variables, the variables M linking A and B are often called mediators.</p>
+<p><img src="a_causes_b.svg" /></p>
+<p><img src="mediated_cause.svg" /></p>
+</div>
+<div id="fork" class="section level2">
+<h2>3. Fork</h2>
+<p>In a causal fork, an undirected path (not all arrows run in the same direction) can be traced from A to B through a common causal ancestor C. C is often called a confounder variable. Fork paths are “open” and transmit correlation between A and B (see rule 3).</p>
+<p><img src="confounder.svg" /></p>
+</div>
+<div id="collider" class="section level2">
+<h2>4. Collider</h2>
+<p>In a causal collider, an undirected path (not all arrows run in the same direction) can be traced from A to B through a causal descendant D. D is often called a collider variable. Collider paths are “closed” and do not transmit correlation between A and B (see rule 1).</p>
+<p><img src="collider.svg" /></p>
+</div>
+</div>
+<div id="seven-basic-rules-for-causal-inference" class="section level1">
+<h1>Seven basic rules for causal inference</h1>
+<div id="rule-1-independent-variables-are-not-correlated" class="section level2">
+<h2>Rule 1: Independent variables are not correlated</h2>
+<p>If A and B are causally independent, they will be unassociated in data.</p>
+<p><em>If <img src="causal_independence.svg" style="width:20.0%" /> then A ⫫ B.</em></p>
+<pre class="r"><code># Rule 1
+n=10000  # Number of data points
+a &lt;- rnorm(n, 0, 1)  # A is a random variable
+b &lt;- rnorm(n, 0, 1)  # B is a random variable
+plot(a, b)  </code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-1-1.png" width="480" /></p>
+<pre class="r"><code>cor(a, b)  # Correlation between A and B</code></pre>
+<pre><code>## [1] 0.012</code></pre>
+<p>A and B are causally independent even if they share a causal descendant (causal collider), D. Two independent causes of a shared descendant are not correlated with each other (unless rule 7).</p>
+<p><img src="collider.svg" /></p>
+</div>
+<div id="rule-2-causal-influence-creates-correlation" class="section level2">
+<h2>Rule 2: Causal influence creates correlation</h2>
+<p>If A is a cause of B, or if B is a cause of A, then A and B will be correlated in data.</p>
+<p><em>If <img src="a_causes_b.svg" style="width:20.0%" /> or <img src="b_causes_a.svg" style="width:20.0%" /> then A ~ B.</em></p>
+<pre class="r"><code># Rule 2
+n=10000  # Number of data points
+a &lt;- rnorm(n, 0, 1)  # A is a random variable
+b &lt;- a + rnorm(n, 0, 1)  # B is a function of A
+plot(a, b)  </code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-2-1.png" width="480" /></p>
+<pre class="r"><code>cor(a, b)  # Correlation between A and B</code></pre>
+<pre><code>## [1] 0.71</code></pre>
+<p>This also applies if A causes M, and M in turn causes B (mediation).</p>
+<p><em>If <img src="mediated_cause.svg" style="width:30.0%" /> then A ~ B.</em></p>
+<pre class="r"><code># Rule 2 (mediation)
+n=10000  # Number of data points
+a &lt;- rnorm(n, 0, 1)  # A is a random variable
+m &lt;- a + rnorm(n, 0, 1)  # M is a function of A
+b &lt;- m + rnorm(n, 0, 1)  # B is a function of M
+plot(a, b)  </code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-3-1.png" width="480" /></p>
+<pre class="r"><code>cor(a, b)  # Correlation between A and B</code></pre>
+<pre><code>## [1] 0.58</code></pre>
+</div>
+<div id="rule-3-confounding-creates-correlation" class="section level2">
+<h2>Rule 3: Confounding creates correlation</h2>
+<p>If A and B share a common ancestor C (causal fork), A and B will be correlated in data. This phenomenon is often called confounding, or the “third variable problem”.</p>
+<p><em>If <img src="confounder.svg" style="width:30.0%" /> then A ~ B.</em></p>
+<pre class="r"><code># Rule 3
+n=10000  # Number of data points
+c &lt;- rnorm(n, 0, 1)  # C is a random variable
+a &lt;- c + rnorm(n, 0, 1)  # A is a function of C
+b &lt;- c + rnorm(n, 0, 1)  # B is a function of C
+plot(a, b)  </code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-4-1.png" width="480" /></p>
+<pre class="r"><code>cor(a, b)  # Correlation between A and B</code></pre>
+<pre><code>## [1] 0.49</code></pre>
+<p>The rule also applies if the effects of C on A and/or B are mediated through other variables.</p>
+<p><img src="mediated_confounder.svg" /></p>
+</div>
+</div>
+<div id="rule-4-random-manipulation-protects-a-variable-from-causal-influence" class="section level1">
+<h1>Rule 4: Random manipulation protects a variable from causal influence</h1>
+<p>When we are able to randomly allocate the values of A - such as in a randomized controlled experiment where A is the manipulation variable - no other variable can influence A.</p>
+<p><img src="random_manipulation.svg" /></p>
+<p>The notation <em>do(A)</em> refers to randomizing the values of A. Put differently, with complete experimental control and randomization we make sure that no variable is allowed to influence the values of A.</p>
+</div>
+<div id="adjustment-rules" class="section level1">
+<h1>Adjustment rules</h1>
+<p>To <em>adjust for</em> a variable X means to look at relationships in data that contain only a subset or single value of X. It can also mean to look at relationships for all the values of X separately. Adjustment goes by a number of different names in the sciences, including “control for”, “condition on”, “hold constant”, “stratify”, “select”, etc.</p>
+<p>In the figures below, a square box around a variable node indicates that this variable is being controlled/adjusted for.</p>
+</div>
+<div id="rule-5-controlling-for-a-confounder-blocks-correlation-arising-from-that-confounder" class="section level1">
+<h1>Rule 5: Controlling for a confounder blocks correlation arising from that confounder</h1>
+<p>If A and B share a common ancestor C (causal fork), the confounding correlation between A and B that is created by C (rule 3) is removed if C is controlled for.</p>
+<p><em>If <img src="confounder_controlled_for.svg" style="width:30.0%" /> then A ⫫ B.</em></p>
+<pre class="r"><code># Rule 5
+n=10000  # Number of data points
+c &lt;- rnorm(n, 0, 1)  # C is a random variable
+a &lt;- c + rnorm(n, 0, 1)  # A is a function of C
+b &lt;- c + rnorm(n, 0, 1)  # B is a function of C
+x &lt;- lm(b~c)
+y &lt;- lm(a~c)
+plot(x$residuals, y$residuals) </code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-5-1.png" width="480" /></p>
+<pre class="r"><code>cor(x$residuals, y$residuals)  # Correlation between A and B, controlling for C</code></pre>
+<pre><code>## [1] 0.015</code></pre>
+</div>
+<div id="rule-6-controlling-for-a-mediator-blocks-correlation-arising-from-the-mediated-causal-effect" class="section level1">
+<h1>Rule 6: Controlling for a mediator blocks correlation arising from the mediated causal effect</h1>
+<p>If A is a cause of M and M is a cause of B, correlation between A and B that is created by the mediated causal effect (rule 2) will be removed if M is controlled for.</p>
+<p><em>If <img src="mediator_controlled_for.svg" style="width:30.0%" /> then A ⫫ B.</em></p>
+<pre class="r"><code># Rule 6
+n=10000  # Number of data points
+a &lt;- rnorm(n, 0, 1)  # A is a random variable
+m &lt;- a + rnorm(n, 0, 1)  # M is a function of A
+b &lt;- m + rnorm(n, 0, 1)  # B is a function of M
+x &lt;- lm(a~m)
+y &lt;- lm(b~m)
+plot(x$residuals, y$residuals) </code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-6-1.png" width="480" /></p>
+<pre class="r"><code>cor(x$residuals, y$residuals)  # Correlation between A and B, controlling for M</code></pre>
+<pre><code>## [1] 0.027</code></pre>
+</div>
+<div id="rule-7-controlling-for-a-collider-leads-to-correlation" class="section level1">
+<h1>Rule 7: Controlling for a collider leads to correlation</h1>
+<p>If A and B share a causal descendant (collider) D, and D is controlled for, A and B will become correlated in the data. This is often referred to as “conditioning on a collider”, or collider bias.</p>
+<p><em>If <img src="collider_controlled_for.svg" style="width:30.0%" /> then A ~ B.</em></p>
+<pre class="r"><code># Rule 7
+n=10000  # Number of data points
+a &lt;- rnorm(n, 0, 1)  # A is a random variable
+b &lt;- rnorm(n, 0, 1)  # B is a random variable
+d &lt;- a + b + rnorm(n, 0, 1)  # D is a function of A and B
+x &lt;- lm(a~d)
+y &lt;- lm(b~d)
+plot(x$residuals, y$residuals) </code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-7-1.png" width="480" /></p>
+<pre class="r"><code>cor(x$residuals, y$residuals)  # Correlation between A and B, controlling for D</code></pre>
+<pre><code>## [1] -0.5</code></pre>
+</div>
+<div id="important-assumptions" class="section level1">
+<h1>Important assumptions</h1>
+<p>The above rules only hold if some important assumptions are met, which I will list below but not explain in detail. For details, see <span class="citation">Hernán and Robins (<a href="#ref-Hernan2020">2020</a>)</span>.</p>
+<p><strong>No spurious correlation:</strong> Correlation is not caused by random accident. The law of large numbers dictate that the more data we have, the more credible this assumption is.</p>
+<p><strong>Consistency:</strong> The values of A you see are the actual values of A, or “the values of treatment under comparison correspond to well-defined interventions that, in turn, correspond to the versions of treatment in the data” <span class="citation">Hernán and Robins (<a href="#ref-Hernan2020">2020</a>)</span>.</p>
+<p><strong>Exchangeability:</strong> “the conditional probability of receiving every value of treatment, though not decided by the investigators, depends only on measured covariates” <span class="citation">Hernán and Robins (<a href="#ref-Hernan2020">2020</a>)</span>.</p>
+<p><strong>Positivity:</strong> “the probability of receiving every value of treatment conditional on L is greater than zero, i.e., positive” <span class="citation">Hernán and Robins (<a href="#ref-Hernan2020">2020</a>)</span>.</p>
+<p><strong>Faithfulness:</strong> The causal effect does not vary over groups in a way that makes it average to 0 in the data. A does not have a positive effect 50% of the time and an identically powerful negative effect 50% of the time, which would average out to an effect of 0 in the population.</p>
+<p>If either of these assumptions are not met, it can potentially break the relationship between causal effect and observed data described by these rules.</p>
+</div>
+<div id="references" class="section level1 unnumbered">
+<h1>References</h1>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-Hernan2020" class="csl-entry">
+Hernán, Miguel, and James Robins. 2020. <em>Causal <span>Inference</span>: <span>What If</span>.</em> Boca Raton: Chapman &amp; Hall/CRC.
+</div>
+</div>
+</div>
