@@ -34,7 +34,7 @@ These seven rules represent basic building blocks of causal inference. Most caus
 
 # Four fundamental causal structures
 
-A causal graph is a depiction of a causal mechanism between variables. In the graph, variables (nodes) are drawn as circles ⚪ (or sometimes as squares), and the causal relationships  (paths) between these variables are drawn as arrows → that point from the thing causing (causal parent) to the thing being caused (causal child). 
+A causal graph is a depiction of a causal mechanism between variables. In the graph, variables (nodes) are drawn as circles ⚪ (or sometimes as squares), and the causal relationships  (paths) between these variables are drawn as arrows → that point from the thing causing (causal ancestor) to the thing being caused (causal descendant). 
 
 Any causal graph, no matter how complicated, can be broken down into four elemental building blocks. The blocks are defined by the type of path that can be traced between the variables. All the rules that I will describe below deal with one or more of these building blocks, so it is useful to start by stating and describing them. By recognizing which blocks we are working with in any given instance we will know which causal inference rules are relevant.
 
@@ -134,7 +134,7 @@ The rule also applies if the effects of C on A and/or B are mediated through oth
 
 ![](mediated_confounder.svg)
 
-# Rule 4: Random manipulation protects a variable from causal influence
+## Rule 4: Random manipulation protects a variable from causal influence
 
 When we are able to randomly allocate the values of A - such as in a randomized controlled experiment where A is the manipulation variable - no other variable can influence A.
 
@@ -148,7 +148,7 @@ To *adjust for* a variable X means to look at relationships in data that contain
 
 In the figures below, a square box around a variable node indicates that this variable is being controlled/adjusted for.
 
-# Rule 5: Controlling for a confounder blocks correlation arising from that confounder
+## Rule 5: Controlling for a confounder blocks correlation arising from that confounder
 
 If A and B share a common ancestor C (causal fork), the confounding correlation between A and B that is created by C (rule 3) is removed if C is controlled for. 
 
@@ -166,7 +166,7 @@ plot(x$residuals, y$residuals)
 cor(x$residuals, y$residuals)  # Correlation between A and B, controlling for C
 ```
 
-# Rule 6: Controlling for a mediator blocks correlation arising from the mediated causal effect
+## Rule 6: Controlling for a mediator blocks correlation arising from the mediated causal effect
 
 If A is a cause of M and M is a cause of B, correlation between A and B that is created by the mediated causal effect (rule 2) will be removed if M is controlled for. 
 
@@ -184,7 +184,7 @@ plot(x$residuals, y$residuals)
 cor(x$residuals, y$residuals)  # Correlation between A and B, controlling for M
 ```
 
-# Rule 7: Controlling for a collider leads to correlation
+## Rule 7: Controlling for a collider leads to correlation
 
 If A and B share a causal descendant (collider) D, and D is controlled for, A and B will become correlated in the data. This is often referred to as "conditioning on a collider", or collider bias.
 
@@ -201,6 +201,53 @@ y <- lm(b~d)
 plot(x$residuals, y$residuals) 
 cor(x$residuals, y$residuals)  # Correlation between A and B, controlling for D
 ```
+
+## Rule 8: Controlling for a causal descendant (partially) controls for the ancestor
+
+If B is a descendant of A and B is controlled for, A is also (partially) controlled for. 
+
+![](control_for_descendant.svg)
+
+The degree to which A is controlled when B is controlled for generally depends on the how reliably A causes B.
+
+In the example below, C is a confounder of A and B, but the confounding influence can partially be blocked by controlling for CM. 
+
+![](rule_8_example.svg)
+
+If CM is a semi-reliable measure of C, some correlation between A and B is removed by controlling for CM, but not as much as when controlling for C:
+
+```{r, fig.dim = c(10, 5)}
+# Rule 5
+n=10000  # Number of data points
+# 2*c used in equations to make change in relationship more visible.
+c <- rnorm(n, 0, 1)  # C is a random variable
+a <- 2*c + rnorm(n, 0, 1)  # A is a function of C
+b <- 2*c + rnorm(n, 0, 1)  # B is a function of C
+cm <- 2*c + rnorm(n, 0, 1) # CM is a function of C
+# Control for C
+ac <- lm(b~c)
+bc <- lm(a~c)
+# Control for CM
+acm <- lm(a~cm)
+bcm <- lm(b~cm)
+# Plot relationship between a and b while...
+par(mfrow=c(1,3)) 
+plot(a,b, main = "no control")  # controlling for nothing
+plot(acm$residuals, bcm$residuals, main = "controlling for CM")  # controlling for CM
+plot(ac$residuals, bc$residuals, main = "controlling for C")  # controlling for C
+# Correlation between a and b while...
+cor(a,b) # controlling for nothing
+cor(acm$residuals, bcm$residuals)  # controlling for CM
+cor(ac$residuals, bc$residuals)  # controlling for C
+```
+
+# NB: Correlated does not mean *linearly* correlated
+
+In this text, I use the term "correlated" a lot. To many, the term correlation is synonymous with *linear* correlation. However, that is *not* what I mean. Here, "correlation" simply means "co-relation", "association", or "mutual information". If A and B are correlated it just means that something systematically happens to B when something happens to A. 
+
+For example, rule 2 does not imply that A and B will be *linearly* correlation when A causes B; just that B will change systematically in some way when A changes.
+
+For simplicity, I have used linear correlations in all the example R code. In real life, however, the pattern of correlation/association/mutual information we should expect depends entirely on the functional form of the causal relationships involved. 
 
 # Important assumptions
 
