@@ -1,25 +1,116 @@
----
-title: "Eight basic rules for causal inference"
-author: "Peder M. Isager"
-date: '2024-08-13'
-output:
-  html_document: 
-    df_print: paged
-    fig_caption: yes
-  pdf_document: 
-header:
-  caption: ''
-  image: 'featured.svg'
-categories: []
-slug: seven_basic_rules_for_causal_inference
-tags: 
-- causal inference
-- causal graphs
-- correlation
-bibliography: references.bib
-summary: "In this blog post I will describe seven basic rules that govern the relationship between causal mechanisms in the real world and associations/correlations we can observe in data. To make each rule as easy as possible to understand, I will describe each rule both in words and in causal graph and logic terms, and I will offer some very simple simulation R code for each rule to demonstrate how it works in practice."
----
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><head>
+  
+                           
+     
 
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.101.0" />
+<title>Seven basic rules for causal inference | Peder M. Isager</title>
+
+
+<meta property="twitter:site" content="@peder_isager">
+<meta property="twitter:creator" content="@peder_isager">
+
+
+
+
+
+
+
+  
+    
+  
+<meta name="description" content="Personal website of Dr. Peder M. Isager">
+
+
+<meta property="og:site_name" content="Peder M. Isager">
+<meta property="og:title" content="Seven basic rules for causal inference | Peder M. Isager">
+<meta property="og:description" content="Personal website of Dr. Peder M. Isager" />
+<meta property="og:type" content="page" />
+<meta property="og:url" content="https://pedermisager.org/blog/seven_basic_rules_for_causal_inference/" />
+<meta property="og:locale" content="en">
+
+
+
+
+    
+        <meta property="og:image" content="https://pedermisager.org/blog/seven_basic_rules_for_causal_inference/featured.svg" >
+        <meta property="twitter:card" content="summary_large_image">
+        <meta name="twitter:image" content="https://pedermisager.org/blog/seven_basic_rules_for_causal_inference/featured.svg" >
+    
+    
+  <meta itemprop="name" content="Seven basic rules for causal inference">
+<meta itemprop="description" content="In this blog post I will describe seven basic rules that govern the relationship between causal mechanisms in the real world and associations/correlations we can observe in data. To make each rule as easy as possible to understand, I will describe each rule both in words and in causal graph and logic terms, and I will offer some very simple simulation R code for each rule to demonstrate how it works in practice."><meta itemprop="datePublished" content="2024-08-13T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2024-08-13T00:00:00+00:00" />
+<meta itemprop="wordCount" content="2034"><meta itemprop="image" content="https://pedermisager.org/blog/seven_basic_rules_for_causal_inference/featured.svg">
+<meta itemprop="keywords" content="causal inference,causal graphs,correlation," />
+  
+  
+  <!--[if IE]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
+  
+  
+  <link rel="stylesheet" href="/style.main.min.51048f8224904aac943a02f6057e4a47960d1d64abe43e43820ed1b3017122c1.css" integrity="sha256-UQSPgiSQSqyUOgL2BX5KR5YNHWSr5D5Dgg7RswFxIsE=" media="screen">
+  
+  
+  <script src="/panelset.min.dca42702d7daf6fd31dc352efd2bcf0e4ac8c05ccaa58d9293f6177462de5d5f.js" type="text/javascript"></script>
+  
+  
+  <script src="/main.min.a75546a6048e92fe5f1c0f124398a10e6163b026a10a151f920863fa7b8e7874.js" type="text/javascript"></script>
+</head>
+<body>
+      <div class="grid-container">
+<header class="site-header pt4 pb2 mb4 bb b--transparent ph5 headroom z-max" role="banner">
+  <nav class="site-nav db dt-l w-100" role="navigation">
+    <a class="site-brand db dtc-l v-mid link no-underline w-100 w-33-l tc tl-l" href="https://pedermisager.org/" title="Home">
+      <img src="/img/home_icon.png" class="dib db-l h2 w-auto" alt="Peder M. Isager">
+    </a>
+    <div class="site-links db dtc-l v-mid w-100 w-47-l tc tr-l mt3 mt0-l ttu tracked">
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 active" href="/blog/" title="Blog">Blog</a>
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 " href="/talk/" title="Talks">Talks</a>
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 " href="/files/cv.pdf" title="CV">CV</a>
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 " href="https://pure.tue.nl/ws/portalfiles/portal/200554284/20220524_Isager_hf.pdf" title="Deciding What To Replicate">PhD thesis</a>
+      
+      
+    </div>
+  </nav>
+</header>
+
+<main class="page-main pa4" role="main">
+  <section class="page-content mw7 center">
+    <article class="post-content pa0 ph4-l">
+      <header class="post-header">
+        <h1 class="f1 lh-solid measure-narrow mb3 fw4">Seven basic rules for causal inference</h1>
+        
+        <p class="f6 measure lh-copy mv1">By Peder M. Isager</p>
+        <p class="f7 db mv0 ttu">August 13, 2024</p>
+
+      
+
+      </header>
+      <section class="post-body pt5 pb4">
+        
 
 
 <div id="introduction" class="section level1">
@@ -53,8 +144,8 @@ summary: "In this blog post I will describe seven basic rules that govern the re
 <p><img src="collider.svg" /></p>
 </div>
 </div>
-<div id="basic-rules-for-causal-inference" class="section level1">
-<h1>Basic rules for causal inference</h1>
+<div id="seven-basic-rules-for-causal-inference" class="section level1">
+<h1>Seven basic rules for causal inference</h1>
 <div id="rule-1-independent-variables-are-not-correlated" class="section level2">
 <h2>Rule 1: Independent variables are not correlated</h2>
 <p>If A and B are causally independent, they will be unassociated in data.</p>
@@ -64,7 +155,7 @@ n=10000  # Number of data points
 a &lt;- rnorm(n, 0, 1)  # A is a random variable
 b &lt;- rnorm(n, 0, 1)  # B is a random variable
 plot(a, b)  </code></pre>
-<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-1-1.png" width="480" /></p>
+<p><img src="https://pedermisager.org/blog/seven_basic_rules_for_causal_inference/index_files/figure-html/unnamed-chunk-1-1.png" width="480" /></p>
 <pre class="r"><code>cor(a, b)  # Correlation between A and B</code></pre>
 <pre><code>## [1] 0.012</code></pre>
 <p>A and B are causally independent even if they share a causal descendant (causal collider), D. Two independent causes of a shared descendant are not correlated with each other (unless rule 7).</p>
@@ -79,7 +170,7 @@ n=10000  # Number of data points
 a &lt;- rnorm(n, 0, 1)  # A is a random variable
 b &lt;- a + rnorm(n, 0, 1)  # B is a function of A
 plot(a, b)  </code></pre>
-<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-2-1.png" width="480" /></p>
+<p><img src="https://pedermisager.org/blog/seven_basic_rules_for_causal_inference/index_files/figure-html/unnamed-chunk-2-1.png" width="480" /></p>
 <pre class="r"><code>cor(a, b)  # Correlation between A and B</code></pre>
 <pre><code>## [1] 0.71</code></pre>
 <p>This also applies if A causes M, and M in turn causes B (mediation).</p>
@@ -90,7 +181,7 @@ a &lt;- rnorm(n, 0, 1)  # A is a random variable
 m &lt;- a + rnorm(n, 0, 1)  # M is a function of A
 b &lt;- m + rnorm(n, 0, 1)  # B is a function of M
 plot(a, b)  </code></pre>
-<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-3-1.png" width="480" /></p>
+<p><img src="https://pedermisager.org/blog/seven_basic_rules_for_causal_inference/index_files/figure-html/unnamed-chunk-3-1.png" width="480" /></p>
 <pre class="r"><code>cor(a, b)  # Correlation between A and B</code></pre>
 <pre><code>## [1] 0.58</code></pre>
 </div>
@@ -104,7 +195,7 @@ c &lt;- rnorm(n, 0, 1)  # C is a random variable
 a &lt;- c + rnorm(n, 0, 1)  # A is a function of C
 b &lt;- c + rnorm(n, 0, 1)  # B is a function of C
 plot(a, b)  </code></pre>
-<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-4-1.png" width="480" /></p>
+<p><img src="https://pedermisager.org/blog/seven_basic_rules_for_causal_inference/index_files/figure-html/unnamed-chunk-4-1.png" width="480" /></p>
 <pre class="r"><code>cor(a, b)  # Correlation between A and B</code></pre>
 <pre><code>## [1] 0.49</code></pre>
 <p>The rule also applies if the effects of C on A and/or B are mediated through other variables.</p>
@@ -133,7 +224,7 @@ b &lt;- c + rnorm(n, 0, 1)  # B is a function of C
 x &lt;- lm(b~c)
 y &lt;- lm(a~c)
 plot(x$residuals, y$residuals) </code></pre>
-<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-5-1.png" width="480" /></p>
+<p><img src="https://pedermisager.org/blog/seven_basic_rules_for_causal_inference/index_files/figure-html/unnamed-chunk-5-1.png" width="480" /></p>
 <pre class="r"><code>cor(x$residuals, y$residuals)  # Correlation between A and B, controlling for C</code></pre>
 <pre><code>## [1] 0.015</code></pre>
 </div>
@@ -149,7 +240,7 @@ b &lt;- m + rnorm(n, 0, 1)  # B is a function of M
 x &lt;- lm(a~m)
 y &lt;- lm(b~m)
 plot(x$residuals, y$residuals) </code></pre>
-<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-6-1.png" width="480" /></p>
+<p><img src="https://pedermisager.org/blog/seven_basic_rules_for_causal_inference/index_files/figure-html/unnamed-chunk-6-1.png" width="480" /></p>
 <pre class="r"><code>cor(x$residuals, y$residuals)  # Correlation between A and B, controlling for M</code></pre>
 <pre><code>## [1] 0.027</code></pre>
 </div>
@@ -165,7 +256,7 @@ d &lt;- a + b + rnorm(n, 0, 1)  # D is a function of A and B
 x &lt;- lm(a~d)
 y &lt;- lm(b~d)
 plot(x$residuals, y$residuals) </code></pre>
-<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-7-1.png" width="480" /></p>
+<p><img src="https://pedermisager.org/blog/seven_basic_rules_for_causal_inference/index_files/figure-html/unnamed-chunk-7-1.png" width="480" /></p>
 <pre class="r"><code>cor(x$residuals, y$residuals)  # Correlation between A and B, controlling for D</code></pre>
 <pre><code>## [1] -0.5</code></pre>
 </div>
@@ -195,7 +286,7 @@ par(mfrow=c(1,3))
 plot(a,b, main = &quot;no control&quot;)  # controlling for nothing
 plot(acm$residuals, bcm$residuals, main = &quot;controlling for CM&quot;)  # controlling for CM
 plot(ac$residuals, bc$residuals, main = &quot;controlling for C&quot;)  # controlling for C</code></pre>
-<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-8-1.png" width="960" /></p>
+<p><img src="https://pedermisager.org/blog/seven_basic_rules_for_causal_inference/index_files/figure-html/unnamed-chunk-8-1.png" width="960" /></p>
 <pre class="r"><code># Correlation between a and b while...
 cor(a,b) # controlling for nothing</code></pre>
 <pre><code>## [1] 0.8</code></pre>
@@ -205,8 +296,8 @@ cor(a,b) # controlling for nothing</code></pre>
 <pre><code>## [1] 0.0021</code></pre>
 </div>
 </div>
-<div id="nb-correlated-does-not-necessarily-mean-linearly-correlated" class="section level1">
-<h1>NB: Correlated does not necessarily mean <em>linearly</em> correlated</h1>
+<div id="nb-correlated-does-not-mean-linearly-correlated" class="section level1">
+<h1>NB: Correlated does not mean <em>linearly</em> correlated</h1>
 <p>In this text, I use the term “correlated” a lot. To many, the term correlation is synonymous with <em>linear</em> correlation. However, that is <em>not</em> what I mean. Here, “correlation” simply means “co-relation”, “association”, or “mutual information”. If A and B are correlated it just means that something systematically happens to B when something happens to A.</p>
 <p>For example, rule 2 does not imply that A and B will be <em>linearly</em> correlation when A causes B; just that B will change systematically in some way when A changes.</p>
 <p>For simplicity, I have used linear correlations in all the example R code. In real life, however, the pattern of correlation/association/mutual information we should expect depends entirely on the functional form of the causal relationships involved.</p>
@@ -229,3 +320,219 @@ Hernán, Miguel, and James Robins. 2020. <em>Causal <span>Inference</span>: <spa
 </div>
 </div>
 </div>
+
+        
+        <details closed class="f6 fw7 input-reset">
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Posted on:</dt>
+    <dd class="fw5 ml0">August 13, 2024</dd>
+  </dl>
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Length:</dt>
+    <dd class="fw5 ml0">10 minute read, 2034 words</dd>
+  </dl>
+  
+  
+  
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Tags:</dt>
+    <dd class="fw5 ml0"> <a href="https://pedermisager.org/tags/causal-inference">causal inference</a>  <a href="https://pedermisager.org/tags/causal-graphs">causal graphs</a>  <a href="https://pedermisager.org/tags/correlation">correlation</a> </dd>
+  </dl>
+  
+  <dl class="f6 lh-copy">
+    <dt class="fw7">See Also:</dt>
+    
+    <dd class="fw5 ml0"><a href="/blog/why_does_correlation_not_equal_causation/">Why does correlation not equal causation?</a></dd>
+    
+    <dd class="fw5 ml0"><a href="/blog/fifty-ways-to-leave-your-model/">Fifty ways to leave your model</a></dd>
+    
+  </dl>
+</details>
+
+      </section>
+      <footer class="post-footer">
+        <div class="post-pagination dt w-100 mt4 mb2">
+  
+  
+  
+  
+    <a class="next dtc pl2 tr v-top fw6"
+    href="https://pedermisager.org/blog/four-one-sided-test/">Four one-sided test of significance (FOST). Dear reader, does this make sense? &rarr;</a>
+  
+</div>
+
+      </footer>
+    </article>
+    
+      
+<div class="post-comments pa0 pa4-l mt4">
+  
+  <script src="https://utteranc.es/client.js"
+          repo="apreshill/apero"
+          issue-term="pathname"
+          theme="boxy-light"
+          label="comments :crystal_ball:"
+          crossorigin="anonymous"
+          async
+          type="text/javascript">
+  </script>
+  
+</div>
+
+    
+  </section>
+</main>
+<footer class="site-footer pv4 bt b--transparent ph5" role="contentinfo">
+  <nav class="db dt-l w-100">
+    <p class="site-copyright f7 db dtc-l v-mid w-100 w-33-l tc tl-l pv2 pv0-l mv0 lh-copy">
+      &copy; 2024 RStudio, Anywhere
+      <span class="middot-divider"></span>
+      Made with <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/hugo-apero/" rel="dct:source">Hugo Apéro</a></span>.
+      <br />
+      
+Based on <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/formspree/blogophonic-hugo" rel="dct:source">Blogophonic</a></span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://formspree.io" property="cc:attributionName" rel="cc:attributionURL">Formspree</a>.
+    </p>
+    
+    <div class="site-social-links db dtc-l v-mid w-100 w-33-l tc pv2 pv0-l mv0">
+      <div class="social-icon-links" aria-hidden="true">
+  
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://github.com/pederisager" title="github" target="_blank" rel="noopener">
+      <i class="fab fa-github fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://twitter.com/peder_isager" title="twitter" target="_blank" rel="noopener">
+      <i class="fab fa-twitter fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://www.linkedin.com/in/peder-mortvedt-isager-a104966a/" title="linkedin" target="_blank" rel="noopener">
+      <i class="fab fa-linkedin fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="http://orcid.org/0000-0002-6922-3590" title="orcid" target="_blank" rel="noopener">
+      <i class="ai ai-orcid fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://scholar.google.com/citations?user=_EcbBtYAAAAJ&amp;hl=no&amp;oi=ao" title="graduation-cap" target="_blank" rel="noopener">
+      <i class="fas fa-graduation-cap fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://oslonyehoyskole.no/om-oss/ansatte/peder-mortvedt-isager" title="landmark" target="_blank" rel="noopener">
+      <i class="fas fa-landmark fa-lg fa-fw"></i>
+    </a>
+  
+</div>
+
+    </div>
+    
+    <div class="site-links f6 db dtc-l v-mid w-100 w-67-l tc tr-l pv2 pv0-l mv0">
+      
+      <a class="dib pv1 ph2 link" href="/license/" title="License">License</a>
+      
+    </div>
+  </nav>
+  
+    <script>
+
+    var i, text, code, codes = document.getElementsByTagName('code');
+    for (let i = 0; i < codes.length;) {
+      code = codes[i];
+      if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+        text = code.textContent;
+        if (/^\$[^$]/.test(text) && /[^$]\$$/.test(text)) {
+          text = text.replace(/^\$/, '\\(').replace(/\$$/, '\\)');
+          code.textContent = text;
+        }
+        if (/^\\\((.|\s)+\\\)$/.test(text) ||
+            /^\\\[(.|\s)+\\\]$/.test(text) ||
+            /^\$(.|\s)+\$$/.test(text) ||
+            /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+          code.outerHTML = code.innerHTML;  
+          continue;
+        }
+      }
+      i++;
+    }
+</script>
+
+  
+    
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+
+
+    
+  
+  
+</footer>
+
+      </div>
+    </body>
+</html>

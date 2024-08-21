@@ -1,5 +1,5 @@
 ---
-title: "Seven basic rules for causal inference"
+title: "Eight basic rules for causal inference"
 author: "Peder M. Isager"
 date: '2024-08-13'
 output:
@@ -64,7 +64,7 @@ In a causal collider, an undirected path (not all arrows run in the same directi
   
  ![](collider.svg) 
  
-# Seven basic rules for causal inference
+# Basic rules for causal inference
 
 ## Rule 1: Independent variables are not correlated
 
@@ -241,7 +241,7 @@ cor(acm$residuals, bcm$residuals)  # controlling for CM
 cor(ac$residuals, bc$residuals)  # controlling for C
 ```
 
-# NB: Correlated does not mean *linearly* correlated
+# NB: Correlated does not necessarily mean *linearly* correlated
 
 In this text, I use the term "correlated" a lot. To many, the term correlation is synonymous with *linear* correlation. However, that is *not* what I mean. Here, "correlation" simply means "co-relation", "association", or "mutual information". If A and B are correlated it just means that something systematically happens to B when something happens to A. 
 
