@@ -11,13 +11,13 @@ header:
   caption: ''
   image: 'featured.svg'
 categories: []
-slug: seven_basic_rules_for_causal_inference
+slug: eight_basic_rules_for_causal_inference
 tags: 
 - causal inference
 - causal graphs
 - correlation
 bibliography: references.bib
-summary: "In this blog post I will describe seven basic rules that govern the relationship between causal mechanisms in the real world and associations/correlations we can observe in data. To make each rule as easy as possible to understand, I will describe each rule both in words and in causal graph and logic terms, and I will offer some very simple simulation R code for each rule to demonstrate how it works in practice."
+summary: "In this blog post I will describe eight basic rules that govern the relationship between causal mechanisms in the real world and associations/correlations we can observe in data. To make each rule as easy as possible to understand, I will describe each rule both in words and in causal graph and logic terms, and I will offer some very simple simulation R code for each rule to demonstrate how it works in practice."
 ---
 
 ```{r setup, include=FALSE}
@@ -28,9 +28,9 @@ set.seed(20241308)
 
 # Introduction
 
-In this blog post I will describe seven basic rules that govern the relationship between causal mechanisms in the real world and associations/correlations we can observe in data. To make each rule as easy as possible to understand, I will describe each rule both in words and in causal graph and logic terms, and I will offer some very simple simulation R code for each rule to demonstrate how it works in practice. 
+In this blog post I will describe eight basic rules that govern the relationship between causal mechanisms in the real world and associations/correlations we can observe in data. To make each rule as easy as possible to understand, I will describe each rule both in words and in causal graph and logic terms, and I will offer some very simple simulation R code for each rule to demonstrate how it works in practice. 
 
-These seven rules represent basic building blocks of causal inference. Most causal analysis procedures involve one or more of these rules to some extent. If you are completely new to formal causal inference, learning these rules can serve as a springboard to learn more complicated things. If you apply causal inference regularly in your own research then you might find this post useful as a cheat sheet. For a much more detailed introduction to causal inference, see @Hernan2020, and the [Causal Diagrams course](https://www.edx.org/learn/data-analysis/harvard-university-causal-diagrams-draw-your-assumptions-before-your-conclusions?index=product&queryID=a52aac6e59e1576c59cb528002b59be0&position=1&linked_from=autocomplete&c=autocomplete) from HarvardX.
+These eight rules represent basic building blocks of causal inference. Most causal analysis procedures involve one or more of these rules to some extent. If you are completely new to formal causal inference, learning these rules can serve as a springboard to learn more complicated things. If you apply causal inference regularly in your own research then you might find this post useful as a cheat sheet. For a much more detailed introduction to causal inference, see @Hernan2020, and the [Causal Diagrams course](https://www.edx.org/learn/data-analysis/harvard-university-causal-diagrams-draw-your-assumptions-before-your-conclusions?index=product&queryID=a52aac6e59e1576c59cb528002b59be0&position=1&linked_from=autocomplete&c=autocomplete) from HarvardX.
 
 # Four fundamental causal structures
 
