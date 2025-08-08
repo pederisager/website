@@ -236,6 +236,11 @@ Lakens, D., Adolfi, F. G., Albers, C. J., Anvari, F., Apps, M. A., ... **Isager,
 
 ### Posters
 
+2025
+:   **Perspectives on Scientific Error**; Bern, Germany
+
+    Van ’t Veer, A. E., Freeman, Z., Hoekstra, R., Isager, P. M., Martinovici, A., van Ravenzwaaij, D., & Rasti, S. (2025, January 22). Registered Verification Reports—A model for continual quality control by journals. https://doi.org/10.17605/OSF.IO/CEH4R 
+
 2024
 :   **Perspectives on Scientific Error**; Eindhoven, Netherlands
 

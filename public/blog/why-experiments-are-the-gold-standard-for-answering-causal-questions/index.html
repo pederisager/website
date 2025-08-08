@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><head>
+  
+                           
+     
+
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.101.0" />
+<title>Why experiments are the gold standard for answering causal questions | Peder M. Isager</title>
+
+
+<meta property="twitter:site" content="@peder_isager">
+<meta property="twitter:creator" content="@peder_isager">
+
+
+
+
+
+
+
+  
+    
+  
+<meta name="description" content="Personal website of Dr. Peder M. Isager">
+
+
+<meta property="og:site_name" content="Peder M. Isager">
+<meta property="og:title" content="Why experiments are the gold standard for answering causal questions | Peder M. Isager">
+<meta property="og:description" content="Personal website of Dr. Peder M. Isager" />
+<meta property="og:type" content="page" />
+<meta property="og:url" content="https://pedermisager.org/blog/why-experiments-are-the-gold-standard-for-answering-causal-questions/" />
+<meta property="og:locale" content="en">
+
+
+
+
+    
+        <meta property="og:image" content="https://pedermisager.org/blog/why-experiments-are-the-gold-standard-for-answering-causal-questions/featured.svg" >
+        <meta property="twitter:card" content="summary_large_image">
+        <meta name="twitter:image" content="https://pedermisager.org/blog/why-experiments-are-the-gold-standard-for-answering-causal-questions/featured.svg" >
+    
+    
+  <meta itemprop="name" content="Why experiments are the gold standard for answering causal questions">
+<meta itemprop="description" content="In this blog post, I will briefly explain why experimental designs are considered so valuable by scientists and why we often insist that randomized experiments are necessary for answering causal questions. I will use a practical example to illustrate this point. If you&rsquo;re new to the concept of causal inference, it may be helpful to read my earlier blog posts on correlation vs. causation and eight basic rules for causal inference."><meta itemprop="datePublished" content="2024-08-13T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2024-08-13T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1085"><meta itemprop="image" content="https://pedermisager.org/blog/why-experiments-are-the-gold-standard-for-answering-causal-questions/featured.svg">
+<meta itemprop="keywords" content="causal inference,experiment,correlation," />
+  
+  
+  <!--[if IE]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
+  
+  
+  <link rel="stylesheet" href="/style.main.min.51048f8224904aac943a02f6057e4a47960d1d64abe43e43820ed1b3017122c1.css" integrity="sha256-UQSPgiSQSqyUOgL2BX5KR5YNHWSr5D5Dgg7RswFxIsE=" media="screen">
+  
+  
+  <script src="/panelset.min.dca42702d7daf6fd31dc352efd2bcf0e4ac8c05ccaa58d9293f6177462de5d5f.js" type="text/javascript"></script>
+  
+  
+  <script src="/main.min.730d4f03db3a99ac782968a59d54071fce8e8257c133dc9b9bb0ae43cd68f5ac.js" type="text/javascript"></script>
+</head>
+<body>
+      <div class="grid-container">
+<header class="site-header pt4 pb2 mb4 bb b--transparent ph5 headroom z-max" role="banner">
+  <nav class="site-nav db dt-l w-100" role="navigation">
+    <a class="site-brand db dtc-l v-mid link no-underline w-100 w-33-l tc tl-l" href="https://pedermisager.org/" title="Home">
+      <img src="/img/home_icon.png" class="dib db-l h2 w-auto" alt="Peder M. Isager">
+    </a>
+    <div class="site-links db dtc-l v-mid w-100 w-47-l tc tr-l mt3 mt0-l ttu tracked">
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 active" href="/blog/" title="Blog">Blog</a>
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 " href="/talk/" title="Talks">Talks</a>
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 " href="/files/cv.pdf" title="CV">CV</a>
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 " href="https://pure.tue.nl/ws/portalfiles/portal/200554284/20220524_Isager_hf.pdf" title="Deciding What To Replicate">PhD thesis</a>
+      
+      
+    </div>
+  </nav>
+</header>
+
+<main class="page-main pa4" role="main">
+  <section class="page-content mw7 center">
+    <article class="post-content pa0 ph4-l">
+      <header class="post-header">
+        <h1 class="f1 lh-solid measure-narrow mb3 fw4">Why experiments are the gold standard for answering causal questions</h1>
+        
+        <p class="f6 measure lh-copy mv1">By Peder M. Isager</p>
+        <p class="f7 db mv0 ttu">August 13, 2024</p>
+
+      
+
+      </header>
+      <section class="post-body pt5 pb4">
+        
+
+
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>Every person on Earth thinks about causal questions all the time: <em>What will happen if I do this? Is this happening because of that? If I speed up, can I make it through the intersection before the light turns red?</em></p>
+<p>Scientists are no different. Whether we work in physics, psychology, climate science, or sociology, we are all interested in the forces and mechanisms that govern the part of the world we study—and what happens when we intervene in it.</p>
+<p>A good example comes from nutrition science. Just think about the countless causal claims—some well-founded, others dubious—about how different foods affect the human body. Every day, people make dietary decisions based on these claims in order to maintain their health. At its core, the goal of nutrition science is to help us distinguish between true and false claims and provide evidence-based answers to questions about food and health. To do this, nutrition scientists rely heavily on experimental evidence.</p>
+<p>But why? What makes experimental research designs so special? And why do research methods textbooks often emphasize that experimental evidence is essential—or even required—for making causal claims?</p>
+</div>
+<div id="a-real-world-example-does-diet-soda-make-you-gain-weight" class="section level1">
+<h1>A Real-World Example: Does Diet Soda Make You Gain Weight?</h1>
+<p>Let’s consider a (<a href="https://www.youtube.com/watch?v=4fhBB6VRXXk">hotly debated</a>) causal claim:</p>
+<blockquote>
+<p>“Drinking diet soda will make you gain weight.”</p>
+</blockquote>
+<p>How could we test whether this claim is true?</p>
+<p>A simple approach would be to compare the body weights of people who prefer diet soda with those who prefer regular soda. This is an example of an observational (or correlational) study. We observe two naturally occurring variables—soda preference and body weight—and look for a correlation.</p>
+<p>If people who prefer diet soda have higher body weight on average, some might conclude that diet soda causes weight gain. That logic seems reasonable: if diet soda causes weight gain, we might expect the two variables to be correlated (this is <a href="https://pedermisager.org/blog/eight_basic_rules_for_causal_inference/" title="See &quot;Rule 2: Causal influence creates correlation&quot;">rule 2</a> of causal inference).</p>
+<p><img src="soda_causes_weight.png" /></p>
+<p>However, a more cautious (or “hard-nosed”) scientist would remain unconvinced. Why? Because <a href="https://pedermisager.org/blog/why_does_correlation_not_equal_causation/">correlation does not imply causation</a>. There are many reasons two variables might be correlated that have nothing to do with one causing the other.</p>
+</div>
+<div id="two-common-problems-with-correlational-studies" class="section level1">
+<h1>Two Common Problems with Correlational Studies</h1>
+<div id="the-directionality-problem" class="section level4">
+<h4>1. <strong>The Directionality Problem</strong></h4>
+<p>It could be that <strong>body weight causes soda preference</strong>, not the other way around. For instance, people who are already overweight might switch from regular to diet soda in an effort to manage their weight. This is called the directional problem; <a href="https://pedermisager.org/blog/eight_basic_rules_for_causal_inference/">rule 2</a> works both ways:</p>
+<p><img src="weight_causes_soda.png" /></p>
+</div>
+<div id="the-third-variable-problem-confounding" class="section level4">
+<h4>2. <strong>The Third Variable Problem (Confounding)</strong></h4>
+<p>There might be a third variable that influences both soda preference and body weight. This is called <strong>confounding</strong> (<a href="https://pedermisager.org/blog/eight_basic_rules_for_causal_inference/" title="See &quot;Rule 3: Confounding creates correlation&quot;">rule 3</a>).</p>
+<p>A clear example is <strong>biological sex</strong>:</p>
+<ul>
+<li><p>Women might be more likely to choose diet soda due to targeted marketing.</p></li>
+<li><p>Women also tend to weigh less than men.</p></li>
+</ul>
+<p>So, diet soda drinkers might weigh less than regular soda drinkers on average—not because of the soda itself, but because more of them are women.</p>
+<p><img src="sex_as_third_variable.png" /></p>
+</div>
+</div>
+<div id="why-experiments-are-better-for-causal-inference" class="section level1">
+<h1>Why Experiments Are Better for Causal Inference</h1>
+<p>To decide whether soda preference causes weight gain, scientists will often demand experimental evidence. Ideally, we want to see data from a randomized controlled experiment (also called randomized controlled trial [RCT], clinical trial, and true experiment). These experiments have two critical components that observational studies lack:</p>
+<ul>
+<li><p><strong>Manipulation</strong> – Researchers get to choose the value of the independent variable (in this case, soda type).</p></li>
+<li><p><strong>Randomization</strong> – The values of the independent variable are assigned randomly. Essentially, we flip a coin, and the result of the coin flip determines the value of the independent variable for each subject in the study.</p></li>
+</ul>
+<p>To test our example claim, we could design a randomized experiment with participants assigned to two groups. One group drinks only diet soda for one year. The other group drinks only regular soda for a year. For each participant we flip a coin. If it lands head, the participant drinks diet soda for a year. If it lands tails they drink regular soda. At the end of the year we measure the body weights of everyone in both groups and see which group weighs the most on average.</p>
+<p><img src="experiment_design_example.png" /></p>
+<p>Why is this setup a better test of the causal claim than an observational study? Because randomization has essentially killed the direction and third variables problems we had to worry about before. Think about it. If a coin flip decides whether a participant drinks diet or regular soda, then <em>nothing</em> causes soda preference in our experiment (<a href="https://pedermisager.org/blog/eight_basic_rules_for_causal_inference/" title="See &quot;Rule 4: Random manipulation protects a variable from causal influence&quot;">rule 4</a>).</p>
+<p>This means we have no directional problem in a randomized experiment. If we see a correlation between soda preference (which group you are in) and body weight, it can’t be because body weight caused soda preference. <em>Nothing</em> causes soda preference in our experiment.</p>
+<p>It also means we have no third variable problems in a randomized experiment. No variable can influence both soda preference and weight gain because no variable can influence soda preference. If we see a correlation between soda preference and body weight, it can’t be because a third variable is influencing both.</p>
+<p>The only thing that can explain correlation between soda preference and body weight in a randomized experiment is that which type of soda you drink causes changes in body weight<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>.</p>
+<p><img src="soda_causes_weight_experiment.png" /></p>
+<p>Put more technically, experiment allows us to rule out more alternative causal hypotheses than an observational study when we observe a correlation between the independent and dependent variable. Type 1 error and selection bias remains a risk in both designs, but the likelihood is higher in an experiment that A~B = A-&gt;B. The figure below demonstrates the difference in causal inference power between designs:</p>
+<div class="float">
+<img src="hypotheses_ruled_out_by_different_designs.png" alt="Squares in (5) indicate that the common outcome variable is selected on. See causal inference rule 7." />
+<div class="figcaption">Squares in (5) indicate that the common outcome variable is selected on. See <a href="https://pedermisager.org/blog/eight_basic_rules_for_causal_inference/">causal inference rule 7</a>.</div>
+</div>
+<p>Protection from alternative interpretations is what makes experiments such powerful tools for causal inference. It is why evidence from randomized experiments are always desired—and sometimes required—to make claims in medical and health science. </p>
+<p>Experiments are not perfect divination tools. There are certainly cases where we may learn more from a well-designed observational study than a poorly designed experiment, and it is possible to draw causal conclusions without any experimental evidence. However, in general, if you’re looking for answers to a casual question you would be wise to look for experimental evidence. If none exist, be careful. Guessing causal mechanisms based observational evidence alone is usually very difficult.</p>
+</div>
+<div class="footnotes footnotes-end-of-document">
+<hr />
+<ol>
+<li id="fn1"><p>Technically, it could also be due to a type 1 error or selection bias. If we have collected data from enough people and make sure people from one group do not systematically drop out, we can rule this out.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+
+        
+        <details closed class="f6 fw7 input-reset">
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Posted on:</dt>
+    <dd class="fw5 ml0">August 13, 2024</dd>
+  </dl>
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Length:</dt>
+    <dd class="fw5 ml0">6 minute read, 1085 words</dd>
+  </dl>
+  
+  
+  
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Tags:</dt>
+    <dd class="fw5 ml0"> <a href="https://pedermisager.org/tags/causal-inference">causal inference</a>  <a href="https://pedermisager.org/tags/experiment">experiment</a>  <a href="https://pedermisager.org/tags/correlation">correlation</a> </dd>
+  </dl>
+  
+  <dl class="f6 lh-copy">
+    <dt class="fw7">See Also:</dt>
+    
+    <dd class="fw5 ml0"><a href="/blog/eight_basic_rules_for_causal_inference/">Eight basic rules for causal inference</a></dd>
+    
+    <dd class="fw5 ml0"><a href="/blog/why_does_correlation_not_equal_causation/">Why does correlation not equal causation?</a></dd>
+    
+  </dl>
+</details>
+
+      </section>
+      <footer class="post-footer">
+        <div class="post-pagination dt w-100 mt4 mb2">
+  
+  
+    <a class="prev dtc pr2 tl v-top fw6"
+    href="https://pedermisager.org/blog/eight_basic_rules_for_causal_inference/">&larr; Eight basic rules for causal inference</a>
+  
+  
+  
+    <a class="next dtc pl2 tr v-top fw6"
+    href="https://pedermisager.org/blog/four-one-sided-test/">Four one-sided test of significance (FOST). Dear reader, does this make sense? &rarr;</a>
+  
+</div>
+
+      </footer>
+    </article>
+    
+      
+<div class="post-comments pa0 pa4-l mt4">
+  
+  <script src="https://utteranc.es/client.js"
+          repo="apreshill/apero"
+          issue-term="pathname"
+          theme="boxy-light"
+          label="comments :crystal_ball:"
+          crossorigin="anonymous"
+          async
+          type="text/javascript">
+  </script>
+  
+</div>
+
+    
+  </section>
+</main>
+<footer class="site-footer pv4 bt b--transparent ph5" role="contentinfo">
+  <nav class="db dt-l w-100">
+    <p class="site-copyright f7 db dtc-l v-mid w-100 w-33-l tc tl-l pv2 pv0-l mv0 lh-copy">
+      &copy; 2025 RStudio, Anywhere
+      <span class="middot-divider"></span>
+      Made with <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/hugo-apero/" rel="dct:source">Hugo Apéro</a></span>.
+      <br />
+      
+Based on <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/formspree/blogophonic-hugo" rel="dct:source">Blogophonic</a></span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://formspree.io" property="cc:attributionName" rel="cc:attributionURL">Formspree</a>.
+    </p>
+    
+    <div class="site-social-links db dtc-l v-mid w-100 w-33-l tc pv2 pv0-l mv0">
+      <div class="social-icon-links" aria-hidden="true">
+  
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://github.com/pederisager" title="github" target="_blank" rel="noopener">
+      <i class="fab fa-github fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://twitter.com/peder_isager" title="twitter" target="_blank" rel="noopener">
+      <i class="fab fa-twitter fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://www.linkedin.com/in/peder-mortvedt-isager-a104966a/" title="linkedin" target="_blank" rel="noopener">
+      <i class="fab fa-linkedin fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="http://orcid.org/0000-0002-6922-3590" title="orcid" target="_blank" rel="noopener">
+      <i class="ai ai-orcid fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://scholar.google.com/citations?user=_EcbBtYAAAAJ&amp;hl=no&amp;oi=ao" title="graduation-cap" target="_blank" rel="noopener">
+      <i class="fas fa-graduation-cap fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://oslonyehoyskole.no/om-oss/ansatte/peder-mortvedt-isager" title="landmark" target="_blank" rel="noopener">
+      <i class="fas fa-landmark fa-lg fa-fw"></i>
+    </a>
+  
+</div>
+
+    </div>
+    
+    <div class="site-links f6 db dtc-l v-mid w-100 w-67-l tc tr-l pv2 pv0-l mv0">
+      
+      <a class="dib pv1 ph2 link" href="/license/" title="License">License</a>
+      
+    </div>
+  </nav>
+  
+    <script>
+
+    var i, text, code, codes = document.getElementsByTagName('code');
+    for (let i = 0; i < codes.length;) {
+      code = codes[i];
+      if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+        text = code.textContent;
+        if (/^\$[^$]/.test(text) && /[^$]\$$/.test(text)) {
+          text = text.replace(/^\$/, '\\(').replace(/\$$/, '\\)');
+          code.textContent = text;
+        }
+        if (/^\\\((.|\s)+\\\)$/.test(text) ||
+            /^\\\[(.|\s)+\\\]$/.test(text) ||
+            /^\$(.|\s)+\$$/.test(text) ||
+            /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+          code.outerHTML = code.innerHTML;  
+          continue;
+        }
+      }
+      i++;
+    }
+</script>
+
+  
+    
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+
+
+    
+  
+  
+</footer>
+
+      </div>
+    </body>
+</html>
