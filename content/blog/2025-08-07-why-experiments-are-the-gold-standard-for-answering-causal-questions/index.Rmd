@@ -1,7 +1,7 @@
 ---
-title: Why experiments are the gold standard for answering causal questions
+title: Why experiments are considered gold standard for answering causal questions
 author: "Peder M. Isager"
-date: '2024-08-13'
+date: '2025-08-07'
 output:
   html_document: 
     df_print: paged
@@ -11,7 +11,7 @@ header:
   caption: ''
   image: 'featured.svg'
 categories: []
-slug: why-experiments-are-the-gold-standard-for-answering-causal-questions
+slug: why-experiments-are-considered-gold-standard-for-answering-causal-questions
 tags: 
 - causal inference
 - experiment
