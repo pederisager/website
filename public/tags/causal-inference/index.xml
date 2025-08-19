@@ -6,7 +6,16 @@
     <description>Recent content in causal inference on Peder M. Isager</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 13 Aug 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://pedermisager.org/tags/causal-inference/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 07 Aug 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://pedermisager.org/tags/causal-inference/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Why experiments are considered gold standard for answering causal questions</title>
+      <link>https://pedermisager.org/blog/why-experiments-are-considered-gold-standard-for-answering-causal-questions/</link>
+      <pubDate>Thu, 07 Aug 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://pedermisager.org/blog/why-experiments-are-considered-gold-standard-for-answering-causal-questions/</guid>
+      <description>In this blog post, I will briefly explain why experimental designs are considered so valuable by scientists and why we often insist that randomized experiments are necessary for answering causal questions. I will use a practical example to illustrate this point. If you&amp;rsquo;re new to the concept of causal inference, it may be helpful to read my earlier blog posts on &lt;em&gt;correlation vs. causation&lt;/em&gt; and &lt;em&gt;eight basic rules for causal inference.&lt;/em&gt;</description>
+    </item>
+    
     <item>
       <title>Eight basic rules for causal inference</title>
       <link>https://pedermisager.org/blog/eight_basic_rules_for_causal_inference/</link>
@@ -14,15 +23,6 @@
       
       <guid>https://pedermisager.org/blog/eight_basic_rules_for_causal_inference/</guid>
       <description>In this blog post I will describe eight basic rules that govern the relationship between causal mechanisms in the real world and associations/correlations we can observe in data. To make each rule as easy as possible to understand, I will describe each rule both in words and in causal graph and logic terms, and I will offer some very simple simulation R code for each rule to demonstrate how it works in practice.</description>
-    </item>
-    
-    <item>
-      <title>Why experiments are the gold standard for answering causal questions</title>
-      <link>https://pedermisager.org/blog/why-experiments-are-the-gold-standard-for-answering-causal-questions/</link>
-      <pubDate>Tue, 13 Aug 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://pedermisager.org/blog/why-experiments-are-the-gold-standard-for-answering-causal-questions/</guid>
-      <description>In this blog post, I will briefly explain why experimental designs are considered so valuable by scientists and why we often insist that randomized experiments are necessary for answering causal questions. I will use a practical example to illustrate this point. If you&amp;rsquo;re new to the concept of causal inference, it may be helpful to read my earlier blog posts on &lt;em&gt;correlation vs. causation&lt;/em&gt; and &lt;em&gt;eight basic rules for causal inference.&lt;/em&gt;</description>
     </item>
     
     <item>

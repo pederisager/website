@@ -6,20 +6,11 @@
     <description>Recent content in Tags on Peder M. Isager</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 13 Aug 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://pedermisager.org/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>causal graphs</title>
-      <link>https://pedermisager.org/tags/causal-graphs/</link>
-      <pubDate>Tue, 13 Aug 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://pedermisager.org/tags/causal-graphs/</guid>
-      <description></description>
-    </item>
-    
+    <lastBuildDate>Thu, 07 Aug 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://pedermisager.org/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>causal inference</title>
       <link>https://pedermisager.org/tags/causal-inference/</link>
-      <pubDate>Tue, 13 Aug 2024 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 07 Aug 2025 00:00:00 +0000</pubDate>
       
       <guid>https://pedermisager.org/tags/causal-inference/</guid>
       <description></description>
@@ -28,7 +19,7 @@
     <item>
       <title>correlation</title>
       <link>https://pedermisager.org/tags/correlation/</link>
-      <pubDate>Tue, 13 Aug 2024 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 07 Aug 2025 00:00:00 +0000</pubDate>
       
       <guid>https://pedermisager.org/tags/correlation/</guid>
       <description></description>
@@ -37,9 +28,18 @@
     <item>
       <title>experiment</title>
       <link>https://pedermisager.org/tags/experiment/</link>
-      <pubDate>Tue, 13 Aug 2024 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 07 Aug 2025 00:00:00 +0000</pubDate>
       
       <guid>https://pedermisager.org/tags/experiment/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>causal graphs</title>
+      <link>https://pedermisager.org/tags/causal-graphs/</link>
+      <pubDate>Tue, 13 Aug 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://pedermisager.org/tags/causal-graphs/</guid>
       <description></description>
     </item>
     
