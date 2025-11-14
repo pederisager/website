@@ -6,7 +6,16 @@
     <description>Recent content in causal inference on Peder M. Isager</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 07 Aug 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://pedermisager.org/tags/causal-inference/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 14 Nov 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://pedermisager.org/tags/causal-inference/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Which variables to control for, and why</title>
+      <link>https://pedermisager.org/blog/why-experiments-are-considered-gold-standard-for-answering-causal-questions/</link>
+      <pubDate>Fri, 14 Nov 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://pedermisager.org/blog/why-experiments-are-considered-gold-standard-for-answering-causal-questions/</guid>
+      <description>In this post, we will use a practical example to explore the power of statistical control, explaining why adjusting for the right variables clarifies relationships and why adjusting for the wrong ones can introduce new, serious biases.</description>
+    </item>
+    
     <item>
       <title>Why experiments are considered gold standard for answering causal questions</title>
       <link>https://pedermisager.org/blog/why-experiments-are-considered-gold-standard-for-answering-causal-questions/</link>
