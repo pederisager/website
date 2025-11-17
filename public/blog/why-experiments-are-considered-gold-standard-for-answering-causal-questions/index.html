@@ -9,7 +9,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="generator" content="Hugo 0.101.0" />
-<title>Why experiments are considered gold standard for answering causal questions | Peder M. Isager</title>
+<title>Which variables to control for, and why | Peder M. Isager</title>
 
 
 <meta property="twitter:site" content="@peder_isager">
@@ -28,7 +28,7 @@
 
 
 <meta property="og:site_name" content="Peder M. Isager">
-<meta property="og:title" content="Why experiments are considered gold standard for answering causal questions | Peder M. Isager">
+<meta property="og:title" content="Which variables to control for, and why | Peder M. Isager">
 <meta property="og:description" content="Personal website of Dr. Peder M. Isager" />
 <meta property="og:type" content="page" />
 <meta property="og:url" content="https://pedermisager.org/blog/why-experiments-are-considered-gold-standard-for-answering-causal-questions/" />
@@ -38,15 +38,15 @@
 
 
     
-        <meta property="og:image" content="https://pedermisager.org/blog/why-experiments-are-considered-gold-standard-for-answering-causal-questions/featured.svg" >
+        <meta property="og:image" content="https://pedermisager.org/blog/why-experiments-are-considered-gold-standard-for-answering-causal-questions/featured.png" >
         <meta property="twitter:card" content="summary_large_image">
-        <meta name="twitter:image" content="https://pedermisager.org/blog/why-experiments-are-considered-gold-standard-for-answering-causal-questions/featured.svg" >
+        <meta name="twitter:image" content="https://pedermisager.org/blog/why-experiments-are-considered-gold-standard-for-answering-causal-questions/featured.png" >
     
     
-  <meta itemprop="name" content="Why experiments are considered gold standard for answering causal questions">
-<meta itemprop="description" content="In this blog post, I will briefly explain why experimental designs are considered so valuable by scientists and why we often insist that randomized experiments are necessary for answering causal questions. I will use a practical example to illustrate this point. If you&rsquo;re new to the concept of causal inference, it may be helpful to read my earlier blog posts on correlation vs. causation and eight basic rules for causal inference."><meta itemprop="datePublished" content="2025-08-07T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2025-08-07T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1082"><meta itemprop="image" content="https://pedermisager.org/blog/why-experiments-are-considered-gold-standard-for-answering-causal-questions/featured.svg">
+  <meta itemprop="name" content="Which variables to control for, and why">
+<meta itemprop="description" content="In this post, we will use a practical example to explore the power of statistical control, explaining why adjusting for the right variables clarifies relationships and why adjusting for the wrong ones can introduce new, serious biases."><meta itemprop="datePublished" content="2025-11-14T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2025-11-14T00:00:00+00:00" />
+<meta itemprop="wordCount" content="2246"><meta itemprop="image" content="https://pedermisager.org/blog/why-experiments-are-considered-gold-standard-for-answering-causal-questions/featured.png">
 <meta itemprop="keywords" content="causal inference,experiment,correlation," />
   
   
@@ -101,10 +101,10 @@
   <section class="page-content mw7 center">
     <article class="post-content pa0 ph4-l">
       <header class="post-header">
-        <h1 class="f1 lh-solid measure-narrow mb3 fw4">Why experiments are considered gold standard for answering causal questions</h1>
+        <h1 class="f1 lh-solid measure-narrow mb3 fw4">Which variables to control for, and why</h1>
         
-        <p class="f6 measure lh-copy mv1">By Peder M. Isager</p>
-        <p class="f7 db mv0 ttu">August 7, 2025</p>
+        <p class="f6 measure lh-copy mv1">By Peder M Isager</p>
+        <p class="f7 db mv0 ttu">November 14, 2025</p>
 
       
 
@@ -113,82 +113,129 @@
         
 
 
-<div id="introduction" class="section level1">
-<h1>Introduction</h1>
-<p>Every person on Earth thinks about causal questions all the time: <em>What will happen if I do this? Is this happening because of that? If I speed up, can I make it through the intersection before the light turns red?</em></p>
-<p>Scientists are no different. Whether we work in physics, psychology, climate science, or sociology, we are all interested in the forces and mechanisms that govern the part of the world we study—and what happens when we intervene in it.</p>
-<p>A good example comes from nutrition science. Just think about the countless causal claims—some well-founded, others dubious—about how different foods affect the human body. Every day, people make dietary decisions based on these claims in order to maintain their health. At its core, the goal of nutrition science is to help us distinguish between true and false claims and provide evidence-based answers to questions about food and health. To do this, nutrition scientists rely heavily on experimental evidence.</p>
-<p>But why? What makes experimental research designs so special? And why do research methods textbooks often emphasize that experimental evidence is essential—or even required—for making causal claims?</p>
+<div id="notebooklm-video-summary" class="section level2">
+<h2>NotebookLM video summary</h2>
+<p>I am experimenting with AI tools for augmenting my teaching resources. This is a NotebookLM summary of the blog post below. The visualizations provided are so-so, and I had to pad the video with custom visualizations in some places, but the overall summary is a quite good I think. Feedback most welcome!</p>
+<iframe width="720" height="405" src="https://www.youtube.com/embed/EYTNzfHmTvc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
 </div>
-<div id="a-real-world-example-does-diet-soda-make-you-gain-weight" class="section level1">
-<h1>A Real-World Example: Does Diet Soda Make You Gain Weight?</h1>
-<p>Let’s consider a (<a href="https://www.youtube.com/watch?v=4fhBB6VRXXk">hotly debated</a>) causal claim:</p>
-<blockquote>
-<p>“Drinking diet soda will make you gain weight.”</p>
-</blockquote>
-<p>How could we test whether this claim is true?</p>
-<p>A simple approach would be to compare the body weights of people who prefer diet soda with those who prefer regular soda. This is an example of an observational (or correlational) study. We observe two naturally occurring variables—soda preference and body weight—and look for a correlation.</p>
-<p>If people who prefer diet soda have higher body weight on average, some might conclude that diet soda causes weight gain. That logic seems reasonable: if diet soda causes weight gain, we might expect the two variables to be correlated (this is <a href="https://pedermisager.org/blog/eight_basic_rules_for_causal_inference/" title="See &quot;Rule 2: Causal influence creates correlation&quot;">rule 2</a> of causal inference).</p>
-<p><img src="soda_causes_weight.png" /></p>
-<p>However, a hard-nosed scientist would remain unconvinced. Why? Because <a href="https://pedermisager.org/blog/why_does_correlation_not_equal_causation/">correlation does not imply causation</a>. There are many reasons two variables might be correlated that have nothing to do with one causing the other.</p>
-</div>
-<div id="two-common-problems-with-correlational-studies" class="section level1">
-<h1>Two Common Problems with Correlational Studies</h1>
-<div id="the-directionality-problem" class="section level4">
-<h4>1. <strong>The Directionality Problem</strong></h4>
-<p>It could be that <strong>body weight causes soda preference</strong>, not the other way around. For instance, people who are already overweight might switch from regular to diet soda in an effort to manage their weight. This is called the directional problem; <a href="https://pedermisager.org/blog/eight_basic_rules_for_causal_inference/">rule 2</a> works both ways:</p>
-<p><img src="weight_causes_soda.png" /></p>
-</div>
-<div id="the-third-variable-problem-confounding" class="section level4">
-<h4>2. <strong>The Third Variable Problem (Confounding)</strong></h4>
-<p>There might be a third variable that influences both soda preference and body weight. This is called <strong>confounding</strong> (<a href="https://pedermisager.org/blog/eight_basic_rules_for_causal_inference/" title="See &quot;Rule 3: Confounding creates correlation&quot;">rule 3</a>).</p>
-<p>A clear example is <strong>biological sex</strong>:</p>
-<ul>
-<li><p>Women might be more likely to choose diet soda due to targeted marketing.</p></li>
-<li><p>Women also tend to weigh less than men.</p></li>
-</ul>
-<p>So, diet soda drinkers might weigh less than regular soda drinkers on average—not because of the soda itself, but because more of them are women.</p>
-<p><img src="sex_as_third_variable.png" /></p>
-</div>
-</div>
-<div id="why-experiments-are-better-for-causal-inference" class="section level1">
-<h1>Why Experiments Are Better for Causal Inference</h1>
-<p>To decide whether soda preference causes weight gain, scientists will often demand experimental evidence. Ideally, we want to see data from a randomized controlled experiment (also called randomized controlled trial [RCT], clinical trial, and true experiment). These experiments have two critical components that observational studies lack:</p>
-<ul>
-<li><p><strong>Manipulation</strong> – Researchers get to choose the value of the independent variable (in this case, soda type).</p></li>
-<li><p><strong>Randomization</strong> – The values of the independent variable are assigned randomly. Essentially, we flip a coin, and the result of the coin flip determines the value of the independent variable for each subject in the study.</p></li>
-</ul>
-<p>To test our example claim, we could design a randomized experiment with participants assigned to two groups. One group drinks only diet soda for one year. The other group drinks only regular soda for a year. For each participant we flip a coin. If it lands head, the participant drinks diet soda for a year. If it lands tails they drink regular soda. At the end of the year we measure the body weights of everyone in both groups and see which group weighs the most on average.</p>
-<p><img src="experiment_design_example.png" /></p>
-<p>Why is this setup a better test of the causal claim than an observational study? Because randomization has essentially killed the direction and third variables problems we had to worry about before. Think about it. If a coin flip decides whether a participant drinks diet or regular soda, then <em>nothing</em> causes soda preference in our experiment (<a href="https://pedermisager.org/blog/eight_basic_rules_for_causal_inference/" title="See &quot;Rule 4: Random manipulation protects a variable from causal influence&quot;">rule 4</a>).</p>
-<p>This means we have no directional problem in a randomized experiment. If we see a correlation between soda preference (which group you are in) and body weight, it can’t be because body weight caused soda preference. <em>Nothing</em> causes soda preference in our experiment.</p>
-<p>It also means we have no third variable problems in a randomized experiment. No variable can influence both soda preference and weight gain because no variable can influence soda preference. If we see a correlation between soda preference and body weight, it can’t be because a third variable is influencing both.</p>
-<p>The only thing that can explain correlation between soda preference and body weight in a randomized experiment is that which type of soda you drink causes changes in body weight<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>.</p>
-<p><img src="soda_causes_weight_experiment.png" /></p>
-<p>Put more technically, experiment allows us to rule out more alternative causal hypotheses than an observational study when we observe a correlation between the independent and dependent variable. Type 1 error and selection bias remains a risk in both designs, but the likelihood is higher in an experiment that A~B = A-&gt;B. The figure below demonstrates the difference in causal inference power between designs:</p>
-<div class="float">
-<img src="hypotheses_ruled_out_by_different_designs.png" alt="Squares in (5) indicate that the common outcome variable is selected on. See causal inference rule 7." />
-<div class="figcaption">Squares in (5) indicate that the common outcome variable is selected on. See <a href="https://pedermisager.org/blog/eight_basic_rules_for_causal_inference/">causal inference rule 7</a>.</div>
-</div>
-<p>Protection from alternative interpretations is what makes experiments such powerful tools for causal inference. It is why evidence from randomized experiments are always desired—and sometimes required—to make claims in medical and health science. </p>
-<p>Experiments are not perfect divination tools. There are certainly cases where we may learn more from a well-designed observational study than a poorly designed experiment, and it is possible to draw causal conclusions without any experimental evidence. However, in general, if you’re looking for answers to a casual question you would be wise to look for experimental evidence. If none exist, be careful. Guessing causal mechanisms based observational evidence alone is usually very difficult.</p>
-</div>
-<div class="footnotes footnotes-end-of-document">
+<div id="introduction" class="section level2">
+<h2>Introduction</h2>
+<p>In the previous blog posts in this series, we established why correlation is not causation and explored the core rules governing causal relationships (Isager, 2023, 2024a). We then looked at why Randomized Controlled Trials (RCTs) are the gold standard for answering causal questions: randomization essentially eliminates the influence of common causes, also called third variables or confounders (Isager, 2024b).</p>
+<p>However, in the real world, randomization is often impossible, impractical, or unethical. We cannot ethically randomize people to smoke, nor can we practically randomize their height or their socioeconomic status.</p>
+<p>Does this mean we must abandon causal inference whenever we only have observational data? Not at all. It is possible—though often difficult—to learn about causal direction from correlational data through the clever use of control variables. In this post, we will use a practical example to explore the power of statistical control, explaining why adjusting for the right variables clarifies relationships and why adjusting for the wrong ones can introduce new, serious biases.</p>
+<p>The Jamovi analysis file used to produce all plots and statistics I report here is embedded at the end of this blog post and can be downloaded from <a href="https://osf.io/6kf3w/files" class="uri">https://osf.io/6kf3w/files</a>. The OSF project also contains the R code to simulate the data and the raw CSV data file.</p>
 <hr />
-<ol>
-<li id="fn1"><p>Technically, it could also be due to a type 1 error or selection bias. If we have collected data from enough people and make sure people from one group do not systematically drop out, we can rule this out.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
-</ol>
+</div>
+<div id="the-misleading-correlation-of-muscle-and-performance" class="section level2">
+<h2>The Misleading Correlation of Muscle and Performance</h2>
+<p>Suppose you are a sports scientist studying how lean muscle mass affects athletic performance in track and field. You collect observational data across a large population of athletes, measuring their muscle mass and their performance times (e.g., 100m sprint time), as well as their gender and self-reported beliefs in their own athletic abilities (see accompanying Jamovi file: <a href="https://osf.io/6kf3w/files/nukzx" class="uri">https://osf.io/6kf3w/files/nukzx</a>). Suppose the following DAG governs the relationship between these variables:</p>
+<p><img src="example_DAG_athletic_performance.png" /></p>
+<p>When you plot the raw data, you find a strong correlation: athletes with greater lean muscle mass tend to have faster times, or better performance. Each kg of lean muscle mass gained seems to linearly reduce sprint finish time by 61 ms, <em>B =</em> -0.061 <em>CI 95%</em> [-0.064, -0.059]. A coach looking only at this overall correlation might conclude that increasing muscle mass directly causes a huge gain in performance.</p>
+<p>However, a quick look at the plot reveals two distinct clusters of data points, likely corresponding to male and female athletes:</p>
+<p><img src="scatterplot_sprinttime_by_lmm.png" width="900" /></p>
+<p>We know that, generally, biological differences related to gender affect baseline muscle mass, and can also affect athletic performance through other mechanisms like bone structure, height, or sports-related gender norms. Thus, gender is a confounder for the causal effect we are interested in, as we can also see from the DAG (Male gender is a causal fork that points to both Lean muscle mass and Sprint time).</p>
+<p>When we split the data and examine the relationship within each gender group—comparing male athletes only to other male athletes, and female athletes only to other female athletes—the strong association between lean muscle mass and sprint time is significantly reduced. Now, each kg of lean muscle mass only seems to give only 21 ms reduction in sprint time, <em>B =</em> -0.022, <em>95% CI</em> [-0.026, -0.017].</p>
+<p><img src="sprinttime_performance_variable_control_2.png" /></p>
+<p>This much lower estimate is in fact our best estimate of the true causal effect. The original association was overestimating the true causal effect due to spurious positive negative correlation produced by the confounder “Gender” (when one causal arrow in the fork is negative and the other is positive, confounders produce negative correlation; when arrows are either both positive or both negative, confounders lead to positive correlation).</p>
+<hr />
+</div>
+<div id="the-third-variable-problem-confounding" class="section level2">
+<h2>The Third-Variable Problem: Confounding</h2>
+<p>The core challenge in observational research is the “third variable problem,” commonly known as <strong>confounding bias</strong>. A confounder is a third variable (Z) that causally influences both the exposure (X) and the outcome (Y). In a Directed Acyclic Graph (DAG), the confounder sits at a causal fork: <span class="math inline">\(X \leftarrow Z \rightarrow Y\)</span>.</p>
+<p>In our example, Gender (Z) influences Lean Muscle Mass (X) and also influences Athletic Performance (Y). This shared cause creates a spurious, non-causal association between muscle mass and performance. This phenomenon is formalized in Rule 3 of causal inference: <strong>Confounding creates correlation</strong>.</p>
+<p>Because this correlation is created by the confounder, relying on the raw data leads to a biased estimate of the true effect of muscle mass on performance.</p>
+<hr />
+</div>
+<div id="when-controlling-helps-blocking-back-door-paths" class="section level2">
+<h2>When Controlling Helps: Blocking Back-Door Paths</h2>
+<p>To estimate the true causal effect of muscle mass on performance from observational data, we must block the influence of the confounder. This is achieved by controlling for or conditioning on that variable. Controlling for gender means comparing athletes at the same level of gender (i.e., comparing women only to women, and men only to men).</p>
+<p>Statistically, we can achieve this by including the confounder as a covariate in a regression model (example in accompanying Jamovi file), or by stratifying the analysis into subgroups. The goal is to compare units where the confounder (Z) can no longer explain the remaining association between X and Y. In our example, we control for Gender (the only confounder), the misleading association between Lean muscle mass and Sprint time disappears, allowing us to estimate the true causal relationship, if one exists:</p>
+<p><img src="DAG_control_for_gender.png" /></p>
+<p>In the language of DAGs, controlling for the confounder <strong>“blocks” the back-door path</strong> created by the common cause. When we successfully block all spurious paths (often called “back-door paths”), we achieve <strong>d-separation</strong> (<em>D-separation, n.d.</em>), meaning that the remaining correlation between X and Y reflects the true causal effect, provided our assumptions hold.</p>
+<p>This successful adjustment is summarized by Rule 5: <strong>Controlling for a confounder blocks correlation arising from that confounder</strong>.</p>
+<hr />
+</div>
+<div id="when-controlling-hurts-colliders-and-mediators" class="section level2">
+<h2>When Controlling Hurts: Colliders and Mediators</h2>
+<p>While controlling for confounders is essential, statistical control is a double-edged sword: controlling for the wrong variables can introduce bias where none existed. The “golden rule” is to <strong>condition on common causes, not on common effects or intermediates</strong>.</p>
+<div id="the-danger-of-colliders" class="section level3">
+<h3>The Danger of Colliders</h3>
+<p>A <strong>collider</strong> is structurally the opposite of a confounder. A collider (C) is a variable that is a common effect of two other variables (<span class="math inline">\(X
+\rightarrow C \leftarrow Y\)</span>). Typically, if two variables only share a common effect (a collider), they are uncorrelated in the general population.</p>
+<p>Crucially, conditioning on a collider creates a spurious correlation between its causes. This is known as <strong>collider bias</strong> or <strong>selection bias</strong> (Rohrer, 2018). Rule 7 states: <strong>Controlling for a collider leads to correlation</strong> (Isager, 2024a).</p>
+<p>For instance, suppose we are again estimating the effect of Lean muscle mass on Sprint time with our data. If not thinking about the DAG at all, it might sound reasonable to include “Belief in own athletic ability” as a control variable when estimating this effect. After all, belief in abilities seems “related” to both Lean muscle mass and Sprint time. Indeed, these variables are related according to the DAG. However, controlling for Belief is a terrible idea. If we add it to the regression model, we end up underestimating the true causal effect of muscle mass by about 50%, <em>B =</em> -0.01, <em>95% CI</em> [-0.015, -0.006]. This happens because controlling for Belief (C) opens up several previously closed backdoor paths between Lean muscle (X) mass and Sprint time (Y), which mixes spurious correlation back into the estimate. Conditioning on a collider can lead to both underestimation and overestimation of true effects, depending on the causal effects involved. </p>
+<p><img src="DAG_control_for_belief.png" /></p>
+<p>The Trap of Mediators (Overcontrol Bias)</p>
+<p>A mediator (M) is a variable that lies on the causal path from X to Y: <span class="math inline">\(X \rightarrow M \rightarrow Y\)</span>. Mediators are part of the mechanism by which the cause affects the outcome.</p>
+<p>When estimating the <strong>total effect</strong> of X on Y (the overall causal impact), we should not control for mediators. Controlling for a mediator blocks this causal pathway, removing the effect we are trying to measure. This is termed overcontrol bias (Elwert &amp; Winship, 2014). Rule 6 confirms this: Controlling for a mediator blocks correlation arising from the mediated causal effect (Isager, 2024a).</p>
+<p>In our example DAG,  Male gender (X) causes increased Lean muscle mass (M), which then causes reduced Sprint time (Y), controlling for Lean muscle masswould make it appear as though Gender had a much lower impact on performance than it really has. The true effect of Gender in this hypothetical scenario is 760 ms in favor of males, but if we control away gender differences in Lean muscle mass the effect of Gender is (wrongly) estimated to be 550 ms, <em>B =</em> -0.54, <em>95% CI</em> [-0.60, -0.49].</p>
+<p><img src="DAG_control_for_leanmusclemass.png" /></p>
+<p>The exception is if you specifically want to estimate the <strong>direct effect</strong>—the effect of X on Y that <em>doesn’t</em> go through M (such as sports-related gender norms causing men to have more access to coaching and financial support). The 550 ms estimate above represents the direct effect of Gender on Sprint time, not including muscle mass differences. This may sometimes be of interest. However, if you are not deliberately planning to estimate a direct effect, controlling for mediators is a bad idea.</p>
+<p>If your goal is to estimate a direct effect, be careful: adjusting for a mediator can inadvertently create a new bias if there are uncontrolled common causes between the mediator and the outcome:</p>
+<p><img src="DAG_M-bias.png" /></p>
+<hr />
+</div>
+</div>
+<div id="practical-limits-and-uncertainty" class="section level2">
+<h2>Practical Limits and Uncertainty</h2>
+<p>Statistical control is a powerful tool, but it can never perfectly replace the certainty offered by randomization. Our success hinges on critical, untestable assumptions:</p>
+<div id="unmeasured-confounders" class="section level3">
+<h3>1. Unmeasured Confounders</h3>
+<p>The most significant limitation is the risk of <strong>unmeasured confounders</strong>. You can only control for variables that you have actually measured. If an important common cause was omitted or measured inaccurately, residual confounding will persist, and your causal effect estimate will not be accurate:</p>
+<p><img src="DAG_unmeasured_confounding.png" /></p>
+</div>
+<div id="uncertainty-in-the-causal-dag" class="section level3">
+<h3>2. Uncertainty in the Causal DAG</h3>
+<p>All of our advice relies on us correctly identifying the causal roles of our variables: is it a confounder, a collider, or a mediator? In reality, we are often uncertain about the true causal structure (the DAG).</p>
+<p><img src="DAG_uncertain_causal_relationships.png" /></p>
+<p>If we mistakenly assume a variable is a confounder when it’s actually a collider, we introduce bias. Furthermore, in complex systems, a single variable can sometimes play multiple roles, simultaneously reducing one bias while increasing another (e.g., M-bias, as in the example above where Lean muscle mass is both a mediator and a collider). This highlights the need for careful, theory-driven DAG analysis before selecting control variables.</p>
+</div>
+<div id="the-risk-of-overadjustment" class="section level3">
+<h3>3. The Risk of Overadjustment</h3>
+<p>Resist the urge to throw every available variable into your model “just to be safe”. Adjusting for irrelevant variables reduces statistical power, and, worse, if those extra variables happen to be colliders or mediators, you introduce new biases. More controls are not always better; only good controls (true confounders) help, while bad controls (colliders, mediators) mislead.</p>
+<hr />
+</div>
+</div>
+<div id="conclusion" class="section level2">
+<h2>Conclusion</h2>
+<p>Controlling for third variables is an essential skill in causal inference when experiments are out of reach. We must condition on true confounders to block the spurious correlations they introduce. However, we must be vigilant about the variables we choose. <strong>Controlling for the right variables clarifies the relationship, but controlling for the wrong variables distorts it</strong>.</p>
+<p>We rely on substantive domain knowledge and the visual logic of Directed Acyclic Graphs (DAGs) to make systematic decisions about which paths to close and which to leave open. Ultimately, while statistical adjustment for confounders can remove bias, it is conditional on the assumption that our underlying causal model is correct.</p>
+<p>As Julia Rohrer (2017) summarized, “there’s no free lunch in causal inference”—statistical control cannot magically guarantee causality. It provides our best observational approximation of an experiment, but it requires careful thought, not blind calculation.</p>
+<hr />
+</div>
+<div id="further-reading" class="section level2">
+<h2>Further Reading</h2>
+<p>This blog posts presents the most basic concepts related to variable control for causal inference. For a more thorough introduction, I highly recommend the paper <em>A Crash Course in Good and Bad Controls</em> (Cinelli et al., 2024), which provides a much more comprehensive list of good and bad control scenarios while still staying relatively non-technical. Hernán &amp; Robins’ open-access textbook, <em>Causal Inference: What If</em> (Hernán &amp; Robins, 2020) is an excellent textbook for people looking for a comprehensive and technical introduction. Finally, explore the writings of Julia Rohrer for accessible, example-driven explanations of how to navigate causal inference in social and behavioral science (e.g., Rohrer, 2018, 2024).</p>
+</div>
+<div id="jamovi-file-with-analyses" class="section level2">
+<h2>Jamovi file with analyses</h2>
+<iframe src="https://mfr.de-1.osf.io/render?url=https%3A%2F%2Fosf.io%2Fdownload%2Fnukzx%2F%3Fdirect%26mode%3Drender" width="100%" height="500px">
+</iframe>
+</div>
+<div id="references" class="section level2">
+<h2>References</h2>
+<p>Cinelli, C., Forney, A., &amp; Pearl, J. (2024). A Crash Course in Good and Bad Controls. Sociological Methods &amp; Research, 53(3), 1071–1104. <a href="https://doi.org/10.1177/00491241221099552" class="uri">https://doi.org/10.1177/00491241221099552</a></p>
+<p>D-separation. (n.d.). Retrieved 13. november 2025, from <a href="https://www.andrew.cmu.edu/user/scheines/tutor/d-sep.html" class="uri">https://www.andrew.cmu.edu/user/scheines/tutor/d-sep.html</a></p>
+<p>Elwert, F., &amp; Winship, C. (2014). Endogenous Selection Bias: The Problem of Conditioning on a Collider Variable. Annual review of sociology, 40, 31–53. <a href="https://doi.org/10.1146/annurev-soc-071913-043455" class="uri">https://doi.org/10.1146/annurev-soc-071913-043455</a></p>
+<p>Hernán, M., &amp; Robins, J. (2020). Causal Inference: What If. Chapman &amp; Hall/CRC. <a href="https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/" class="uri">https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/</a></p>
+<p>Isager, P. M. (2023). Why does correlation not equal causation? Peder M. Isager. <a href="https://pedermisager.org/blog/why_does_correlation_not_equal_causation/" class="uri">https://pedermisager.org/blog/why_does_correlation_not_equal_causation/</a></p>
+<p>Isager, P. M. (2024a). Eight basic rules for causal inference. <a href="https://pedermisager.org/blog/eight_basic_rules_for_causal_inference/" class="uri">https://pedermisager.org/blog/eight_basic_rules_for_causal_inference/</a></p>
+<p>Isager, P. M. (2024b). Why experiments are considered gold standard for answering causal questions. <a href="https://pedermisager.org/blog/why-experiments-are-considered-gold-standard-for-answering-causal-questions/" class="uri">https://pedermisager.org/blog/why-experiments-are-considered-gold-standard-for-answering-causal-questions/</a></p>
+<p>Rohrer, J. M. (2017, mars 14). That one weird third variable problem nobody ever mentions: Conditioning on a collider. The 100% CI. <a href="https://www.the100.ci/2017/03/14/that-one-weird-third-variable-problem-nobody-ever-mentions-conditioning-on-a-collider/" class="uri">https://www.the100.ci/2017/03/14/that-one-weird-third-variable-problem-nobody-ever-mentions-conditioning-on-a-collider/</a></p>
+<p>Rohrer, J. M. (2018). Thinking Clearly About Correlations and Causation: Graphical Causal Models for Observational Data. Advances in Methods and Practices in Psychological Science, 1(1), 27–42. <a href="https://doi.org/10.1177/2515245917745629" class="uri">https://doi.org/10.1177/2515245917745629</a></p>
+<p>Rohrer, J. M. (2024). Causal inference for psychologists who think that causal inference is not for them. Social and Personality Psychology Compass, 18(3), e12948. <a href="https://doi.org/10.1111/spc3.12948" class="uri">https://doi.org/10.1111/spc3.12948</a></p>
 </div>
 
         
         <details closed class="f6 fw7 input-reset">
   <dl class="f6 lh-copy">
     <dt class="fw7">Posted on:</dt>
-    <dd class="fw5 ml0">August 7, 2025</dd>
+    <dd class="fw5 ml0">November 14, 2025</dd>
   </dl>
   <dl class="f6 lh-copy">
     <dt class="fw7">Length:</dt>
-    <dd class="fw5 ml0">6 minute read, 1082 words</dd>
+    <dd class="fw5 ml0">11 minute read, 2246 words</dd>
   </dl>
   
   
@@ -213,13 +260,10 @@
         <div class="post-pagination dt w-100 mt4 mb2">
   
   
-    <a class="prev dtc pr2 tl v-top fw6"
-    href="https://pedermisager.org/blog/why-experiments-are-considered-gold-standard-for-answering-causal-questions/">&larr; Which variables to control for, and why</a>
-  
   
   
     <a class="next dtc pl2 tr v-top fw6"
-    href="https://pedermisager.org/blog/eight_basic_rules_for_causal_inference/">Eight basic rules for causal inference &rarr;</a>
+    href="https://pedermisager.org/blog/why-experiments-are-considered-gold-standard-for-answering-causal-questions/">Why experiments are considered gold standard for answering causal questions &rarr;</a>
   
 </div>
 

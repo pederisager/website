@@ -11,7 +11,7 @@ header:
   caption: ''
   image: 'featured.png'
 categories: []
-slug: why-experiments-are-considered-gold-standard-for-answering-causal-questions
+slug: which-variables-to-control-for-and-why
 tags: 
 - causal inference
 - experiment
