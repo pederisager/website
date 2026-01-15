@@ -24,6 +24,8 @@ summary: "In this blog post I will explain why it makes sense to think about cau
 
 In this blog post I will explain why it makes sense to think about causal explanations when we see correlation, why correlation does not always imply causation, and which alternative causal models to consider when you are trying to figure out why two variables in your data are correlated. The blog post is intended as a non-technical introduction. I use only words and pictures to explain all concepts and logic, and I use a hypothetical example from health psychology to illustrate. The post should be relevant to anyone who is interested in using data to understand causal mechanisms.
 
+💡️ Carsten Bergenholtz has graciously made an interactive learning tool to go along with this blog post: https://carstenbergenholtz.github.io/Phil-of-Science-tools/Isager_2023.html. The tool provides examples of how several of the key concepts mentioned in the post are realized in data. I highly recommend checking it out. 
+
 # Introduction
 Most who have studied or worked in science will have heard the warning phrase “correlation does not imply causation”. The warning is usually accompanied by striking examples like the correlation between [ice cream sales and drowning deaths](https://www.google.com/search?sca_esv=581520105&rlz=1C1ONGR_noNO1074NO1074&sxsrf=AM9HkKmgd7QVHKUriPudUWxRHAk0tACM_Q:1699712017827&q=correlation+between+ice+cream+sales+and+drowning&tbm=isch&source=lnms&sa=X&sqi=2&ved=2ahUKEwiP46vYkLyCAxXeAxAIHY3qBxoQ0pQJegQIDBAB&biw=1920&bih=923&dpr=1#imgrc=4UgPCI9EnIL8hM) through the calendar year, as shown below:
 

@@ -6,13 +6,13 @@
     <description>Recent content in causal inference on Peder M. Isager</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 14 Nov 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://pedermisager.org/tags/causal-inference/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 17 Nov 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://pedermisager.org/tags/causal-inference/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Which variables to control for, and why</title>
-      <link>https://pedermisager.org/blog/why-experiments-are-considered-gold-standard-for-answering-causal-questions/</link>
-      <pubDate>Fri, 14 Nov 2025 00:00:00 +0000</pubDate>
+      <link>https://pedermisager.org/blog/which-variables-to-control-for-and-why/</link>
+      <pubDate>Mon, 17 Nov 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://pedermisager.org/blog/why-experiments-are-considered-gold-standard-for-answering-causal-questions/</guid>
+      <guid>https://pedermisager.org/blog/which-variables-to-control-for-and-why/</guid>
       <description>In this post, we will use a practical example to explore the power of statistical control, explaining why adjusting for the right variables clarifies relationships and why adjusting for the wrong ones can introduce new, serious biases.</description>
     </item>
     
