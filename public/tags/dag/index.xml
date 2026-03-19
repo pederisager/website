@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>DAG on Peder M. Isager</title>
+    <link>https://pedermisager.org/tags/dag/</link>
+    <description>Recent content in DAG on Peder M. Isager</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 21 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://pedermisager.org/tags/dag/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Introducing Causion: A web app for playing with DAGs</title>
+      <link>https://pedermisager.org/blog/causion-dag-simulator/</link>
+      <pubDate>Wed, 21 Jan 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://pedermisager.org/blog/causion-dag-simulator/</guid>
+      <description>Causion is a free web app for building causal diagrams (DAGs) and then watching them behave—by simulating data and switching from observation to intervention with do(). Try it now: 
+&lt;a href=&#34;https://causion.pedermisager.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://causion.pedermisager.org/&lt;/a&gt; (it runs in your browser)</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -30,25 +30,52 @@
     <lastmod>2021-01-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://pedermisager.org/tags/causal-inference/</loc>
-    <lastmod>2025-11-17T00:00:00+00:00</lastmod>
+    <lastmod>2026-03-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://pedermisager.org/tags/correlation/</loc>
-    <lastmod>2025-11-17T00:00:00+00:00</lastmod>
+    <lastmod>2026-03-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://pedermisager.org/tags/experiment/</loc>
-    <lastmod>2025-11-17T00:00:00+00:00</lastmod>
+    <lastmod>2026-03-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://pedermisager.org/</loc>
-    <lastmod>2025-11-17T00:00:00+00:00</lastmod>
+    <lastmod>2026-03-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://pedermisager.org/blog/</loc>
-    <lastmod>2025-11-17T00:00:00+00:00</lastmod>
+    <lastmod>2026-03-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://pedermisager.org/tags/</loc>
-    <lastmod>2025-11-17T00:00:00+00:00</lastmod>
+    <lastmod>2026-03-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://pedermisager.org/blog/which-variables-to-control-for-and-why/</loc>
-    <lastmod>2025-11-17T00:00:00+00:00</lastmod>
+    <lastmod>2026-03-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://pedermisager.org/categories/</loc>
+    <lastmod>2026-01-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://pedermisager.org/categories/causal-inference/</loc>
+    <lastmod>2026-01-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://pedermisager.org/tags/dag/</loc>
+    <lastmod>2026-01-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://pedermisager.org/blog/causion-dag-simulator/</loc>
+    <lastmod>2026-01-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://pedermisager.org/tags/simulation/</loc>
+    <lastmod>2026-01-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://pedermisager.org/tags/structural-causal-models/</loc>
+    <lastmod>2026-01-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://pedermisager.org/tags/teaching/</loc>
+    <lastmod>2026-01-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://pedermisager.org/categories/teaching/</loc>
+    <lastmod>2026-01-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://pedermisager.org/tags/web-app/</loc>
+    <lastmod>2026-01-21T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://pedermisager.org/blog/why-experiments-are-considered-gold-standard-for-answering-causal-questions/</loc>
     <lastmod>2025-08-07T00:00:00+00:00</lastmod>
@@ -91,9 +118,6 @@
   </url><url>
     <loc>https://pedermisager.org/blog/what-is-worth-replicating/</loc>
     <lastmod>2020-06-30T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://pedermisager.org/categories/</loc>
-    <lastmod>2020-05-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://pedermisager.org/talk/2020_riots_choosing_what_to_replicate/</loc>
     <lastmod>2020-05-01T00:00:00+00:00</lastmod>

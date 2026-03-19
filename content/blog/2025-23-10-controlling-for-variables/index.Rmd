@@ -1,7 +1,7 @@
 ---
 title: "Which variables to control for, and why"
 author: "Peder M Isager"
-date: "`r Sys.Date()`"
+date: "2025-11-17"
 output:
   html_document: 
     df_print: paged
@@ -104,17 +104,17 @@ A **collider** is structurally the opposite of a confounder. A collider (C) is a
 
 Crucially, conditioning on a collider creates a spurious correlation between its causes. This is known as **collider bias** or **selection bias** (Rohrer, 2018). Rule 7 states: **Controlling for a collider leads to correlation** (Isager, 2024a).
 
-For instance, suppose we are again estimating the effect of Lean muscle mass on Sprint time with our data. If not thinking about the DAG at all, it might sound reasonable to include “Belief in own athletic ability” as a control variable when estimating this effect. After all, belief in abilities seems “related” to both Lean muscle mass and Sprint time. Indeed, these variables are related according to the DAG. However, controlling for Belief is a terrible idea. If we add it to the regression model, we end up underestimating the true causal effect of muscle mass by about 50%, *B =* -0.01, *95% CI* [-0.015, -0.006]. This happens because controlling for Belief (C) opens up several previously closed backdoor paths between Lean muscle (X) mass and Sprint time (Y), which mixes spurious correlation back into the estimate. Conditioning on a collider can lead to both underestimation and overestimation of true effects, depending on the causal effects involved. 
+For instance, suppose we are again estimating the effect of Lean muscle mass on Sprint time with our data. If not thinking about the DAG at all, it might sound reasonable to include “Belief in own athletic ability” as a control variable when estimating this effect. After all, belief in abilities seems “related” to both Lean muscle mass and Sprint time. Indeed, these variables are related according to the DAG. However, controlling for Belief is a terrible idea. If we add it to the regression model, we end up underestimating the true causal effect of muscle mass by about 50%, *B =* -0.01, *95% CI* [-0.015, -0.006]. This happens because controlling for Belief (C) opens up several previously closed backdoor paths between Lean muscle (X) mass and Sprint time (Y), which mixes spurious correlation back into the estimate. Conditioning on a collider can lead to both underestimation and overestimation of true effects, depending on the causal effects involved.
 
 ![](DAG_control_for_belief.png)
 
-The Trap of Mediators (Overcontrol Bias)
+### The Trap of Mediators (Overcontrol Bias)
 
 A mediator (M) is a variable that lies on the causal path from X to Y: $X \rightarrow M \rightarrow Y$. Mediators are part of the mechanism by which the cause affects the outcome.
 
 When estimating the **total effect** of X on Y (the overall causal impact), we should not control for mediators. Controlling for a mediator blocks this causal pathway, removing the effect we are trying to measure. This is termed overcontrol bias (Elwert & Winship, 2014). Rule 6 confirms this: Controlling for a mediator blocks correlation arising from the mediated causal effect (Isager, 2024a).
 
-In our example DAG,  Male gender (X) causes increased Lean muscle mass (M), which then causes reduced Sprint time (Y), controlling for Lean muscle masswould make it appear as though Gender had a much lower impact on performance than it really has. The true effect of Gender in this hypothetical scenario is 760 ms in favor of males, but if we control away gender differences in Lean muscle mass the effect of Gender is (wrongly) estimated to be 550 ms, *B =* -0.54, *95% CI* [-0.60, -0.49].
+In our example DAG, Male gender (X) causes increased Lean muscle mass (M), which then causes reduced Sprint time (Y), controlling for Lean muscle masswould make it appear as though Gender had a much lower impact on performance than it really has. The true effect of Gender in this hypothetical scenario is 760 ms in favor of males, but if we control away gender differences in Lean muscle mass the effect of Gender is (wrongly) estimated to be 550 ms, *B =* -0.54, *95% CI* [-0.60, -0.49].
 
 ![](DAG_control_for_leanmusclemass.png)
 

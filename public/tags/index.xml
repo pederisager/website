@@ -6,11 +6,11 @@
     <description>Recent content in Tags on Peder M. Isager</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 17 Nov 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://pedermisager.org/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 19 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://pedermisager.org/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>causal inference</title>
       <link>https://pedermisager.org/tags/causal-inference/</link>
-      <pubDate>Mon, 17 Nov 2025 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 19 Mar 2026 00:00:00 +0000</pubDate>
       
       <guid>https://pedermisager.org/tags/causal-inference/</guid>
       <description></description>
@@ -19,7 +19,7 @@
     <item>
       <title>correlation</title>
       <link>https://pedermisager.org/tags/correlation/</link>
-      <pubDate>Mon, 17 Nov 2025 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 19 Mar 2026 00:00:00 +0000</pubDate>
       
       <guid>https://pedermisager.org/tags/correlation/</guid>
       <description></description>
@@ -28,9 +28,54 @@
     <item>
       <title>experiment</title>
       <link>https://pedermisager.org/tags/experiment/</link>
-      <pubDate>Mon, 17 Nov 2025 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 19 Mar 2026 00:00:00 +0000</pubDate>
       
       <guid>https://pedermisager.org/tags/experiment/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>DAG</title>
+      <link>https://pedermisager.org/tags/dag/</link>
+      <pubDate>Wed, 21 Jan 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://pedermisager.org/tags/dag/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>simulation</title>
+      <link>https://pedermisager.org/tags/simulation/</link>
+      <pubDate>Wed, 21 Jan 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://pedermisager.org/tags/simulation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>structural causal models</title>
+      <link>https://pedermisager.org/tags/structural-causal-models/</link>
+      <pubDate>Wed, 21 Jan 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://pedermisager.org/tags/structural-causal-models/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>teaching</title>
+      <link>https://pedermisager.org/tags/teaching/</link>
+      <pubDate>Wed, 21 Jan 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://pedermisager.org/tags/teaching/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>web app</title>
+      <link>https://pedermisager.org/tags/web-app/</link>
+      <pubDate>Wed, 21 Jan 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://pedermisager.org/tags/web-app/</guid>
       <description></description>
     </item>
     
